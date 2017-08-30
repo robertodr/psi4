@@ -160,7 +160,7 @@ before_script:
 - ${Fortran_COMPILER} --version
 - ${C_COMPILER} --version
 - >
-    cmake -Bbuild -H.
+    cmake -Bbuild -H. -GNinja
     -DCMAKE_CXX_COMPILER=${CXX_COMPILER}
     -DCMAKE_C_COMPILER=${C_COMPILER}
     -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
