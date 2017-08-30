@@ -27,6 +27,7 @@ matrix:
         - clang-3.6
         - libhdf5-serial-dev
         - gfortran
+        - ninja
     env:
       - CXX_COMPILER='clang++-3.6'
       - PYTHON_VER='3.6'
@@ -74,6 +75,7 @@ matrix:
         - g++-4.9
         - gcc-4.9
         - gfortran-4.9
+        - ninja
     env:
       - CXX_COMPILER='g++-4.9'
       - PYTHON_VER='2.7'
@@ -99,6 +101,7 @@ matrix:
         - g++-6
         - gcc-6
         - gfortran-6
+        - ninja
     env:
       - CXX_COMPILER='g++-6'
       - PYTHON_VER='3.5'
@@ -160,11 +163,11 @@ before_script:
 - ${CXX_COMPILER} --version
 - ${Fortran_COMPILER} --version
 - ${C_COMPILER} --version
-- > 
-    cmake -Bbuild -H. 
-    -DCMAKE_CXX_COMPILER=${CXX_COMPILER} 
-    -DCMAKE_C_COMPILER=${C_COMPILER} 
-    -DCMAKE_BUILD_TYPE=${BUILD_TYPE} 
+- >
+    cmake -Bbuild -H.
+    -DCMAKE_CXX_COMPILER=${CXX_COMPILER}
+    -DCMAKE_C_COMPILER=${C_COMPILER}
+    -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     -DCMAKE_PREFIX_PATH=${HOME}/miniconda/envs/p4env
     -DPYTHON_EXECUTABLE="${HOME}/miniconda/envs/p4env/bin/python"
     -DENABLE_CheMPS2=OFF
