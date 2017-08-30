@@ -21,13 +21,11 @@ matrix:
         sources:
         - llvm-toolchain-precise-3.6
         - ubuntu-toolchain-r-test
-        - george-edison55-precise-backports
         packages:
         - liblapack-dev
         - clang-3.6
         - libhdf5-serial-dev
         - gfortran
-        - ninja
     env:
       - CXX_COMPILER='clang++-3.6'
       - PYTHON_VER='3.6'
@@ -44,7 +42,6 @@ matrix:
   #      sources:
   #      - llvm-toolchain-precise-3.9
   #      - ubuntu-toolchain-r-test
-  #      - george-edison55-precise-backports
   #      packages:
   #      - liblapack-dev
   #      - clang-3.9
@@ -65,7 +62,6 @@ matrix:
       apt:
         sources:
         - ubuntu-toolchain-r-test
-        - george-edison55-precise-backports
         packages:
         - python-numpy
         - cmake
@@ -75,7 +71,6 @@ matrix:
         - g++-4.9
         - gcc-4.9
         - gfortran-4.9
-        - ninja
     env:
       - CXX_COMPILER='g++-4.9'
       - PYTHON_VER='2.7'
@@ -91,7 +86,6 @@ matrix:
       apt:
         sources:
         - ubuntu-toolchain-r-test
-        - george-edison55-precise-backports
         packages:
         - python-numpy
         - cmake
@@ -101,7 +95,6 @@ matrix:
         - g++-6
         - gcc-6
         - gfortran-6
-        - ninja
     env:
       - CXX_COMPILER='g++-6'
       - PYTHON_VER='3.5'
@@ -117,7 +110,6 @@ matrix:
 #      apt:
 #        sources:
 #        - ubuntu-toolchain-r-test
-#        - george-edison55-precise-backports
 #        packages:
 #        - python3
 #        - cmake
@@ -142,6 +134,10 @@ before_install:
   - df -h
   - ulimit -a
 install:
+- export NINJA_URL="https://github.com/Kitware/ninja/releases/download/v1.7.2.gaad58.kitware.dyndep-1/"
+- export NINJA_TARBALL_NAME="ninja-1.7.2.gaad58.kitware.dyndep-1_x86_64-linux-gnu"
+- curl -L ${NINJA_URL}${NINJA_TARBALL_NAME}.tar.gz | tar xz
+- export PATH=$PWD/${NINJA_TARBALL_NAME}:$PATH
 - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
 - bash miniconda.sh -b -p $HOME/miniconda
 - export PATH="$HOME/miniconda/bin:$PATH"
