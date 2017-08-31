@@ -134,10 +134,6 @@ before_install:
   - df -h
   - ulimit -a
 install:
-- export NINJA_URL="https://github.com/Kitware/ninja/releases/download/v1.7.2.gaad58.kitware.dyndep-1/"
-- export NINJA_TARBALL_NAME="ninja-1.7.2.gaad58.kitware.dyndep-1_x86_64-linux-gnu"
-- curl -L ${NINJA_URL}${NINJA_TARBALL_NAME}.tar.gz | tar xz
-- export PATH=$PWD/${NINJA_TARBALL_NAME}:$PATH
 - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
 - bash miniconda.sh -b -p $HOME/miniconda
 - export PATH="$HOME/miniconda/bin:$PATH"
@@ -145,12 +141,16 @@ install:
 - conda config --set always_yes yes --set changeps1 no
 - conda update -q conda
 - conda info -a
-- conda create -q -n p4env python=$PYTHON_VER numpy cmake ci-psi4-lt psi4-lt-mp dftd3 gcp -c psi4/label/dev -c psi4
+- conda create -q -n p4env python=$PYTHON_VER numpy cmake ci-psi4-lt psi4-lt-mp dftd3 gcp -c psi4/label/dev -c psi4 -c conda-forge
 - source activate p4env
 - conda list
+- mkdir -p ninja-1.7.2
+- curl -L https://goo.gl/4g5Jjv | tar -xz -C ninja-1.7.2 --strip-components=1
+- export PATH=$PWD/ninja-1.7.2:$PATH
 before_script:
 - python -V
 - python -c 'import numpy; print(numpy.version.version)'
+- cmake --version
 - cd ${TRAVIS_BUILD_DIR}
 - export CXX=${CXX_COMPILER}
 - export CC=${C_COMPILER}
@@ -181,10 +181,3 @@ script:
 - ./stage/${TRAVIS_BUILD_DIR}/Install/bin/psi4 ../tests/tu1-h2o-energy/input.dat
 - python ../.scripts/travis_run_test.py
 - python ../.scripts/travis_print_failing.py
-
-# safelist
-branches:
-  only:
-  - master
-  - 1.1.x
-  - 1.0.x
