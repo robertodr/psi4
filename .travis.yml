@@ -141,8 +141,7 @@ install:
 - conda config --set always_yes yes --set changeps1 no
 - conda update -q conda
 - conda info -a
-- conda create -q -n p4env python=$PYTHON_VER numpy ci-psi4-lt psi4-lt-mp dftd3 gcp -c psi4/label/dev -c psi4
-- conda install cmake -c conda-forge
+- conda create -q -n p4env python=$PYTHON_VER numpy cmake ci-psi4-lt psi4-lt-mp dftd3 gcp -c psi4/label/dev -c psi4
 - source activate p4env
 - conda list
 - mkdir -p ninja-1.7.2
@@ -161,7 +160,8 @@ before_script:
 - ${Fortran_COMPILER} --version
 - ${C_COMPILER} --version
 - >
-    cmake -Bbuild -H. -GNinja
+    cmake -Bbuild -H.
+    -GNinja
     -DCMAKE_CXX_COMPILER=${CXX_COMPILER}
     -DCMAKE_C_COMPILER=${C_COMPILER}
     -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
