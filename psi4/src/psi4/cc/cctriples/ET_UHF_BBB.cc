@@ -42,7 +42,7 @@
 #include "psi4/libpsi4util/PsiOutStream.h"
 namespace psi { namespace cctriples {
 
-double ET_UHF_BBB(void)
+double ET_UHF_BBB()
 {
   int cnt;
   int h, nirreps;

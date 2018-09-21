@@ -54,7 +54,7 @@ extern void T3_UHF_AAA_abc(double ***W, double ***V, int disc, int nirreps,
     dpdfile2 *fAB, int *occpi, int *occ_off, int *virtpi, int *vir_off,
     double omega);
 
-    double T3_grad_UHF_BBB(void)
+    double T3_grad_UHF_BBB()
     {
       int h, nirreps;
       int *occpi, *virtpi, *occ_off, *vir_off;

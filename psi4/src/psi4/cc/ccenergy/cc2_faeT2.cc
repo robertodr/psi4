@@ -38,7 +38,7 @@
 
 namespace psi { namespace ccenergy {
 
-void CCEnergyWavefunction::cc2_faeT2(void) {
+void CCEnergyWavefunction::cc2_faeT2() {
 
   dpdfile2 fme, fME, Fae, FAE, fAE, tIA, tia;
   dpdbuf4 tIjAb, tIJAB, tijab, t2;

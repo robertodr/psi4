@@ -38,7 +38,7 @@
 
 namespace psi { namespace ccenergy {
 
-void CCEnergyWavefunction::cc2_WabijT2(void)
+void CCEnergyWavefunction::cc2_WabijT2()
 {
   dpdbuf4 W;
 

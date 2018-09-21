@@ -65,7 +65,7 @@ namespace psi { namespace ccenergy {
 ** TDC, Jan-June 2002
 */
 
-void CCEnergyWavefunction::local_init(void)
+void CCEnergyWavefunction::local_init()
 {
   int i, k, ij, nocc;
 
@@ -84,7 +84,7 @@ void CCEnergyWavefunction::local_init(void)
 
 }
 
-void CCEnergyWavefunction::local_done(void)
+void CCEnergyWavefunction::local_done()
 {
   outfile->Printf( "    Local parameters free.\n");
 

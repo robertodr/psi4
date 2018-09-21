@@ -41,9 +41,9 @@
 
 namespace psi { namespace ccenergy {
 
-void purge_cc2_Wmbij(void);
+void purge_cc2_Wmbij();
 
-void CCEnergyWavefunction::cc2_Wmbij_build(void)
+void CCEnergyWavefunction::cc2_Wmbij_build()
 {
 
   dpdfile2 t1, tIA, tia;
@@ -499,7 +499,7 @@ void CCEnergyWavefunction::cc2_Wmbij_build(void)
   }
 }
 
-void CCEnergyWavefunction::purge_cc2_Wmbij(void) {
+void CCEnergyWavefunction::purge_cc2_Wmbij() {
   dpdfile4 W;
   int *occpi, *virtpi;
   int h, a, b, e, f, i, j, m, n;

@@ -53,9 +53,9 @@ namespace psi { namespace ccenergy {
 ** TDC, Feb 2004
 */
 
-void purge_cc2_Wabei(void);
+void purge_cc2_Wabei();
 
-void CCEnergyWavefunction::cc2_Wabei_build(void)
+void CCEnergyWavefunction::cc2_Wabei_build()
 {
   int omit = 0;
   int e, E;
@@ -325,7 +325,7 @@ void CCEnergyWavefunction::cc2_Wabei_build(void)
 
 }
 
-void CCEnergyWavefunction::purge_cc2_Wabei(void) {
+void CCEnergyWavefunction::purge_cc2_Wabei() {
   dpdfile4 W;
   int *occpi, *virtpi;
   int h, a, b, e, f, i, j, m, n;

@@ -41,7 +41,7 @@
 
 namespace psi { namespace cclambda {
 
-void cc3_t3x(void)
+void cc3_t3x()
 {
   if(params.ref == 0) {
     int h, nirreps;

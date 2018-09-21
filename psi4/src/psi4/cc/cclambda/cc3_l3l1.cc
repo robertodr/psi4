@@ -39,7 +39,7 @@
 
 namespace psi { namespace cclambda {
 
-void cc3_l3l1(void)
+void cc3_l3l1()
 {
   dpdfile2 L1, D1, L1new;
   dpdbuf4 Z, W;

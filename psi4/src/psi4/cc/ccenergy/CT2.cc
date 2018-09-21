@@ -73,7 +73,7 @@ namespace psi { namespace ccenergy {
 ** May 2000
 */
 
-void CCEnergyWavefunction::CT2(void)
+void CCEnergyWavefunction::CT2()
 {
   dpdfile2 tIA, tia;
   dpdbuf4 Y, C, D, T2new, T2;

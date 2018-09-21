@@ -51,7 +51,7 @@
 namespace psi { namespace ccenergy {
 
 
-void CCEnergyWavefunction::BT2_AO(void)
+void CCEnergyWavefunction::BT2_AO()
 {
     int h, nirreps, i, Gc, Gd, Ga, Gb, ij;
     double ***C, **X;

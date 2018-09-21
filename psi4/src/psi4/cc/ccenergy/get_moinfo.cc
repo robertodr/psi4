@@ -59,7 +59,7 @@ namespace psi { namespace ccenergy {
 ** Modified by TDC, March 1999
 */
 
-void CCEnergyWavefunction::get_moinfo(void)
+void CCEnergyWavefunction::get_moinfo()
 {
     int i, j, h, p, q, errcod, nactive, nirreps;
     double ***Co, ***Cv, ***Ca, ***Cb;
@@ -318,7 +318,7 @@ void CCEnergyWavefunction::get_moinfo(void)
 }
 
 /* Frees memory allocated in get_moinfo() and dumps out the energy. */
-void CCEnergyWavefunction::cleanup(void)
+void CCEnergyWavefunction::cleanup()
 {
     int i, h;
     char *keyw=nullptr;

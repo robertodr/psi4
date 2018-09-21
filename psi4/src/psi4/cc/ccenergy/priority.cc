@@ -41,7 +41,7 @@ namespace psi { namespace ccenergy {
 
 
 
-void CCEnergyWavefunction::init_priority_list(void)
+void CCEnergyWavefunction::init_priority_list()
 {
 
     if(!cache_priority_list_)

@@ -116,7 +116,7 @@ namespace psi { namespace ccenergy {
 ** Last revised October 2001
 */
 
-void CCEnergyWavefunction::WmbejT2(void)
+void CCEnergyWavefunction::WmbejT2()
 {
   dpdbuf4 T2new, T2, W, T2B, W1, W2, Z;
 

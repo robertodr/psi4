@@ -44,7 +44,7 @@
 
 namespace psi { namespace ccenergy {
 
-void CCEnergyWavefunction::BT2(void)
+void CCEnergyWavefunction::BT2()
 {
   int h;
   dpdbuf4 newtIJAB, newtijab, newtIjAb;

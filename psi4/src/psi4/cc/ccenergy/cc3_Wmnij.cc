@@ -46,9 +46,9 @@ namespace psi { namespace ccenergy {
 ** TDC, Feb 2004
 */
 
-void purge_Wmnij(void);
+void purge_Wmnij();
 
-void CCEnergyWavefunction::cc3_Wmnij(void)
+void CCEnergyWavefunction::cc3_Wmnij()
 {
   dpdbuf4 A, E, D, Z, W, Z1, X;
   dpdfile2 t1, tIA, tia;
@@ -297,7 +297,7 @@ void CCEnergyWavefunction::cc3_Wmnij(void)
 }
 
 
-void CCEnergyWavefunction::purge_Wmnij(void) {
+void CCEnergyWavefunction::purge_Wmnij() {
   dpdfile2 FAE, Fmi, FME, Fme;
   dpdfile4 W;
   int *occpi, *virtpi;

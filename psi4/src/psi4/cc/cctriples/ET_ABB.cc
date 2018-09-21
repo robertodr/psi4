@@ -40,7 +40,7 @@
 
 namespace psi { namespace cctriples {
 
-double ET_ABB(void)
+double ET_ABB()
 {
   int cnt;
   int h, nirreps;

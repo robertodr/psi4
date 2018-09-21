@@ -39,7 +39,7 @@
 
 namespace psi { namespace ccenergy {
 
-void CCEnergyWavefunction::sort_amps(void)
+void CCEnergyWavefunction::sort_amps()
 {
   dpdbuf4 t2, t2B;
 

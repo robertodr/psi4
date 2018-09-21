@@ -38,7 +38,7 @@
 
 namespace psi { namespace ccenergy {
 
-void CCEnergyWavefunction::ZT2(void)
+void CCEnergyWavefunction::ZT2()
 {
   dpdbuf4 ZIJMA, ZIJAM, Zijma, Zijam, ZIjMa, ZIjAm, Z;
   dpdbuf4 newtIJAB, newtijab, newtIjAb, T2;

@@ -42,8 +42,8 @@
 
 namespace psi { namespace cclambda {
 
-void cc3_l3l2_RHF_AAA(void);
-void cc3_l3l2_RHF_AAB(void);
+void cc3_l3l2_RHF_AAA();
+void cc3_l3l2_RHF_AAB();
 
 void L3_AAA(double ***W1, int nirreps, int I, int Gi, int J, int Gj, int K, int Gk,
 	    dpdbuf4 *T2, dpdbuf4 *F, dpdbuf4 *E, dpdfile2 *fIJ, dpdfile2 *fAB,
@@ -58,7 +58,7 @@ void L3_AAB(double ***W1, int nirreps, int I, int Gi, int J, int Gj, int K, int 
 	    int *aoccpi, int *aocc_off, int *boccpi, int *bocc_off,
 	    int *avirtpi, int *avir_off, int *bvirtpi, int *bvir_off);
 
-void cc3_l3l2(void)
+void cc3_l3l2()
 {
   if(params.ref == 0) {
     cc3_l3l2_RHF_AAA();
@@ -66,7 +66,7 @@ void cc3_l3l2(void)
   }
 }
 
-void cc3_l3l2_RHF_AAA(void)
+void cc3_l3l2_RHF_AAA()
 {
   int h, nirreps;
   int *occ_off, *occpi;
@@ -436,7 +436,7 @@ void cc3_l3l2_RHF_AAA(void)
 
 }
 
-void cc3_l3l2_RHF_AAB(void)
+void cc3_l3l2_RHF_AAB()
 {
   int h, nirreps;
   int *occ_off, *occpi;

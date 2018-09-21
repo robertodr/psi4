@@ -73,7 +73,7 @@ namespace psi { namespace ccenergy {
 ** TDC, June 2002
 */
 
-void CCEnergyWavefunction::lmp2(void)
+void CCEnergyWavefunction::lmp2()
 {
   int i, j, k, ij, ab, iter, conv, row, col, nocc, nvir, natom, weak;
   double energy, rms, weak_pair_energy;

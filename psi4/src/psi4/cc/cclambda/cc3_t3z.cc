@@ -61,10 +61,10 @@
 
 namespace psi { namespace cclambda {
 
-void cc3_t3z_RHF_AAA(void);
-void cc3_t3z_RHF_AAB(void);
+void cc3_t3z_RHF_AAA();
+void cc3_t3z_RHF_AAB();
 
-void cc3_t3z(void)
+void cc3_t3z()
 {
   if(params.ref == 0) { /** RHF **/
     cc3_t3z_RHF_AAA();
@@ -75,7 +75,7 @@ void cc3_t3z(void)
   }
 }
 
-void cc3_t3z_RHF_AAA(void)
+void cc3_t3z_RHF_AAA()
 {
   int h, nirreps;
   int *occ_off, *occpi;
@@ -259,7 +259,7 @@ void cc3_t3z_RHF_AAA(void)
   global_dpd_->buf4_close(&Dints);
 }
 
-void cc3_t3z_RHF_AAB(void)
+void cc3_t3z_RHF_AAB()
 {
   int h, nirreps;
   int *occ_off, *occpi;

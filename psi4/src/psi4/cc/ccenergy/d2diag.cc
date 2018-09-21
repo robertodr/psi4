@@ -48,7 +48,7 @@ namespace psi { namespace ccenergy {
  *
  * */
 
-double CCEnergyWavefunction::d2diag_rhf(void)
+double CCEnergyWavefunction::d2diag_rhf()
 {
   int h, nirreps, i;
   double **Co, *Eo, max;
@@ -177,7 +177,7 @@ double CCEnergyWavefunction::d2diag_rhf(void)
 
 }
 
-double CCEnergyWavefunction::d2diag(void)
+double CCEnergyWavefunction::d2diag()
 {
   double norm = 0.0;
 

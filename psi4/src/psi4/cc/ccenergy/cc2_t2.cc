@@ -39,7 +39,7 @@
 namespace psi { namespace ccenergy {
 
 
-void CCEnergyWavefunction::cc2_t2_build(void)
+void CCEnergyWavefunction::cc2_t2_build()
 {
 
   DT2();

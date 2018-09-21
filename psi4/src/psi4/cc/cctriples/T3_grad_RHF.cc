@@ -44,7 +44,7 @@
 #include "psi4/libpsi4util/PsiOutStream.h"
 namespace psi { namespace cctriples {
 
-    void T3_grad_RHF(void)
+    void T3_grad_RHF()
     {
       int h, nirreps;
       int I, J, K, A, B, C, D, L;
