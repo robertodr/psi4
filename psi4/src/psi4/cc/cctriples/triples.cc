@@ -112,7 +112,6 @@ PsiReturnType cctriples(std::shared_ptr<Wavefunction> reference_wavefunction, Op
   init_io();
   title();
 
-  timer_on("CCtriples");
 
   get_moinfo(reference_wavefunction, options);
   memory = Process::environment.get_memory();
@@ -274,15 +273,13 @@ PsiReturnType cctriples(std::shared_ptr<Wavefunction> reference_wavefunction, Op
 
   cleanup();
 
-  timer_off("CCtriples");
-
   exit_io();
   return Success;
 }
 
 void init_io()
 {
-  tstart();
+  timer_on("CCTriples");
 
   for(int i=PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_open(i,1);
 }
@@ -300,7 +297,7 @@ void exit_io()
 {
   int i;
   for(i=PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_close(i,1);
-  tstop();
+  timer_off("CCTriples");
 }
 
 
