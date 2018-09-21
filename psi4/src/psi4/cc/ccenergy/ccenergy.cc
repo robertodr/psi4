@@ -105,10 +105,6 @@ double CCEnergyWavefunction::compute_energy()
     init_ioff();
     title();
 
-#ifdef TIME_CCENERGY
-    timer_on("CCEnergy");
-#endif
-
     get_moinfo();
     get_params(options_);
 
@@ -223,14 +219,10 @@ double CCEnergyWavefunction::compute_energy()
 
         sort_amps();
 
-#ifdef TIME_CCENERGY
         timer_on("F build");
-#endif
         Fme_build(); Fae_build(); Fmi_build();
         if(params_.print & 2) status("F intermediates", "outfile");
-#ifdef TIME_CCENERGY
         timer_off("F build");
-#endif
 
         t1_build();
         if(params_.print & 2) status("T1 amplitudes", "outfile");
@@ -240,59 +232,39 @@ double CCEnergyWavefunction::compute_energy()
             cc2_Wmnij_build();
             if(params_.print & 2) status("Wmnij", "outfile");
 
-#ifdef TIME_CCENERGY
             timer_on("Wmbij build");
-#endif
             cc2_Wmbij_build();
             if(params_.print & 2) status("Wmbij", "outfile");
-#ifdef TIME_CCENERGY
             timer_off("Wmbij build");
-#endif
 
-#ifdef TIME_CCENERGY
             timer_on("Wabei build");
-#endif
             cc2_Wabei_build();
             if(params_.print & 2) status("Wabei", "outfile");
-#ifdef TIME_CCENERGY
             timer_off("Wabei build");
-#endif
 
-#ifdef TIME_CCENERGY
             timer_on("T2 Build");
-#endif
             cc2_t2_build();
             if(params_.print & 2) status("T2 amplitudes", "outfile");
-#ifdef TIME_CCENERGY
             timer_off("T2 Build");
-#endif
 
         }
 
         else {
 
-#ifdef TIME_CCENERGY
             timer_on("Wmbej build");
-#endif
             Wmbej_build();
             if(params_.print & 2) status("Wmbej", "outfile");
-#ifdef TIME_CCENERGY
             timer_off("Wmbej build");
-#endif
 
             Z_build();
             if(params_.print & 2) status("Z", "outfile");
             Wmnij_build();
             if(params_.print & 2) status("Wmnij", "outfile");
 
-#ifdef TIME_CCENERGY
             timer_on("T2 Build");
-#endif
             t2_build();
             if(params_.print & 2) status("T2 amplitudes", "outfile");
-#ifdef TIME_CCENERGY
             timer_off("T2 Build");
-#endif
 
             if( params_.wfn == "CC3" || params_.wfn == "EOM_CC3" ) {
 
@@ -358,9 +330,7 @@ double CCEnergyWavefunction::compute_energy()
         if( params_.aobasis != "NONE" ) dpd_close(1);
         dpd_close(0);
         cleanup();
-#ifdef TIME_CCENERGY
         timer_off("CCEnergy");
-#endif
         free(ioff_);
         exit_io();
         return Failure;
@@ -506,9 +476,6 @@ double CCEnergyWavefunction::compute_energy()
 
     cleanup();
 
-#ifdef TIME_CCENERGY
-    timer_off("CCEnergy");
-#endif
 
     energy_ = moinfo_.ecc + moinfo_.eref;
     name_  = "CCSD";
@@ -539,7 +506,7 @@ void CCEnergyWavefunction::init_io()
 {
     params_.just_energy = 0;
     params_.just_residuals = 0;
-    tstart();
+    timer_on("CCEnergy");
     for(int i =PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_open(i,1);
 }
 
@@ -558,7 +525,7 @@ void CCEnergyWavefunction::exit_io()
     for(i=PSIF_CC_MIN; i < PSIF_CC_TMP; i++) psio_close(i,1);
     for(i=PSIF_CC_TMP; i <= PSIF_CC_TMP11; i++) psio_close(i,0); /* delete CC_TMP files */
     for(i=PSIF_CC_TMP11+1; i <= PSIF_CC_MAX; i++) psio_close(i,1);
-    tstop();
+    timer_off("CCEnergy");
 
 }
 
