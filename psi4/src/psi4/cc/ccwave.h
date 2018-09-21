@@ -58,7 +58,6 @@ private:
     /* setup, info and teardown */
     void init();
     void init_io();
-    void init_ioff();
     void exit_io();
     void cleanup();
     void status(const char *, std::string );
@@ -196,7 +195,6 @@ private:
     void diis_invert_B(double** B, double* C, int dimension, double tolerance);
 
     /* member variables */
-    int *ioff_;
     MOInfo moinfo_;
     Params params_;
     Local local_;

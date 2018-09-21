@@ -55,12 +55,6 @@
 #include <cstring>
 #include <cmath>
 
-namespace psi { namespace ccenergy {
-
-#define IOFF_MAX 32641
-
-}} //namespace psi::ccenergy
-
 // Forward declaration to call cctriples
 namespace psi { namespace cctriples {
 PsiReturnType cctriples(std::shared_ptr<Wavefunction> reference_wavefunction, Options &options);
@@ -102,7 +96,6 @@ double CCEnergyWavefunction::compute_energy()
     moinfo_.iter=0;
 
     init_io();
-    init_ioff();
     title();
 
     get_moinfo();
@@ -175,7 +168,6 @@ double CCEnergyWavefunction::compute_energy()
         if(params_.ref == 2) cachedone_uhf(cachelist); else cachedone_rhf(cachelist);
         free(cachefiles);
         cleanup();
-        free(ioff_);
         exit_io();
         return Success;
     }
@@ -331,7 +323,6 @@ double CCEnergyWavefunction::compute_energy()
         dpd_close(0);
         cleanup();
         timer_off("CCEnergy");
-        free(ioff_);
         exit_io();
         return Failure;
     }
@@ -484,7 +475,6 @@ double CCEnergyWavefunction::compute_energy()
     //Process::environment.globals["CC TOTAL ENERGY"] = moinfo.ecc+moinfo.eref;
     //Process::environment.globals["CC CORRELATION ENERGY"] = moinfo.ecc;
 
-    free(ioff_);
     exit_io();
     //  if(params.brueckner && brueckner_done)
     //     throw FeatureNotImplemented("CCENERGY", "Brueckner end loop", __FILE__, __LINE__);
@@ -528,15 +518,6 @@ void CCEnergyWavefunction::exit_io()
     timer_off("CCEnergy");
 
 }
-
-void CCEnergyWavefunction::init_ioff()
-{
-    int i;
-    ioff_ = init_int_array(IOFF_MAX);
-    ioff_[0] = 0;
-    for(i=1; i < IOFF_MAX; i++) ioff_[i] = ioff_[i-1] + i;
-}
-
 
 void CCEnergyWavefunction::checkpoint()
 {
