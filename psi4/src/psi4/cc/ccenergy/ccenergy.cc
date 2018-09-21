@@ -615,7 +615,6 @@ void CCEnergyWavefunction::one_step() {
             global_dpd_->buf4_close(&t2);
         }
     }
-    return;
 }
 
 }} // namespace psi::ccenergy

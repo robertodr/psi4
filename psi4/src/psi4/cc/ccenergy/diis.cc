@@ -69,7 +69,6 @@ void CCEnergyWavefunction::diis(int iter)
   else if(params_.ref == 1) diis_ROHF(iter);
   else if(params_.ref == 2) diis_UHF(iter);
 
-  return;
 }
 
 void CCEnergyWavefunction::diis_invert_B(double** B, double* C, int dimension, double tolerance)

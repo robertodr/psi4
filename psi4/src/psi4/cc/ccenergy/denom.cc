@@ -103,6 +103,5 @@ void CCEnergyWavefunction::denom()
 
   dijabT2();
 
-  return;
 }
 }} // namespace psi::ccenergy

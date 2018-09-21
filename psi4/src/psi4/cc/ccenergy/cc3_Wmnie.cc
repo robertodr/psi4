@@ -323,7 +323,6 @@ void CCEnergyWavefunction::purge_Wmnie() {
     global_dpd_->file4_mat_irrep_close(&W, h);
   }
   global_dpd_->file4_close(&W);
-  return;
 }
 
 }} // namespace psi::ccenergy

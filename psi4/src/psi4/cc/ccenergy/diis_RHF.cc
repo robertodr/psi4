@@ -274,6 +274,5 @@ void CCEnergyWavefunction::diis_RHF(int iter)
   global_dpd_->free_dpd_block(error, 1, vector_length);
 
 
-  return;
 }
 }} // namespace psi::ccenergy

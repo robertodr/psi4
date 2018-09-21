@@ -306,6 +306,5 @@ void CCEnergyWavefunction::purge_Wamef() {
   }
   global_dpd_->file4_close(&W);
 
-  return;
 }
 }} // namespace psi::ccenergy
