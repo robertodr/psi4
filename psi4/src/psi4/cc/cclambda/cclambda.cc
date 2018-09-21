@@ -377,7 +377,7 @@ void init_io()
     }
   }
 */
-  tstart();
+  timer_on("CCLambda");
 
   for(i=PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_open(i,1);
 }
@@ -407,7 +407,7 @@ void exit_io()
   for(i=PSIF_CC_TMP; i <= PSIF_CC_TMP11; i++) psio_close(i,0); /* delete CC_TMP files */
   for(i=PSIF_CC_TMP11+1; i <= PSIF_CC_MAX; i++) psio_close(i,1);
 
-  tstop();
+  timer_off("CCLambda");
 }
 
 /* put copies of L for excited states in LAMPS with irrep and index label */
