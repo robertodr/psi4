@@ -46,7 +46,7 @@ void CCEnergyWavefunction::FT2()
     dpdfile2 tIA, tia, t1;
     dpdbuf4 newtIJAB, newtijab, newtIjAb, t2, t2a, t2b;
     dpdbuf4 F_anti, F;
-    dpdbuf4 Z, X;
+    dpdbuf4 X;
     int Gie, Gij, Gab, nrows, ncols, nlinks, Gi, Ge, Gj, i, I;
 
     if(params_.ref == 0) { /** RHF **/

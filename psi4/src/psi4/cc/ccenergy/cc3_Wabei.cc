@@ -57,7 +57,6 @@ void purge_Wabei();
 
 void CCEnergyWavefunction::cc3_Wabei()
 {
-  int omit = 0;
   dpdfile2 T1, t1, tIA, tia;
   dpdbuf4 Z, Z1, Z2, Z3;
   dpdbuf4 B, C, D, E, F, W;
@@ -1034,10 +1033,10 @@ void CCEnergyWavefunction::cc3_Wabei()
 void CCEnergyWavefunction::purge_Wabei() {
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, a, b, e, i;
+  int    A, B, E, I;
+  int ei, ab;
+  int asym, bsym, esym, isym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

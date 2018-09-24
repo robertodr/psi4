@@ -41,7 +41,7 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::Fmi_build()
 {
-  int h,m,i;
+  int h,m;
   dpdfile2 FMI, Fmi, FMIt, Fmit, fIJ, fij, fIA, fia;
   dpdfile2 tIA, tia, FME, Fme;
   dpdbuf4 E_anti, E, D_anti, D;

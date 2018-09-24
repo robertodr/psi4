@@ -84,14 +84,9 @@ void CCEnergyWavefunction::init()
 
 double CCEnergyWavefunction::compute_energy()
 {
-    int done=0, brueckner_done=0;
-    int h, i, j, a, b, row, col, natom;
-    double **geom, *zvals, value;
-    FILE *efile;
+    int done=0;
     int **cachelist, *cachefiles;
-    dpdfile2 t1;
-    dpdbuf4 t2;
-    double *emp2_aa, *emp2_ab, *ecc_aa, *ecc_ab, tval;
+    double *emp2_aa, *emp2_ab, *ecc_aa, *ecc_ab;
 
     moinfo_.iter=0;
 
@@ -121,7 +116,7 @@ double CCEnergyWavefunction::compute_energy()
         dpd_set_default(0);
 
         if( params_.df ){
-            form_df_ints(options_, cachelist, cachefiles, cache_priority_list_);
+            form_df_ints(options_, cachelist, cachefiles);
         }else if( params_.aobasis != "NONE" ) { /* Set up new DPD's for AO-basis algorithm */
             std::vector<int*> aospaces;
             aospaces.push_back(moinfo_.aoccpi);
@@ -150,7 +145,7 @@ double CCEnergyWavefunction::compute_energy()
         dpd_init(0, moinfo_.nirreps, params_.memory, params_.cachetype, cachefiles, cachelist, cache_priority_list_, 2, spaces);
 
         if( params_.df ){
-            form_df_ints(options_, cachelist, cachefiles, cache_priority_list_);
+            form_df_ints(options_, cachelist, cachefiles);
         }else if( params_.aobasis != "NONE") { /* Set up new DPD for AO-basis algorithm */
             std::vector<int*> aospaces;
             aospaces.push_back(moinfo_.occpi);

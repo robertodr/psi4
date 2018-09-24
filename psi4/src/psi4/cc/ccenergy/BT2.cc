@@ -46,7 +46,6 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::BT2()
 {
-  int h;
   dpdbuf4 newtIJAB, newtijab, newtIjAb;
   dpdbuf4 B_anti, B;
   dpdbuf4 tauIJAB, tauijab, tauIjAb;
@@ -56,7 +55,7 @@ void CCEnergyWavefunction::BT2()
   dpdbuf4 S, A;
   double **B_diag, **tau_diag;
   int ij, Gc, C, c, cc;
-  int nbuckets, rows_per_bucket, rows_left, m, row_start, ab, cd, dc, d;
+  int nbuckets, rows_per_bucket, rows_left, m, row_start;
   int nrows, ncols, nlinks;
   psio_address next;
 

@@ -57,13 +57,12 @@ void purge_cc2_Wabei();
 
 void CCEnergyWavefunction::cc2_Wabei_build()
 {
-  int omit = 0;
   int e, E;
   int Gef, Gab, Gei, Ge, Gf, Gi;
   int nrows, ncols, nlinks;
   dpdfile2 t1, tIA, tia;
-  dpdbuf4 Z, Z1, Z2, Z3;
-  dpdbuf4 B, C, D, F, W;
+  dpdbuf4 Z, Z1, Z2;
+  dpdbuf4 B, F, W;
 
   timer_on("F->Wabei");
   if(params_.ref == 0) { /** RHF **/
@@ -320,10 +319,10 @@ void CCEnergyWavefunction::cc2_Wabei_build()
 void CCEnergyWavefunction::purge_cc2_Wabei() {
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, a, b, e, i;
+  int    A, B, E, I;
+  int ei, ab;
+  int asym, bsym, esym, isym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

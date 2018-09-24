@@ -502,10 +502,10 @@ void CCEnergyWavefunction::cc2_Wmbij_build()
 void CCEnergyWavefunction::purge_cc2_Wmbij() {
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, b, i, j, m;
+  int    B, I, J, M;
+  int mb, ij;
+  int bsym, isym, jsym, msym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

@@ -44,7 +44,7 @@ void CCEnergyWavefunction::taut_build()
   int h, ij, ab, i, j, a, b, I, J, A, B;
   int Isym, Jsym, Asym, Bsym;
   int nirreps;
-  dpdbuf4 tauIJAB, tauijab, tauIjAb, tauiJaB, tauIjbA;
+  dpdbuf4 tauIJAB, tauijab, tauIjAb;
   dpdbuf4 tIJAB, tijab, tIjAb;
   dpdfile2 tIA, tia;
 

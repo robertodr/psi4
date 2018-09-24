@@ -200,13 +200,12 @@ void CCEnergyWavefunction::cc3_Wamef()
 }
 
 void CCEnergyWavefunction::purge_Wamef() {
-  dpdfile2 FAE, Fmi, FME, Fme;
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n, omit;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, a, e, f, m;
+  int    A, E, F, M;
+  int ma, ef;
+  int asym, esym, fsym, msym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

@@ -148,11 +148,10 @@ private:
     double rhf_mp2_energy();
     void one_step();
     void denom();
-    void pair_energies(double** epair_aa, double** epair_ab);
-    void print_pair_energies(double* emp2_aa, double* emp2_ab, double* ecc_aa,
-                             double* ecc_ab);
+    void pair_energies(double **epair_aa, double **epair_ab);
+    void print_pair_energies(double *emp2_aa, double *emp2_ab, double *ecc_aa, double *ecc_ab);
 
-    void form_df_ints(Options &options, int **cachelist, int *cachefiles, dpd_file4_cache_entry *priority);
+    void form_df_ints(Options &options, int **cachelist, int *cachefiles);
 
     /* diagnostics */
     void analyze();

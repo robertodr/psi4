@@ -43,20 +43,20 @@ namespace psi { namespace ccenergy {
 
 double CCEnergyWavefunction::diagnostic()
 {
-  int h, nirreps, Gi, Ga;
+  int h, nirreps;
   int i, a, I, A, row, col;
   int num_elec, num_elec_a, num_elec_b;
   int *occpi, *virtpi;
   int *occ_sym, *vir_sym;
   int *clsdpi, *uoccpi;
   int *openpi;
-  double t1diag, t1diag_a, t1diag_b;
   dpdfile2 T1A, T1B;
 
   nirreps = moinfo_.nirreps;
   clsdpi = moinfo_.clsdpi;
   uoccpi = moinfo_.uoccpi;
   openpi = moinfo_.openpi;
+  auto t1diag = 0.0;
 
   if(params_.ref != 2) {
     occpi = moinfo_.occpi; virtpi = moinfo_.virtpi;
@@ -136,8 +136,8 @@ double CCEnergyWavefunction::diagnostic()
     global_dpd_->file2_mat_init(&T1B);
     global_dpd_->file2_mat_rd(&T1B);
 
-    t1diag_a = 0.0;
-    t1diag_b = 0.0;
+    auto t1diag_a = 0.0;
+    auto t1diag_b = 0.0;
     for(h=0; h < nirreps; h++) {
 
       for(row=0; row < T1A.params->rowtot[h]; row++)

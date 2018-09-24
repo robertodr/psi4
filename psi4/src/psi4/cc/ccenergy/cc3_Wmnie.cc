@@ -224,10 +224,10 @@ void CCEnergyWavefunction::cc3_Wmnie()
 void CCEnergyWavefunction::purge_Wmnie() {
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, e, i, m, n;
+  int    E, I, M, N;
+  int mn, ei;
+  int esym, isym, msym, nsym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

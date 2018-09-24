@@ -67,7 +67,7 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::local_init()
 {
-  int i, k, ij, nocc;
+  int nocc;
 
   local_.nso = moinfo_.nso;
   local_.nocc = moinfo_.occpi[0]; /* active doubly occupied orbitals */

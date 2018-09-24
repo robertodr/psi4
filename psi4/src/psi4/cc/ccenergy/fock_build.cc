@@ -187,9 +187,8 @@ void CCEnergyWavefunction::rhf_fock_build(double **fock, double  **D)
 
 void CCEnergyWavefunction::uhf_fock_build(double **fock_a, double **fock_b, double **D_a, double **D_b)
 {
-  int i, j, ij;
-  int nso, ntri, ntei, stat;
-  double *scratch;
+  int i, j;
+  int nso, ntri, ntei;
   int lastbuf, idx, p, q, r, s, pq, rs;
   double value;
   Value *valptr;

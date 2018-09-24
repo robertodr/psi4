@@ -56,7 +56,7 @@ namespace psi { namespace ccenergy {
 void CCEnergyWavefunction::Wmbej_build()
 {
   dpdbuf4 WMBEJ, Wmbej, WMbEj, WmBeJ, WmBEj, WMbeJ, W;
-  dpdbuf4 C, D, E, F, X, tIAjb, tiaJB, t2, Y, Z;
+  dpdbuf4 C, D, E, F, t2, Y;
   dpdfile2 tIA, tia;
   int Gmb, mb, Gj, Ge, Gf, nrows, ncols, nlinks;
 

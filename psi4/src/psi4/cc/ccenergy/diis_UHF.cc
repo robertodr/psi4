@@ -66,13 +66,12 @@ void CCEnergyWavefunction::diis_UHF(int iter)
   size_t p, q, diis_cycle;
   size_t vector_length=0;
   size_t word;
-  int errcod, *ipiv;
-  dpdfile2 T1, T1a, T1b;
-  dpdbuf4 T2, T2a, T2b, T2c;
-  psio_address start, end, next;
+  dpdfile2 T1a, T1b;
+  dpdbuf4 T2a, T2b, T2c;
+  psio_address start, end;
   double **error;
   double **B, *C, **vector;
-  double product, determinant, maximum;
+  double product, maximum;
 
   nirreps = moinfo_.nirreps;
 

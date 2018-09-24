@@ -56,7 +56,6 @@ void CCEnergyWavefunction::pair_energies(double** epair_aa, double** epair_ab)
 
   if(params_.ref == 0) { /** RHF **/
 
-    int i, j, ij;
     int irrep;
     int nocc_act = 0;
     int naa, nab;

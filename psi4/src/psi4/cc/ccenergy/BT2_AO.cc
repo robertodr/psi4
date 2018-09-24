@@ -53,21 +53,18 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::BT2_AO()
 {
-    int h, nirreps, i, Gc, Gd, Ga, Gb, ij;
-    double ***C, **X;
+    int h, nirreps, Gc, Gd;
+    double ***C;
     double ***Ca, ***Cb;
     int *sopi, *virtpi;
     int *avirtpi, *bvirtpi;
-    int **T2_cd_row_start, **T2_pq_row_start, offset, cd, pq;
+    int **T2_cd_row_start, **T2_pq_row_start, offset;
     int **T2_CD_row_start, **T2_Cd_row_start;
     dpdbuf4 tau, t2, tau1_AO, tau2_AO;
     dpdfile4 T;
-    psio_address next;
     struct iwlbuf InBuf;
     int lastbuf;
     double tolerance=1e-14;
-    double **integrals;
-    int **tau1_cols, **tau2_cols, *num_ints;
     int counter=0, counterAA=0, counterBB=0, counterAB=0;
 
     nirreps = moinfo_.nirreps;
@@ -226,8 +223,6 @@ void CCEnergyWavefunction::BT2_AO()
 
             /* close the CC_TAMPS file for cints to use it */
             psio_close(PSIF_CC_TAMPS, 1);
-
-            int statusvalue=system("cints --cc_bt2");
 
             /* re-open CCC_TAMPS for remaining terms */
             psio_open(PSIF_CC_TAMPS, PSIO_OPEN_OLD);

@@ -50,7 +50,7 @@ void purge_Wmnij();
 
 void CCEnergyWavefunction::cc3_Wmnij()
 {
-  dpdbuf4 A, E, D, Z, W, Z1, X;
+  dpdbuf4 A, E, D, Z, W, Z1;
   dpdfile2 t1, tIA, tia;
 
   if(params_.ref == 0) { /** RHF **/
@@ -298,13 +298,12 @@ void CCEnergyWavefunction::cc3_Wmnij()
 
 
 void CCEnergyWavefunction::purge_Wmnij() {
-  dpdfile2 FAE, Fmi, FME, Fme;
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, f, i, j, m, n, omit;
-  int    A, B, E, F, I, J, M, N;
-  int mn, ei, ma, ef, me, jb, mb, ij, ab;
-  int asym, bsym, esym, fsym, isym, jsym, msym, nsym;
+  int h, i, j, m, n;
+  int    I, J, M, N;
+  int mn, ij;
+  int isym, jsym, msym, nsym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
   int *openpi, nirreps;

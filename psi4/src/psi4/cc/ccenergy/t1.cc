@@ -44,9 +44,8 @@ void CCEnergyWavefunction::t1_build()
 {
   dpdfile2 newtIA, newtia, tIA, tia, fIA, fia;
   dpdfile2 FAE, Fae, FMI, Fmi, FME, Fme;
-  dpdfile2 dIA, dia;
   dpdbuf4 tIJAB, tijab, tIjAb, tiJaB, T2;
-  dpdbuf4 C, C_anti, D, F_anti, F, E_anti, E, Z;
+  dpdbuf4 C, C_anti, D, F_anti, F, E_anti, E;
   int Gma, Gmi, Gm, Gi, Ga, ma, m, a, A, nrows, ncols;
 
   if(params_.ref == 0) { /** RHF **/

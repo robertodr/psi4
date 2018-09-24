@@ -61,7 +61,7 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::get_moinfo()
 {
-    int i, j, h, p, q, errcod, nactive, nirreps;
+    int i, j, h, p, q, nactive, nirreps;
     double ***Co, ***Cv, ***Ca, ***Cb;
     psio_address next;
 
@@ -320,8 +320,7 @@ void CCEnergyWavefunction::get_moinfo()
 /* Frees memory allocated in get_moinfo() and dumps out the energy. */
 void CCEnergyWavefunction::cleanup()
 {
-    int i, h;
-    char *keyw=nullptr;
+    int h;
 
     if( params_.wfn == "CC2" || params_.wfn == "EOM_CC2" )
         psio_write_entry(PSIF_CC_INFO, "CC2 Energy", (char *) &(moinfo_.ecc),

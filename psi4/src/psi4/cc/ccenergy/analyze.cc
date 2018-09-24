@@ -44,14 +44,14 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::analyze()
 {
-  int nirreps, h, i, j, a, b, ij, ab, u, v;
+  int nirreps, i, a, ij, ab;
   int position, num_div, tot1, tot2, nvir, nso, nocc;
   double width, max, min, value, value2;
   double *amp_array;
-  double **tmp, **T2trans, **T1trans;
+  double **tmp, **T2trans;
 
   dpdfile2 T1;
-  dpdbuf4 I, T2, D;
+  dpdbuf4 T2;
 
   nirreps = moinfo_.nirreps;
   num_div = 500;
@@ -124,17 +124,10 @@ void CCEnergyWavefunction::analyze()
   global_dpd_->file2_print(&T1, "outfile");
   global_dpd_->file2_mat_init(&T1);
   global_dpd_->file2_mat_rd(&T1);
-  /*
-  T1trans = block_matrix(nocc, nso);
-
-  C_DGEMM('n','t', nocc, nso, nvir, 1.0, &(T1.matrix[0][0][0]), nvir,
-	  &(moinfo.C[0][0][0]), nvir, 0.0, &(T1trans[0][0]), nso);
-  */
 
   tot1 = tot2 = 0;
   for(i=0; i < nocc; i++) {
     for(a=0; a < nso; a++) {
-      /*      value = std::fabs(log10(std::fabs(T1trans[i][a]))); */
       value = std::log10(std::fabs(T1.matrix[0][i][a]));
       tot2++;
       if ((value >= max) && (value <= (max+width))) {
@@ -152,7 +145,6 @@ void CCEnergyWavefunction::analyze()
       }
     }
   }
-  /*  free_block(T1trans); */
 
   global_dpd_->file2_mat_close(&T1);
   global_dpd_->file2_close(&T1);
