@@ -29,7 +29,10 @@
 #ifndef CCWAVE_H
 #define CCWAVE_H
 
+#include <array>
+
 #include "psi4/libmints/wavefunction.h"
+#include "psi4/libdpd/dpd.h"
 
 #include "ccenergy/MOInfo.h"
 #include "ccenergy/Params.h"
@@ -37,7 +40,6 @@
 
 namespace psi {
 class Options;
-struct dpd_file4_cache_entry;
 struct dpdfile2;
 struct dpdbuf4;
 struct iwlbuf;
@@ -197,7 +199,7 @@ private:
     MOInfo moinfo_;
     Params params_;
     Local local_;
-    dpd_file4_cache_entry *cache_priority_list_;
+    std::array<dpd_file4_cache_entry, 113> cache_priority_list_;
 };
 
 }}

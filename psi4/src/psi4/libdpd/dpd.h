@@ -150,6 +150,11 @@ struct dpdfile2 {
 
 /* DPD File4 Cache entries */
 struct dpd_file4_cache_entry {
+    dpd_file4_cache_entry():
+        next(nullptr),
+        last(nullptr)
+    {
+    }
     int dpdnum;                         /* dpd structure reference */
     int filenum;                        /* libpsio unit number */
     int irrep;                          /* overall symmetry */
