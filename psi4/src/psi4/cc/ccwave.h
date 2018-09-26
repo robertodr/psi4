@@ -26,10 +26,10 @@
  * @END LICENSE
  */
 
-#ifndef CCWAVE_H
-#define CCWAVE_H
+#pragma once
 
 #include <array>
+#include <memory>
 
 #include "psi4/libmints/wavefunction.h"
 #include "psi4/libdpd/dpd.h"
@@ -43,26 +43,25 @@ class Options;
 struct dpdfile2;
 struct dpdbuf4;
 struct iwlbuf;
-}
+}  // namespace psi
 
-namespace psi { namespace ccenergy {
+namespace psi {
+namespace ccenergy {
 
-class CCEnergyWavefunction : public Wavefunction
-{
-public:
+class CCEnergyWavefunction : public Wavefunction {
+   public:
     CCEnergyWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction, Options &options);
     virtual ~CCEnergyWavefunction();
 
     double compute_energy();
 
-private:
-
+   private:
     /* setup, info and teardown */
     void init();
     void init_io();
     void exit_io();
     void cleanup();
-    void status(const char *, std::string );
+    void status(const char *, std::string);
     void title();
 
     /* calculation info */
@@ -173,19 +172,17 @@ private:
     void local_init();
     void local_done();
 
-
     /* AO basis */
     void BT2_AO();
-    void halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, int dpdnum2, double ***C1, double ***C2,
-                   int nirreps, int **mo_row, int **so_row, int *mospi_left, int *mospi_right,
-                   int *sospi, int type, double alpha, double beta);
+    void halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, int dpdnum2, double ***C1, double ***C2, int nirreps,
+                   int **mo_row, int **so_row, int *mospi_left, int *mospi_right, int *sospi, int type, double alpha,
+                   double beta);
     int AO_contribute(struct iwlbuf *InBuf, dpdbuf4 *tau1_AO, dpdbuf4 *tau2_AO);
-
 
     double rhf_energy();
     double uhf_energy();
     double rohf_energy();
-    void rhf_fock_build(double **fock, double  **D);
+    void rhf_fock_build(double **fock, double **D);
     void uhf_fock_build(double **fock_a, double **fock_b, double **D_a, double **D_b);
 
     /* DIIS */
@@ -193,7 +190,7 @@ private:
     void diis_RHF(int);
     void diis_ROHF(int);
     void diis_UHF(int);
-    void diis_invert_B(double** B, double* C, int dimension, double tolerance);
+    void diis_invert_B(double **B, double *C, int dimension, double tolerance);
 
     /* member variables */
     MOInfo moinfo_;
@@ -202,6 +199,21 @@ private:
     std::array<dpd_file4_cache_entry, 113> cache_priority_list_;
 };
 
-}}
+}  // namespace ccenergy
 
-#endif // CCWAVE_H
+namespace cc {
+
+class CCWavefunction final : public Wavefunction {
+   public:
+    CCWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction);
+    CCWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction, Options &options);
+    virtual ~CCWavefunction();
+
+    double compute_energy();
+
+   private:
+    void common_init();
+};
+
+}  // namespace cc
+}  // namespace psi
