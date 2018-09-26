@@ -26,10 +26,10 @@
  * @END LICENSE
  */
 
-#ifndef CCWAVE_H
-#define CCWAVE_H
+#pragma once
 
 #include <array>
+#include <memory>
 
 #include "psi4/libmints/wavefunction.h"
 #include "psi4/libdpd/dpd.h"
@@ -200,6 +200,20 @@ class CCEnergyWavefunction : public Wavefunction {
 };
 
 }  // namespace ccenergy
-}  // namespace psi
 
-#endif  // CCWAVE_H
+namespace cc {
+
+class CCWavefunction final : public Wavefunction {
+   public:
+    CCWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction);
+    CCWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction, Options &options);
+    virtual ~CCWavefunction();
+
+    double compute_energy();
+
+   private:
+    void common_init();
+};
+
+}  // namespace cc
+}  // namespace psi
