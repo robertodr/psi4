@@ -46,7 +46,7 @@ void CCEnergyWavefunction::t1_build()
   dpdfile2 FAE, Fae, FMI, Fmi, FME, Fme;
   dpdbuf4 tIJAB, tijab, tIjAb, tiJaB, T2;
   dpdbuf4 C, C_anti, D, F_anti, F, E_anti, E;
-  int Gma, Gmi, Gm, Gi, Ga, ma, m, a, A, nrows, ncols;
+  int Gmi, Gm, Gi, Ga, m, a, A, nrows, ncols;
 
   if(params_.ref == 0) { /** RHF **/
     global_dpd_->file2_init(&fIA, PSIF_CC_OEI, 0, 0, 1, "fIA");
@@ -105,14 +105,14 @@ void CCEnergyWavefunction::t1_build()
     global_dpd_->file2_mat_rd(&newtIA);
     global_dpd_->buf4_init(&T2, PSIF_CC_TAMPS, 0, 0, 5, 0, 5, 0, "2 tIjAb - tIjBa");
     global_dpd_->buf4_init(&F, PSIF_CC_FINTS, 0, 10, 5, 10, 5, 0, "F <ia|bc>");
-    for(Gma=0; Gma < moinfo_.nirreps; Gma++) {
+    for(int Gma = 0; Gma < moinfo_.nirreps; Gma++) {
       Gmi = Gma; /* T1 is totally symmetric */
 
       global_dpd_->buf4_mat_irrep_row_init(&F, Gma);
       global_dpd_->buf4_mat_irrep_init(&T2, Gmi);
       global_dpd_->buf4_mat_irrep_rd(&T2, Gmi);
 
-      for(ma=0; ma < F.params->rowtot[Gma]; ma++) {
+      for(int ma = 0; ma < F.params->rowtot[Gma]; ma++) {
 
 	global_dpd_->buf4_mat_irrep_row_rd(&F, Gma, ma);
 

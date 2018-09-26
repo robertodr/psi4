@@ -54,8 +54,7 @@ void CCEnergyWavefunction::BT2()
   dpdbuf4 B_a, B_s;
   dpdbuf4 S, A;
   double **B_diag, **tau_diag;
-  int ij, Gc, C, c, cc;
-  int nbuckets, rows_per_bucket, rows_left, m, row_start;
+  int nbuckets, rows_per_bucket, rows_left, row_start;
   int nrows, ncols, nlinks;
   psio_address next;
 
@@ -122,11 +121,11 @@ void CCEnergyWavefunction::BT2()
       global_dpd_->buf4_mat_irrep_init(&tau, 0);
       global_dpd_->buf4_mat_irrep_rd(&tau, 0);
       tau_diag = global_dpd_->dpd_block_matrix(tau.params->rowtot[0], moinfo_.nvirt);
-      for(ij=0; ij < tau.params->rowtot[0]; ij++)
-    for(Gc=0; Gc < moinfo_.nirreps; Gc++)
-      for(C=0; C < moinfo_.virtpi[Gc]; C++) {
-        c = C + moinfo_.vir_off[Gc];
-	    cc = tau.params->colidx[c][c];
+      for(int ij = 0; ij < tau.params->rowtot[0]; ij++)
+    for(int Gc = 0; Gc < moinfo_.nirreps; Gc++)
+      for(int C=0; C < moinfo_.virtpi[Gc]; C++) {
+        auto c = C + moinfo_.vir_off[Gc];
+	    auto cc = tau.params->colidx[c][c];
 	    tau_diag[ij][c] = tau.matrix[0][ij][cc];
 	  }
       global_dpd_->buf4_mat_irrep_close(&tau, 0);
@@ -145,24 +144,24 @@ void CCEnergyWavefunction::BT2()
       next = PSIO_ZERO;
       ncols = tau.params->rowtot[0];
       nlinks = moinfo_.nvirt;
-      for(m=0; m < (rows_left ? nbuckets-1:nbuckets); m++) {
-	row_start = m * rows_per_bucket;
-	nrows = rows_per_bucket;
-	if(nrows && ncols && nlinks) {
-	  psio_read(PSIF_CC_BINTS,"B(+) <ab|cc>",(char *) B_diag[0],nrows*nlinks*sizeof(double),next, &next);
-	  C_DGEMM('n', 't', nrows, ncols, nlinks, -0.25, B_diag[0], nlinks,
-		  tau_diag[0], nlinks, 1, S.matrix[0][row_start], ncols);
-	}
-
+      auto m = 0;
+      for(m = 0; m < (rows_left ? nbuckets - 1 : nbuckets); m++) {
+          row_start = m * rows_per_bucket;
+          nrows = rows_per_bucket;
+          if (nrows && ncols && nlinks) {
+              psio_read(PSIF_CC_BINTS, "B(+) <ab|cc>", (char *)B_diag[0], nrows * nlinks * sizeof(double), next, &next);
+              C_DGEMM('n', 't', nrows, ncols, nlinks, -0.25, B_diag[0], nlinks, tau_diag[0], nlinks, 1,
+                      S.matrix[0][row_start], ncols);
+          }
       }
-      if(rows_left) {
-	row_start = m * rows_per_bucket;
-	nrows = rows_left;
-	if(nrows && ncols && nlinks) {
-	  psio_read(PSIF_CC_BINTS,"B(+) <ab|cc>",(char *) B_diag[0],nrows*nlinks*sizeof(double),next, &next);
-	  C_DGEMM('n', 't', nrows, ncols, nlinks, -0.25, B_diag[0], nlinks,
-		  tau_diag[0], nlinks, 1, S.matrix[0][row_start], ncols);
-	}
+      if (rows_left) {
+          row_start = m * rows_per_bucket;
+          nrows = rows_left;
+          if (nrows && ncols && nlinks) {
+              psio_read(PSIF_CC_BINTS, "B(+) <ab|cc>", (char *)B_diag[0], nrows * nlinks * sizeof(double), next, &next);
+              C_DGEMM('n', 't', nrows, ncols, nlinks, -0.25, B_diag[0], nlinks, tau_diag[0], nlinks, 1,
+                      S.matrix[0][row_start], ncols);
+          }
       }
       global_dpd_->buf4_mat_irrep_wrt(&S, 0);
       global_dpd_->buf4_mat_irrep_close(&S, 0);

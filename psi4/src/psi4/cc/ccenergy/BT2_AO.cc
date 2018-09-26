@@ -53,12 +53,12 @@ namespace psi { namespace ccenergy {
 
 void CCEnergyWavefunction::BT2_AO()
 {
-    int h, nirreps, Gc, Gd;
+    int nirreps;
     double ***C;
     double ***Ca, ***Cb;
     int *sopi, *virtpi;
     int *avirtpi, *bvirtpi;
-    int **T2_cd_row_start, **T2_pq_row_start, offset;
+    int **T2_cd_row_start, **T2_pq_row_start;
     int **T2_CD_row_start, **T2_Cd_row_start;
     dpdbuf4 tau, t2, tau1_AO, tau2_AO;
     dpdfile4 T;
@@ -71,9 +71,9 @@ void CCEnergyWavefunction::BT2_AO()
     sopi = moinfo_.sopi;
 
     T2_pq_row_start = init_int_matrix(nirreps,nirreps);
-    for(h=0; h < nirreps; h++) {
-        for(Gc=0,offset=0; Gc < nirreps; Gc++) {
-            Gd = Gc ^ h;
+    for(int h = 0; h < nirreps; h++) {
+        for(int Gc=0,offset=0; Gc < nirreps; Gc++) {
+            auto Gd = Gc ^ h;
             T2_pq_row_start[h][Gc] = offset;
             offset += sopi[Gc] * sopi[Gd];
         }
@@ -84,9 +84,9 @@ void CCEnergyWavefunction::BT2_AO()
         C = moinfo_.Cv;
 
         T2_cd_row_start = init_int_matrix(nirreps,nirreps);
-        for(h=0; h < nirreps; h++) {
-            for(Gc=0,offset=0; Gc < nirreps; Gc++) {
-                Gd = Gc ^ h;
+        for(int h = 0; h < nirreps; h++) {
+            for(int Gc=0,offset=0; Gc < nirreps; Gc++) {
+                auto Gd = Gc ^ h;
                 T2_cd_row_start[h][Gc] = offset;
                 offset += virtpi[Gc] * virtpi[Gd];
             }
@@ -99,25 +99,25 @@ void CCEnergyWavefunction::BT2_AO()
         Cb = moinfo_.Cbv;
 
         T2_CD_row_start = init_int_matrix(nirreps,nirreps);
-        for(h=0; h < nirreps; h++) {
-            for(Gc=0,offset=0; Gc < nirreps; Gc++) {
-                Gd = Gc ^ h;
+        for(int h = 0; h < nirreps; h++) {
+            for(int Gc=0,offset=0; Gc < nirreps; Gc++) {
+                auto Gd = Gc ^ h;
                 T2_CD_row_start[h][Gc] = offset;
                 offset += avirtpi[Gc] * avirtpi[Gd];
             }
         }
         T2_cd_row_start = init_int_matrix(nirreps,nirreps);
-        for(h=0; h < nirreps; h++) {
-            for(Gc=0,offset=0; Gc < nirreps; Gc++) {
-                Gd = Gc ^ h;
+        for(int h = 0; h < nirreps; h++) {
+            for(int Gc=0,offset=0; Gc < nirreps; Gc++) {
+                auto Gd = Gc ^ h;
                 T2_cd_row_start[h][Gc] = offset;
                 offset += bvirtpi[Gc] * bvirtpi[Gd];
             }
         }
         T2_Cd_row_start = init_int_matrix(nirreps,nirreps);
-        for(h=0; h < nirreps; h++) {
-            for(Gc=0,offset=0; Gc < nirreps; Gc++) {
-                Gd = Gc ^ h;
+        for(int h = 0; h < nirreps; h++) {
+            for(int Gc=0,offset=0; Gc < nirreps; Gc++) {
+                auto Gd = Gc ^ h;
                 T2_Cd_row_start[h][Gc] = offset;
                 offset += avirtpi[Gc] * bvirtpi[Gd];
             }
@@ -160,7 +160,7 @@ void CCEnergyWavefunction::BT2_AO()
                 global_dpd_->contract444_df(&B, &tau1_AO, &tau2_AO, 1.0, 0.0);
                 global_dpd_->buf4_close(&B);
             }else{
-                for(h=0; h < nirreps; h++) {
+                for(int h = 0; h < nirreps; h++) {
                     global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
                     global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
                     global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -183,7 +183,7 @@ void CCEnergyWavefunction::BT2_AO()
 
                 if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <ab||cd> --> T2\n", counter);
 
-                for(h=0; h < nirreps; h++) {
+                for(int h = 0; h < nirreps; h++) {
                     global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
                     global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
                     global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -256,7 +256,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 5, 2, 5, 2, 0, "tauPQIJ (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -279,7 +279,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <AB||CD> --> T2\n", counterAA);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -330,7 +330,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 5, 2, 5, 2, 0, "taupqij (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -353,7 +353,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <ab||cd> --> T2\n", counterBB);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -405,7 +405,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 5, 0, 5, 0, 0, "tauPqIj (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -428,7 +428,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <Ab|Cd> --> T2\n", counterAB);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -481,7 +481,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 5, 2, 5, 2, 0, "tauPQIJ (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -504,7 +504,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <AB||CD> --> T2\n", counterAA);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -555,7 +555,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 15, 12, 15, 12, 0, "taupqij (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -578,7 +578,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <ab||cd> --> T2\n", counterBB);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);
@@ -630,7 +630,7 @@ void CCEnergyWavefunction::BT2_AO()
         global_dpd_->buf4_init(&tau2_AO, PSIF_CC_TMP0, 0, 28, 22, 28, 22, 0, "tauPqIj (2)");
         global_dpd_->buf4_scm(&tau2_AO, 0.0);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_init(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_rd(&tau1_AO, h);
             global_dpd_->buf4_mat_irrep_init(&tau2_AO, h);
@@ -653,7 +653,7 @@ void CCEnergyWavefunction::BT2_AO()
 
         if(params_.print & 2) outfile->Printf( "     *** Processed %d SO integrals for <Ab|Cd> --> T2\n", counterAB);
 
-        for(h=0; h < nirreps; h++) {
+        for(int h = 0; h < nirreps; h++) {
             global_dpd_->buf4_mat_irrep_wrt(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau2_AO, h);
             global_dpd_->buf4_mat_irrep_close(&tau1_AO, h);

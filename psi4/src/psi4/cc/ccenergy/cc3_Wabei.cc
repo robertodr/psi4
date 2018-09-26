@@ -60,8 +60,8 @@ void CCEnergyWavefunction::cc3_Wabei()
   dpdfile2 T1, t1, tIA, tia;
   dpdbuf4 Z, Z1, Z2, Z3;
   dpdbuf4 B, C, D, E, F, W;
-  int Gef, Gei, Gab, Ge, Gf, Gi;
-  int EE, e;
+  int Gei, Gab, Gf, Gi;
+  int e;
   int nrows, ncols, nlinks;
 
   if(params_.ref == 0) { /** RHF **/
@@ -89,9 +89,9 @@ void CCEnergyWavefunction::cc3_Wabei()
     global_dpd_->file2_mat_rd(&T1);
     global_dpd_->buf4_init(&Z1, PSIF_CC_TMP0, 0, 11, 8, 11, 8, 0, "Z1(ei,a>=b)");
     global_dpd_->buf4_scm(&Z1, 0.0); /* this scm is necessary for cases with empty occpi or virtpi irreps */
-    for(Gef=0; Gef < moinfo_.nirreps; Gef++) {
+    for(int Gef = 0; Gef < moinfo_.nirreps; Gef++) {
       Gei = Gab = Gef; /* W and B are totally symmetric */
-      for(Ge=0; Ge < moinfo_.nirreps; Ge++) {
+      for(int Ge = 0; Ge < moinfo_.nirreps; Ge++) {
         Gf = Ge ^ Gef; Gi = Gf;  /* T1 is totally symmetric */
         B.matrix[Gef] = global_dpd_->dpd_block_matrix(moinfo_.virtpi[Gf],B.params->coltot[Gef]);
         Z1.matrix[Gef] = global_dpd_->dpd_block_matrix(moinfo_.occpi[Gi],Z1.params->coltot[Gei])
@@ -100,7 +100,7 @@ void CCEnergyWavefunction::cc3_Wabei()
         ncols = Z1.params->coltot[Gef];
         nlinks = moinfo_.virtpi[Gf];
         if(nrows && ncols && nlinks) {
-          for(EE=0; EE < moinfo_.virtpi[Ge]; EE++) {
+          for(int EE = 0; EE < moinfo_.virtpi[Ge]; EE++) {
             e = moinfo_.vir_off[Ge] + EE;
             global_dpd_->buf4_mat_irrep_rd_block(&B, Gef, B.row_offset[Gef][e], moinfo_.virtpi[Gf]);
             C_DGEMM('n','n',nrows,ncols,nlinks,0.5,T1.matrix[Gi][0],nlinks,
@@ -123,9 +123,9 @@ void CCEnergyWavefunction::cc3_Wabei()
     global_dpd_->file2_mat_rd(&T1);
     global_dpd_->buf4_init(&Z2, PSIF_CC_TMP0, 0, 11, 9, 11, 9, 0, "Z2(ei,a>=b)");
     global_dpd_->buf4_scm(&Z2, 0.0); /* this scm is necessary for cases with empty occpi or virtpi irreps */
-    for(Gef=0; Gef < moinfo_.nirreps; Gef++) {
+    for(int Gef = 0; Gef < moinfo_.nirreps; Gef++) {
       Gei = Gab = Gef; /* W and B are totally symmetric */
-      for(Ge=0; Ge < moinfo_.nirreps; Ge++) {
+      for(int Ge = 0; Ge < moinfo_.nirreps; Ge++) {
         Gf = Ge ^ Gef; Gi = Gf;  /* T1 is totally symmetric */
         B.matrix[Gef] = global_dpd_->dpd_block_matrix(moinfo_.virtpi[Gf],B.params->coltot[Gef]);
         Z2.matrix[Gef] = global_dpd_->dpd_block_matrix(moinfo_.occpi[Gi],Z2.params->coltot[Gei]);
@@ -133,7 +133,7 @@ void CCEnergyWavefunction::cc3_Wabei()
         ncols = Z2.params->coltot[Gef];
         nlinks = moinfo_.virtpi[Gf];
         if(nrows && ncols && nlinks) {
-          for(EE=0; EE < moinfo_.virtpi[Ge]; EE++) {
+          for(int EE = 0; EE < moinfo_.virtpi[Ge]; EE++) {
             e = moinfo_.vir_off[Ge] + EE;
             global_dpd_->buf4_mat_irrep_rd_block(&B, Gef, B.row_offset[Gef][e], moinfo_.virtpi[Gf]);
             C_DGEMM('n','n',nrows,ncols,nlinks,0.5,T1.matrix[Gi][0],nlinks,
@@ -1033,9 +1033,8 @@ void CCEnergyWavefunction::cc3_Wabei()
 void CCEnergyWavefunction::purge_Wabei() {
   dpdfile4 W;
   int *occpi, *virtpi;
-  int h, a, b, e, i;
+  int a, b, e, i;
   int    A, B, E, I;
-  int ei, ab;
   int asym, bsym, esym, isym;
   int *occ_off, *vir_off;
   int *occ_sym, *vir_sym;
@@ -1049,14 +1048,14 @@ void CCEnergyWavefunction::purge_Wabei() {
 
   /* Purge Wabei matrix elements */
   global_dpd_->file4_init(&W, PSIF_CC_TMP2, 0, 11, 7,"CC3 WABEI (EI,A>B)");
-  for(h=0; h < nirreps; h++) {
+  for(int h = 0; h < nirreps; h++) {
     global_dpd_->file4_mat_irrep_init(&W, h);
     global_dpd_->file4_mat_irrep_rd(&W, h);
-    for(ei=0; ei<W.params->rowtot[h]; ei++) {
+    for(int ei = 0; ei<W.params->rowtot[h]; ei++) {
       e = W.params->roworb[h][ei][0];
       esym = W.params->psym[e];
       E = e - vir_off[esym];
-      for(ab=0; ab<W.params->coltot[h]; ab++) {
+      for(int ab = 0; ab<W.params->coltot[h]; ab++) {
         a = W.params->colorb[h][ab][0];
         b = W.params->colorb[h][ab][1];
         asym = W.params->rsym[a];
@@ -1075,14 +1074,14 @@ void CCEnergyWavefunction::purge_Wabei() {
   global_dpd_->file4_close(&W);
 
   global_dpd_->file4_init(&W, PSIF_CC_TMP2, 0, 11, 7,"CC3 Wabei (ei,a>b)");
-  for(h=0; h < nirreps; h++) {
+  for(int h = 0; h < nirreps; h++) {
     global_dpd_->file4_mat_irrep_init(&W, h);
     global_dpd_->file4_mat_irrep_rd(&W, h);
-    for(ei=0; ei<W.params->rowtot[h]; ei++) {
+    for(int ei = 0; ei<W.params->rowtot[h]; ei++) {
       i = W.params->roworb[h][ei][1];
       isym = W.params->qsym[i];
       I = i - occ_off[isym];
-      for(ab=0; ab<W.params->coltot[h]; ab++) {
+      for(int ab = 0; ab<W.params->coltot[h]; ab++) {
         if (I >= (occpi[isym] - openpi[isym]))
           W.matrix[h][ei][ab] = 0.0;
       }
@@ -1093,17 +1092,17 @@ void CCEnergyWavefunction::purge_Wabei() {
   global_dpd_->file4_close(&W);
 
   global_dpd_->file4_init(&W, PSIF_CC_TMP2, 0, 11, 5,"CC3 WAbEi (Ei,Ab)");
-  for(h=0; h < nirreps; h++) {
+  for(int h = 0; h < nirreps; h++) {
     global_dpd_->file4_mat_irrep_init(&W, h);
     global_dpd_->file4_mat_irrep_rd(&W, h);
-    for(ei=0; ei<W.params->rowtot[h]; ei++) {
+    for(int ei = 0; ei<W.params->rowtot[h]; ei++) {
       e = W.params->roworb[h][ei][0];
       i = W.params->roworb[h][ei][1];
       esym = W.params->psym[e];
       isym = W.params->qsym[i];
       E = e - vir_off[esym];
       I = i - occ_off[isym];
-      for(ab=0; ab<W.params->coltot[h]; ab++) {
+      for(int ab = 0; ab<W.params->coltot[h]; ab++) {
         a = W.params->colorb[h][ab][0];
         asym = W.params->rsym[a];
         bsym = W.params->ssym[b];
@@ -1120,11 +1119,11 @@ void CCEnergyWavefunction::purge_Wabei() {
   global_dpd_->file4_close(&W);
 
   global_dpd_->file4_init(&W, PSIF_CC_TMP2, 0, 11, 5,"CC3 WaBeI (eI,aB)");
-  for(h=0; h < nirreps; h++) {
+  for(int h = 0; h < nirreps; h++) {
     global_dpd_->file4_mat_irrep_init(&W, h);
     global_dpd_->file4_mat_irrep_rd(&W, h);
-    for(ei=0; ei<W.params->rowtot[h]; ei++) {
-      for(ab=0; ab<W.params->coltot[h]; ab++) {
+    for(int ei = 0; ei<W.params->rowtot[h]; ei++) {
+      for(int ab = 0; ab<W.params->coltot[h]; ab++) {
         b = W.params->colorb[h][ab][1];
         bsym = W.params->ssym[b];
         B = b - vir_off[bsym];

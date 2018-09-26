@@ -63,10 +63,10 @@ void CCEnergyWavefunction::halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, 
                int nirreps, int **mo_row, int **so_row, int *mospi_left, int *mospi_right,
                int *sospi, int type, double alpha, double beta)
 {
-  int h, Gc, Gd, cd, pq, ij;
+  int Gd, cd, pq;
   double **X;
 
-  for(h=0; h < nirreps; h++) {
+  for(int h = 0; h < nirreps; h++) {
 
     dpd_set_default(dpdnum1);
     global_dpd_->buf4_mat_irrep_init(Buf1, h);
@@ -83,7 +83,7 @@ void CCEnergyWavefunction::halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, 
       if(beta != 0.0) { dpd_set_default(dpdnum1); global_dpd_->buf4_mat_irrep_rd(Buf1, h); }
     }
 
-    for(Gc=0; Gc < nirreps; Gc++) {
+    for(int Gc = 0; Gc < nirreps; Gc++) {
       Gd = h^Gc;
 
       cd = mo_row[h][Gc];
@@ -94,7 +94,7 @@ void CCEnergyWavefunction::halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, 
 	if(type == 0) {
 	  X = block_matrix(mospi_left[Gc],sospi[Gd]);
 
-	  for(ij=0; ij < Buf1->params->rowtot[h]; ij++) {
+	  for(int ij = 0; ij < Buf1->params->rowtot[h]; ij++) {
 
 	    C_DGEMM('n','t', mospi_left[Gc], sospi[Gd], mospi_right[Gd], 1.0,
 		    &(Buf1->matrix[h][ij][cd]), mospi_right[Gd], &(C2[Gd][0][0]),
@@ -108,7 +108,7 @@ void CCEnergyWavefunction::halftrans(dpdbuf4 *Buf1, int dpdnum1, dpdbuf4 *Buf2, 
 	else {
 	  X = block_matrix(sospi[Gc],mospi_right[Gd]);
 
-	  for(ij=0; ij < Buf1->params->rowtot[h]; ij++) {
+	  for(int ij = 0; ij < Buf1->params->rowtot[h]; ij++) {
 
 	    C_DGEMM('n','n', sospi[Gc], mospi_right[Gd], sospi[Gd], 1.0,
 		    &(Buf2->matrix[h][ij][pq]), sospi[Gd], &(C2[Gd][0][0]), mospi_right[Gd],

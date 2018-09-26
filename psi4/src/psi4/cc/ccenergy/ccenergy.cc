@@ -506,20 +506,17 @@ void CCEnergyWavefunction::title()
 
 void CCEnergyWavefunction::exit_io()
 {
-    int i;
-    for(i=PSIF_CC_MIN; i < PSIF_CC_TMP; i++) psio_close(i,1);
-    for(i=PSIF_CC_TMP; i <= PSIF_CC_TMP11; i++) psio_close(i,0); /* delete CC_TMP files */
-    for(i=PSIF_CC_TMP11+1; i <= PSIF_CC_MAX; i++) psio_close(i,1);
+    for(int i = PSIF_CC_MIN; i < PSIF_CC_TMP; i++) psio_close(i,1);
+    for(int i = PSIF_CC_TMP; i <= PSIF_CC_TMP11; i++) psio_close(i,0); /* delete CC_TMP files */
+    for(int i = PSIF_CC_TMP11+1; i <= PSIF_CC_MAX; i++) psio_close(i,1);
     timer_off("CCEnergy");
 
 }
 
 void CCEnergyWavefunction::checkpoint()
 {
-    int i;
-
-    for(i=PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_close(i,1);
-    for(i=PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_open(i,1);
+    for(int i = PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_close(i,1);
+    for(int i = PSIF_CC_MIN; i <= PSIF_CC_MAX; i++) psio_open(i,1);
 }
 
 /* just use T's on disk and don't iterate */
