@@ -213,6 +213,11 @@ class CCWavefunction final : public Wavefunction {
 
    private:
     void common_init();
+    void init_dpd();
+    void tear_down();
+
+    std::vector<int> cachefiles_;
+    std::map<std::string, DPD> dpd_;
 };
 
 }  // namespace cc
