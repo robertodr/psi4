@@ -29,7 +29,10 @@
 #pragma once
 
 #include <array>
+#include <map>
 #include <memory>
+#include <string>
+#include <vector>
 
 #include "psi4/libmints/wavefunction.h"
 #include "psi4/libdpd/dpd.h"
@@ -203,6 +206,78 @@ class CCEnergyWavefunction : public Wavefunction {
 
 namespace cc {
 
+enum class Reference { RHF, ROHF, UHF };
+enum class DerivativeType { NONE = 0, FIRST = 1, RESPONSE = 3 };
+enum class CacheType { LRU, LOW };
+
+struct CCParams final {
+    CCParams(Options &options);
+    /*! Which coupled wavefunction? */
+    std::string wfn;
+    /*! Use new triples? */
+    bool newtrips;
+    /*! Use Brueckner? */
+    bool brueckner;
+    /*! Use density-fitting? */
+    bool df;
+    /*! Semicanonical calculation? */
+    bool semicanonical;
+    /*! Reference determinant */
+    Reference ref;
+    /*! Analyze T2 amplitudes? */
+    bool analyze;
+    /*! Derivative type */
+    DerivativeType dertype;
+    /*! Print level */
+    int print;
+    /*! Maximum number of CC iterations */
+    int maxiter;
+    /*! Convergence threshold on the residual */
+    double convergence;
+    /*! Convergence threshold on the energy */
+    double e_convergence;
+    /*! Is this a restart? */
+    bool restart;
+    std::string aobasis;
+    int cachelevel;
+    CacheType cachetype;
+    /*! Number of threads.
+     * TODO This is only used in cc3.cc and can probably be inferred in some other way.
+     */
+    int nthreads;
+    bool diis;
+    bool t2_coupled;
+    std::string prop;
+    std::string abcd;
+    /*! Number of amplitudes to print */
+    int num_amps;
+    double bconv;
+
+    bool print_mp2_amps;
+    bool print_pair_energies;
+    bool spinadapt_energies;
+    bool t3_Ws_incore;
+
+    bool scsn;
+    bool scs;
+    bool scscc;
+    double scsmp2_scale_os;
+    double scsmp2_scale_ss;
+    double scscc_scale_os;
+    double scscc_scale_ss;
+
+    bool local;
+    /*! @{ Local coupled cluster calculation set up options. Previously in Local */
+    double local_cutoff;
+    std::string local_method;
+    std::string local_weakp;
+    double local_cphf_cutoff;
+    bool local_freeze_core;
+    std::string local_pairdef;
+
+    void print_parameters(size_t memory) const;
+};
+
 class CCWavefunction final : public Wavefunction {
    public:
     CCWavefunction(std::shared_ptr<Wavefunction> reference_wavefunction);
@@ -215,6 +290,24 @@ class CCWavefunction final : public Wavefunction {
     void common_init();
     void init_dpd();
     void tear_down();
+    void title(std::string & wfn);
+
+    /*! @{ Coupled cluster calculation set up options. Previously in Params */
+    CCParams params_;
+    /*! @}*/
+
+    /*! @{ Information about orbital spaces. Previously in MOInfo */
+    /*! @}*/
+
+    /*! @{ Indexing arrays. Previously in MOInfo */
+    std::vector<int> pitzer2qt; /*! Pitzer -> QT translation array */
+    std::vector<int> qt2pitzer; /* QT -> Pitzer translation array */
+
+    std::vector<int> pitzer2qt_a; /*! Pitzer -> QT translation array for alpha orbitals */
+    std::vector<int> qt2pitzer_a; /*! QT -> Pitzer translation array for alpha orbitals */
+    std::vector<int> pitzer2qt_b; /*! Pitzer -> QT translation array for beta orbitals */
+    std::vector<int> qt2pitzer_b; /*! QT -> Pitzer translation array for beta orbitals */
+    /*! @}*/
 
     std::vector<int> cachefiles_;
     std::map<std::string, DPD> dpd_;
