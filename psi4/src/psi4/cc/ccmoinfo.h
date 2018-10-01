@@ -33,6 +33,7 @@
 #include <vector>
 
 #include "psi4/libmints/dimension.h"
+#include "psi4/libmints/Matrix.h"
 
 namespace psi {
 
@@ -171,6 +172,21 @@ struct CCMOInfo final {
     std::vector<int> pitzer2qt_b;
     /*! QT -> Pitzer translation array for beta orbitals */
     std::vector<int> qt2pitzer_b;
+    /*! @}*/
+
+    /*! @{ MO coefficient matrices */
+    /* Virtual orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Cv;
+    /* UHF alpha virtual orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Cav;
+    /* UHF beta virtual orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Cbv;
+    /* Occupied orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Co;
+    /* UHF alpha occupied orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Cao;
+    /* UHF beta occupied orbital transformation matrix (for AO-basis B terms) */
+    std::shared_ptr<Matrix> Cbo;
     /*! @}*/
 };
 
