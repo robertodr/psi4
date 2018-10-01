@@ -33,7 +33,7 @@
 #include <vector>
 
 #include "psi4/libmints/dimension.h"
-#include "psi4/libmints/Matrix.h"
+#include "psi4/libmints/matrix.h"
 
 namespace psi {
 
