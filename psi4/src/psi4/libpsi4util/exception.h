@@ -132,7 +132,7 @@ class PSI_API SanityCheckError : public PsiException {
     */
     SanityCheckError(std::string message, const char *file, int line) throw();
 
-    virtual ~SanityCheckError() throw();
+    ~SanityCheckError() throw() override;
 };
 
 /**
@@ -148,7 +148,7 @@ class SystemError : public PsiException {
     */
     SystemError(int eno, const char *file, int line) throw();
 
-    virtual ~SystemError() throw();
+    ~SystemError() throw() override;
 };
 
 /**
@@ -165,7 +165,7 @@ class FeatureNotImplemented : public PsiException {
     */
     FeatureNotImplemented(std::string module, std::string feature, const char *file, int line) throw();
 
-    virtual ~FeatureNotImplemented() throw();
+    ~FeatureNotImplemented() throw() override;
 };
 
 /**
@@ -208,7 +208,7 @@ class LimitExceeded : public PsiException {
 
     T actual_value() const throw() { return errorval_; }
 
-    virtual ~LimitExceeded<T>() throw(){};
+    ~LimitExceeded<T>() throw() override{};
 };
 
 /**
