@@ -77,7 +77,7 @@ class SBlockVector {
    private:
     SBlockVector(BlockVector* block_vector);
 
-    BlockVector* block_vector_;
+    BlockVector* block_vector_{nullptr};
 };
 
 }  // namespace mcscf

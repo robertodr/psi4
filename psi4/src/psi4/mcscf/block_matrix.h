@@ -89,14 +89,14 @@ class BlockMatrix {
    private:
     // Matrix label and pointer
     std::string label_;
-    MatrixBase** matrix_base_;
+    MatrixBase** matrix_base_{nullptr};
 
     // Block sizes etc.
     size_t* rows_size_;
     size_t* cols_size_;
     size_t* rows_offset_;
     size_t* cols_offset_;
-    int nirreps_;
+    int nirreps_{0};
 
     void startup(std::string label, int nirreps, size_t*& rows_size, size_t*& cols_size);
     void startup(std::string label, int nirreps, int*& rows_size, int*& cols_size);

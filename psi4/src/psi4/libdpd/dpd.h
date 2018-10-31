@@ -169,18 +169,18 @@ struct dpd_file4_cache_entry {
 
 /* DPD File2 Cache entries */
 struct dpd_file2_cache_entry {
-    dpd_file2_cache_entry() : next(nullptr), last(nullptr) {}
-    int dpdnum;                  /* dpd structure reference */
-    int filenum;                 /* libpsio unit number */
-    int irrep;                   /* overall symmetry */
-    int pnum;                    /* dpd p value */
-    int qnum;                    /* dpd q value */
-    char label[PSIO_KEYLEN];     /* libpsio TOC keyword */
-    double ***matrix;            /* pointer to irrep blocks */
-    int size;                    /* size of entry in double words */
-    int clean;                   /* has this file2 changed? */
-    dpd_file2_cache_entry *next; /* pointer to next cache entry */
-    dpd_file2_cache_entry *last; /* pointer to previous cache entry */
+    dpd_file2_cache_entry() {}
+    int dpdnum;                           /* dpd structure reference */
+    int filenum;                          /* libpsio unit number */
+    int irrep;                            /* overall symmetry */
+    int pnum;                             /* dpd p value */
+    int qnum;                             /* dpd q value */
+    char label[PSIO_KEYLEN];              /* libpsio TOC keyword */
+    double ***matrix;                     /* pointer to irrep blocks */
+    int size;                             /* size of entry in double words */
+    int clean;                            /* has this file2 changed? */
+    dpd_file2_cache_entry *next{nullptr}; /* pointer to next cache entry */
+    dpd_file2_cache_entry *last{nullptr}; /* pointer to previous cache entry */
 };
 
 /* DPD global parameter set */
@@ -240,14 +240,9 @@ struct dpd_gbl {
 
     // The default C'tor will zero everything out properly
     dpd_gbl()
-        : file2_cache(nullptr),
-          file4_cache(nullptr),
-          file4_cache_most_recent(0),
-          file4_cache_least_recent(1),
-          file4_cache_lru_del(0),
-          file4_cache_low_del(0) {}
-    dpd_file2_cache_entry *file2_cache;
-    dpd_file4_cache_entry *file4_cache;
+        : file4_cache_most_recent(0), file4_cache_least_recent(1), file4_cache_lru_del(0), file4_cache_low_del(0) {}
+    dpd_file2_cache_entry *file2_cache{nullptr};
+    dpd_file4_cache_entry *file4_cache{nullptr};
     size_t file4_cache_most_recent;
     size_t file4_cache_least_recent;
     size_t file4_cache_lru_del;
@@ -292,20 +287,20 @@ enum pattern { abc, acb, cab, cba, bca, bac };
 class PSI_API DPD {
    public:
     // These used to live in the dpd_data struct
-    int nirreps;
-    int num_subspaces;
-    int num_pairs;
-    int *numorbs;
-    int **orboff;
-    int **pairtot;
-    int **orbspi;
-    int **orbsym;
-    int **orbidx2;
-    int ***pairidx;
-    int ***orbs2;
-    int ****pairorb;
-    dpdparams2 **params2;
-    dpdparams4 **params4;
+    int nirreps{0};
+    int num_subspaces{0};
+    int num_pairs{0};
+    int *numorbs{nullptr};
+    int **orboff{nullptr};
+    int **pairtot{nullptr};
+    int **orbspi{nullptr};
+    int **orbsym{nullptr};
+    int **orbidx2{nullptr};
+    int ***pairidx{nullptr};
+    int ***orbs2{nullptr};
+    int ****pairorb{nullptr};
+    dpdparams2 **params2{nullptr};
+    dpdparams4 **params4{nullptr};
 
     std::vector<DPDMOSpace> moSpaces;
 

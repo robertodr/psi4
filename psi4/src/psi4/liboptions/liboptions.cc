@@ -55,7 +55,7 @@
 namespace psi {
 
 // DataType base
-DataType::DataType() : changed_(false) {}
+DataType::DataType() {}
 
 DataType::~DataType() {}
 
@@ -123,7 +123,7 @@ Data& DataType::operator[](std::string) { throw NOT_IMPLEMENTED_EXCEPTION(); }
 Data& DataType::operator[](size_t) { throw NOT_IMPLEMENTED_EXCEPTION(); }
 
 // BooleanDataType
-BooleanDataType::BooleanDataType() : DataType(), boolean_(false) {}
+BooleanDataType::BooleanDataType() : DataType() {}
 
 BooleanDataType::BooleanDataType(bool b) : DataType(), boolean_(b) {}
 
@@ -156,7 +156,7 @@ void BooleanDataType::assign(double d) { assign(static_cast<bool>(d)); }
 void BooleanDataType::assign(std::string s) { assign(static_cast<bool>(std::strtod(s.c_str(), nullptr))); }
 
 // IntDataType
-IntDataType::IntDataType() : DataType(), integer_(0) {}
+IntDataType::IntDataType() : DataType() {}
 
 IntDataType::IntDataType(int i) : DataType(), integer_(i) {}
 
@@ -186,7 +186,7 @@ void IntDataType::assign(double d) { assign(static_cast<int>(d)); }
 void IntDataType::assign(std::string s) { assign(static_cast<int>(std::strtod(s.c_str(), nullptr))); }
 
 // DoubleDataType
-DoubleDataType::DoubleDataType() : DataType(), double_(0.0) {}
+DoubleDataType::DoubleDataType() : DataType() {}
 
 DoubleDataType::DoubleDataType(double d) : DataType(), double_(d) {}
 
@@ -493,7 +493,7 @@ std::string MapType::to_string() const {
     return str;
 }
 
-Options::Options() : edit_globals_(false) {}
+Options::Options() {}
 
 Options& Options::operator=(const Options& rhs) {
     // Don't self copy

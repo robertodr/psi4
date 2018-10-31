@@ -46,7 +46,7 @@ namespace filesystem {
 class path {
    protected:
     std::vector<std::string> path_;
-    bool absolute_;
+    bool absolute_{false};
 
     static std::vector<std::string> tokenize(const std::string &string, const std::string &delim) {
         std::string::size_type lastPos = 0, pos = string.find_first_of(delim, lastPos);
@@ -63,7 +63,7 @@ class path {
     }
 
    public:
-    path() : absolute_(false) {}
+    path() {}
 
     path(const path &path) : path_(path.path_), absolute_(path.absolute_) {}
 

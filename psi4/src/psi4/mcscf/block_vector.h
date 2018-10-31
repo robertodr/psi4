@@ -74,12 +74,12 @@ class BlockVector {
    private:
     // Vector label and pointer
     std::string label_;
-    VectorBase** vector_base_;
+    VectorBase** vector_base_{nullptr};
 
     // Block sizes etc.
     size_t* rows_size_;
     size_t* rows_offset_;
-    int nirreps_;
+    int nirreps_{0};
 
     void startup(std::string label, int nirreps, size_t*& rows_size);
     void startup(std::string label, int nirreps, int*& rows_size);

@@ -38,7 +38,7 @@
 namespace psi {
 namespace mcscf {
 
-SBlockVector::SBlockVector() : block_vector_(nullptr) {}
+SBlockVector::SBlockVector() {}
 
 SBlockVector::SBlockVector(std::string label, int nirreps, int*& rows_size) : block_vector_(nullptr) {
     block_vector_ = new BlockVector(label, nirreps, rows_size);

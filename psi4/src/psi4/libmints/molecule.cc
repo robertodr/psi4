@@ -136,25 +136,7 @@ void if_to_invert_axis(const Vector3 &v1, int &must_invert, int &should_invert, 
     }
 }
 
-Molecule::Molecule()
-    : name_("default"),
-      fix_orientation_(false),
-      move_to_com_(true),
-      molecular_charge_(0),
-      multiplicity_(1),
-      units_(Angstrom),
-      input_units_to_au_(1.0 / pc_bohr2angstroms),
-      full_pg_(PG_C1),
-      full_pg_n_(1),
-      nunique_(0),
-      nequiv_(nullptr),
-      equiv_(nullptr),
-      zmat_(false),
-      cart_(false),
-      atom_to_unique_(nullptr),
-      // old_symmetry_frame_(0)
-      reinterpret_coordentries_(true),
-      lock_frame_(false) {}
+Molecule::Molecule() : name_("default"), input_units_to_au_(1.0 / pc_bohr2angstroms) {}
 
 Molecule::~Molecule() {
     clear();

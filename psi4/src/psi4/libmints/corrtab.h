@@ -75,10 +75,10 @@ class CorrelationTable {
     std::shared_ptr<PointGroup> group_;
     std::shared_ptr<PointGroup> subgroup_;
 
-    int n_;
+    int n_{0};
     int subn_;
-    int* ngamma_;
-    int** gamma_;
+    int* ngamma_{nullptr};
+    int** gamma_{nullptr};
 
     void clear();
 

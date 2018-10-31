@@ -65,7 +65,7 @@ using namespace psi;
 
 ////////////////////////////////////////////////////////////////////////
 
-CorrelationTable::CorrelationTable() : n_(0), ngamma_(nullptr), gamma_(nullptr) {}
+CorrelationTable::CorrelationTable() {}
 
 CorrelationTable::CorrelationTable(const std::shared_ptr<PointGroup>& group,
                                    const std::shared_ptr<PointGroup>& subgroup)

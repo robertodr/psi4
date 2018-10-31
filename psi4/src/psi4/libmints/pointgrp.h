@@ -140,7 +140,7 @@ class SymmetryOperation {
     // While a std::array<double, 9> would be simpler, it hurts code readability...
     // ...and forces an otherwise unnecessary reshape, Py-side.
     std::array<std::array<double, 3>, 3> d;
-    unsigned short bits_;
+    unsigned short bits_{0};
 
     void analyze_d();
 
@@ -361,15 +361,15 @@ class IrreducibleRepresentation {
     friend class CharacterTable;
 
    private:
-    int g;         // the order of the group
-    int degen;     // the degeneracy of the irrep
-    int nrot_;     // the number of rotations in this irrep
-    int ntrans_;   // the number of translations in this irrep
-    int complex_;  // true if this irrep has a complex representation
-    char* symb;    // mulliken symbol for this irrep
-    char* csymb;   // mulliken symbol for this irrep w/o special characters
+    int g{0};         // the order of the group
+    int degen{0};     // the degeneracy of the irrep
+    int nrot_{0};     // the number of rotations in this irrep
+    int ntrans_{0};   // the number of translations in this irrep
+    int complex_{0};  // true if this irrep has a complex representation
+    char* symb{nullptr};    // mulliken symbol for this irrep
+    char* csymb{nullptr};   // mulliken symbol for this irrep w/o special characters
 
-    SymRep* rep;  // representation matrices for the symops
+    SymRep* rep{nullptr};  // representation matrices for the symops
 
    public:
     IrreducibleRepresentation();
@@ -443,14 +443,14 @@ class IrreducibleRepresentation {
  character.  Thus symop has 6 elements rather than the 3 you'll find in
  most published character tables. */
 class CharacterTable {
-    int nt;                             ///< order of the princ rot axis
-    PointGroups::Groups pg;             ///< the class of the point group
-    int nirrep_;                        ///< the number of irreps in this pg
-    IrreducibleRepresentation* gamma_;  ///< an array of irreps
-    SymmetryOperation* symop;           ///< the matrices describing sym ops
-    int* _inv;                          ///< index of the inverse symop
+    int nt{0};                             ///< order of the princ rot axis
+    PointGroups::Groups pg{PointGroups::C1};             ///< the class of the point group
+    int nirrep_{0};                        ///< the number of irreps in this pg
+    IrreducibleRepresentation* gamma_{nullptr};  ///< an array of irreps
+    SymmetryOperation* symop{nullptr};           ///< the matrices describing sym ops
+    int* _inv{nullptr};                          ///< index of the inverse symop
     std::string symb;                   ///< the Schoenflies symbol for the pg
-    unsigned char bits_;                ///< Bitwise representation of the symmetry operations
+    unsigned char bits_{0};                ///< Bitwise representation of the symmetry operations
 
     /// this fills in the irrep and symop arrays.
     int make_table();

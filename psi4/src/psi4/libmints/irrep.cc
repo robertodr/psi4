@@ -84,8 +84,7 @@ using namespace psi;
 
 /////////////////////////////////////////////////////////////////////////
 
-IrreducibleRepresentation::IrreducibleRepresentation()
-    : g(0), degen(0), nrot_(0), ntrans_(0), complex_(0), symb(nullptr), csymb(nullptr), rep(nullptr) {}
+IrreducibleRepresentation::IrreducibleRepresentation() {}
 
 IrreducibleRepresentation::IrreducibleRepresentation(int order, int d, const char *lab, const char *clab)
     : g(0), degen(0), nrot_(0), ntrans_(0), complex_(0), symb(nullptr), csymb(nullptr), rep(nullptr) {

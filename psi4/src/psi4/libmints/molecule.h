@@ -112,16 +112,16 @@ class PSI_API Molecule {
     std::vector<int> fragment_multiplicities_;
 
     /// Reorient or not?
-    bool fix_orientation_;
+    bool fix_orientation_{false};
     /// Move to center of mass or not?
-    bool move_to_com_;
+    bool move_to_com_{true};
 
     /// The molecular charge
-    int molecular_charge_;
+    int molecular_charge_{0};
     /// The multiplicity (defined as 2Ms + 1)
-    int multiplicity_;
+    int multiplicity_{1};
     /// The units used to define the geometry
-    GeometryUnits units_;
+    GeometryUnits units_{Angstrom};
     /// The conversion factor to take input units to Bohr
     double input_units_to_au_;
     /// A list of all variables known, whether they have been set or not.
@@ -149,18 +149,18 @@ class PSI_API Molecule {
     /// Point group to use with this molecule.
     std::shared_ptr<PointGroup> pg_;
     /// Full point group.
-    FullPointGroup full_pg_;
+    FullPointGroup full_pg_{PG_C1};
     /// n of the highest rotational axis Cn
-    int full_pg_n_;
+    int full_pg_n_{1};
 
     /// Number of unique atoms
-    int nunique_;
+    int nunique_{0};
     /// Number of equivalent atoms per unique atom (length nunique_)
-    int* nequiv_;
+    int* nequiv_{nullptr};
     /// Equivalent atom mapping array
-    int** equiv_;
+    int** equiv_{nullptr};
     /// Atom to unique atom mapping array (length natom)
-    int* atom_to_unique_;
+    int* atom_to_unique_{nullptr};
 
     /// A listing of the variables used to define the geometries
     std::map<std::string, double> geometry_variables_;
@@ -172,14 +172,14 @@ class PSI_API Molecule {
     std::string symmetry_from_input_;
     /// Reinterpret the coord entries or not
     /// Default is true, except for findif
-    bool reinterpret_coordentries_;
+    bool reinterpret_coordentries_{true};
     /// Nilpotence boolean (flagged upon first determination of symmetry frame, reset each time a substantiative change
     /// is made)
-    bool lock_frame_;
+    bool lock_frame_{false};
     /// Whether this molecule has at least one zmatrix entry
-    bool zmat_;
+    bool zmat_{false};
     /// Whether this molecule has at least one cartesian entry
-    bool cart_;
+    bool cart_{false};
 
    public:
     Molecule();

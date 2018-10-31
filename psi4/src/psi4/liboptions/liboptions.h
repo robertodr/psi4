@@ -72,7 +72,7 @@ class OptionsException : public PsiException {
 
 class PSI_API Data;
 class DataType {
-    bool changed_;
+    bool changed_{false};
 
    public:
     DataType();
@@ -122,7 +122,7 @@ class DataType {
 #pragma warning disable 654
 #endif
 class BooleanDataType : public DataType {
-    bool boolean_;
+    bool boolean_{false};
 
    public:
     BooleanDataType();
@@ -145,7 +145,7 @@ class BooleanDataType : public DataType {
 #pragma warning disable 654
 #endif
 class IntDataType : public DataType {
-    int integer_;
+    int integer_{0};
 
    public:
     IntDataType();
@@ -168,7 +168,7 @@ class IntDataType : public DataType {
 #pragma warning disable 654
 #endif
 class DoubleDataType : public DataType {
-    double double_;
+    double double_{0.0};
 
    public:
     DoubleDataType();
@@ -351,7 +351,7 @@ class MapType : public DataType {
 };
 
 class PSI_API Options {
-    bool edit_globals_;
+    bool edit_globals_{false};
 
     /// A temporary map used for validation of local options
     std::map<std::string, Data> all_local_options_;

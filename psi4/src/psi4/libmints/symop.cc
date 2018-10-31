@@ -67,7 +67,7 @@ using namespace psi;
 
 ////////////////////////////////////////////////////////////////////////
 
-SymmetryOperation::SymmetryOperation() : bits_(0) { zero(); }
+SymmetryOperation::SymmetryOperation() { zero(); }
 
 SymmetryOperation::SymmetryOperation(const SymmetryOperation& so) : bits_(so.bits_) {
     for (int i = 0; i < 3; i++) {

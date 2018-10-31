@@ -44,7 +44,7 @@
 
 namespace psi {
 
-ExternalPotential::ExternalPotential() : debug_(0), print_(1) {}
+ExternalPotential::ExternalPotential() {}
 
 ExternalPotential::~ExternalPotential() {}
 

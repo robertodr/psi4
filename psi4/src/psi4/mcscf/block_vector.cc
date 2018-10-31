@@ -40,7 +40,7 @@ namespace mcscf {
 
 extern MemoryManager* memory_manager;
 
-BlockVector::BlockVector() : nirreps_(0), ref_(0), vector_base_(nullptr), rows_size_(0), rows_offset_(0) {}
+BlockVector::BlockVector() : ref_(0), rows_size_(0), rows_offset_(0) {}
 
 BlockVector::BlockVector(std::string label, int nirreps, size_t*& rows_size)
     : label_(label), nirreps_(nirreps), ref_(0), vector_base_(nullptr), rows_size_(0), rows_offset_(0) {

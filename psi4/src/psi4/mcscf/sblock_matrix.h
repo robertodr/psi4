@@ -91,7 +91,7 @@ class SBlockMatrix {
    private:
     SBlockMatrix(BlockMatrix* block_matrix);
 
-    BlockMatrix* block_matrix_;
+    BlockMatrix* block_matrix_{nullptr};
 };
 
 }  // namespace mcscf

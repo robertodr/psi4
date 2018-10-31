@@ -58,7 +58,7 @@ namespace psimrcc {
 extern MOInfo* moinfo;
 extern MemoryManager* memory_manager;
 
-CCTransform::CCTransform() : fraction_of_memory_for_presorting(0.75) {
+CCTransform::CCTransform() {
     blas->add_index("[s>=s]");
     blas->add_index("[n>=n]");
     blas->add_index("[s]");

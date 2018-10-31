@@ -41,8 +41,7 @@ namespace mcscf {
 
 extern MemoryManager* memory_manager;
 
-BlockMatrix::BlockMatrix()
-    : nirreps_(0), ref_(0), matrix_base_(nullptr), rows_size_(0), cols_size_(0), rows_offset_(0), cols_offset_(0) {}
+BlockMatrix::BlockMatrix() : ref_(0), rows_size_(0), cols_size_(0), rows_offset_(0), cols_offset_(0) {}
 
 BlockMatrix::BlockMatrix(std::string label, int nirreps, size_t*& rows_size, size_t*& cols_size)
     : ref_(0), matrix_base_(nullptr), rows_size_(0), cols_size_(0), rows_offset_(0), cols_offset_(0) {

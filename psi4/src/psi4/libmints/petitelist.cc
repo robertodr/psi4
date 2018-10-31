@@ -79,7 +79,7 @@ contribution::contribution(int b, double c) : bfn(b), coef(c) {}
 
 ///////////////////////////////////////////////////////////////////////////////
 
-SO::SO() : len(0), length(0), cont(nullptr) {}
+SO::SO() {}
 
 SO::SO(int l) : len(0), length(0), cont(nullptr) { set_length(l); }
 
@@ -142,7 +142,7 @@ int SO::equiv(const SO &so) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-SO_block::SO_block() : len(0), so(nullptr) {}
+SO_block::SO_block() {}
 
 SO_block::SO_block(int l) : len(0), so(nullptr) { set_length(l); }
 

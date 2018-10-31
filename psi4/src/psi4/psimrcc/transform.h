@@ -106,7 +106,7 @@ class CCTransform {
 
     void presort_blocks(int first_irrep, int last_irrep);
 
-    double fraction_of_memory_for_presorting;
+    double fraction_of_memory_for_presorting{0.75};
 };
 
 extern CCTransform* trans;

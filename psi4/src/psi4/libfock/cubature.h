@@ -279,7 +279,7 @@ protected:
     /// Scheme
     std::string scheme_;
     /// Number of points in radial grid
-    int npoints_;
+    int npoints_{0};
     /// Order of spherical harmonics in spherical grid (integrates products up to L_tot = 2 * order_ + 1)
     int order_;
     /// Spherical nodes, on the unit sphere

@@ -95,9 +95,9 @@ struct contribution {
 };
 
 struct SO {
-    int len;
-    int length;
-    contribution *cont;
+    int len{0};
+    int length{0};
+    contribution *cont{nullptr};
 
     SO();
     SO(int);
@@ -113,8 +113,8 @@ struct SO {
 };
 
 struct SO_block {
-    int len;
-    SO *so;
+    int len{0};
+    SO *so{nullptr};
 
     SO_block();
     SO_block(int);
@@ -129,10 +129,10 @@ struct SO_block {
 
 struct SOCoefficients {
     std::map<int, double> coefficients;
-    int irrep;
+    int irrep{-1};
     //        Contribution(std::map<int, double> coefficients_, int irrep_):
     //            coefficients(coefficients_), irrep(irrep_){}
-    SOCoefficients() : irrep(-1) {}
+    SOCoefficients() {}
     void add_contribution(int bf, double coeff, int symm);
 
     void print() const;

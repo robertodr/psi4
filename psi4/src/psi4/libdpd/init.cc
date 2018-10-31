@@ -81,27 +81,11 @@ extern int dpd_close(int dpd_num) {
     return 0;
 }
 
-extern long int dpd_memfree() {
-    return dpd_main.memory - (dpd_main.memused - dpd_main.memcache + dpd_main.memlocked);
-}
+extern long int dpd_memfree() { return dpd_main.memory - (dpd_main.memused - dpd_main.memcache + dpd_main.memlocked); }
 
 extern void dpd_memset(long int memory) { dpd_main.memory = memory; }
 
-DPD::DPD()
-    : nirreps(0),
-      num_subspaces(0),
-      num_pairs(0),
-      numorbs(nullptr),
-      orboff(nullptr),
-      pairtot(nullptr),
-      orbspi(nullptr),
-      orbsym(nullptr),
-      orbidx2(nullptr),
-      pairidx(nullptr),
-      orbs2(nullptr),
-      pairorb(nullptr),
-      params2(nullptr),
-      params4(nullptr) {}
+DPD::DPD() {}
 
 DPD::DPD(int dpd_num, int nirreps, long int memory, int cachetype, int *cachefiles, int **cachelist,
          dpd_file4_cache_entry *priority, int num_subspaces, std::vector<int *> &spaceArrays) {

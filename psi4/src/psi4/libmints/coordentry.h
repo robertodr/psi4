@@ -54,12 +54,12 @@ namespace psi {
 class CoordValue {
    protected:
     /// Fixed coordinate?
-    bool fixed_;
+    bool fixed_{false};
     /// Whether the current value is up to date or not
-    bool computed_;
+    bool computed_{false};
 
    public:
-    CoordValue() : fixed_(false), computed_(false) {}
+    CoordValue() {}
 
     CoordValue(bool fixed) : fixed_(fixed), computed_(false) {}
 

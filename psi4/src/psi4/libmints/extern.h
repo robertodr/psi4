@@ -49,9 +49,9 @@ class BasisSet;
 class ExternalPotential {
    protected:
     /// Debug flag
-    int debug_;
+    int debug_{0};
     /// Print flag
-    int print_;
+    int print_{1};
 
     /// Name of potential
     std::string name_;
