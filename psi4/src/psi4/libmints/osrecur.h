@@ -44,9 +44,9 @@ class ObaraSaikaTwoCenterRecursion {
     double **z_;
 
     // No default constructor
-    ObaraSaikaTwoCenterRecursion();
+    ObaraSaikaTwoCenterRecursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterRecursion &operator=(const ObaraSaikaTwoCenterRecursion &);
+    ObaraSaikaTwoCenterRecursion &operator=(const ObaraSaikaTwoCenterRecursion &) = delete;
 
    public:
     /// Constructor, max_am1 and max_am2 are the max angular momentum on center 1 and 2.
@@ -80,9 +80,9 @@ class ObaraSaikaTwoCenterMIRecursion {
     double ***z_;
 
     // No default constructor
-    ObaraSaikaTwoCenterMIRecursion();
+    ObaraSaikaTwoCenterMIRecursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterMIRecursion &operator=(const ObaraSaikaTwoCenterMIRecursion &);
+    ObaraSaikaTwoCenterMIRecursion &operator=(const ObaraSaikaTwoCenterMIRecursion &) = delete;
 
    public:
     ObaraSaikaTwoCenterMIRecursion(int max_am1, int max_am2, int max_m);
@@ -111,9 +111,9 @@ class ObaraSaikaTwoCenterVIRecursion {
 
    private:
     // No default constructor
-    ObaraSaikaTwoCenterVIRecursion();
+    ObaraSaikaTwoCenterVIRecursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterVIRecursion &operator=(const ObaraSaikaTwoCenterVIRecursion &);
+    ObaraSaikaTwoCenterVIRecursion &operator=(const ObaraSaikaTwoCenterVIRecursion &) = delete;
 
    public:
     /// Constructor, max_am1 and max_am2 are the max angular momentum on center 1 and 2.
@@ -153,9 +153,9 @@ class ObaraSaikaTwoCenterVIDerivRecursion : public ObaraSaikaTwoCenterVIRecursio
 
    private:
     // No default constructor();
-    ObaraSaikaTwoCenterVIDerivRecursion();
+    ObaraSaikaTwoCenterVIDerivRecursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterVIDerivRecursion &operator=(const ObaraSaikaTwoCenterVIDerivRecursion &);
+    ObaraSaikaTwoCenterVIDerivRecursion &operator=(const ObaraSaikaTwoCenterVIDerivRecursion &) = delete;
 
    public:
     ObaraSaikaTwoCenterVIDerivRecursion(int max_am1, int max_am2);
@@ -183,9 +183,9 @@ class ObaraSaikaTwoCenterVIDeriv2Recursion : public ObaraSaikaTwoCenterVIDerivRe
 
    private:
     // No default constructor();
-    ObaraSaikaTwoCenterVIDeriv2Recursion();
+    ObaraSaikaTwoCenterVIDeriv2Recursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterVIDeriv2Recursion &operator=(const ObaraSaikaTwoCenterVIDeriv2Recursion &);
+    ObaraSaikaTwoCenterVIDeriv2Recursion &operator=(const ObaraSaikaTwoCenterVIDeriv2Recursion &) = delete;
 
    public:
     ObaraSaikaTwoCenterVIDeriv2Recursion(int max_am1, int max_am2);
@@ -214,9 +214,9 @@ class ObaraSaikaTwoCenterElectricField : public ObaraSaikaTwoCenterVIRecursion {
 
    private:
     // No default constructor
-    ObaraSaikaTwoCenterElectricField();
+    ObaraSaikaTwoCenterElectricField() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterElectricField &operator=(const ObaraSaikaTwoCenterElectricField &);
+    ObaraSaikaTwoCenterElectricField &operator=(const ObaraSaikaTwoCenterElectricField &) = delete;
 
    public:
     ObaraSaikaTwoCenterElectricField(int max_am1, int max_am2);
@@ -245,9 +245,9 @@ class ObaraSaikaTwoCenterElectricFieldGradient : public ObaraSaikaTwoCenterElect
 
    private:
     // No default constructor
-    ObaraSaikaTwoCenterElectricFieldGradient();
+    ObaraSaikaTwoCenterElectricFieldGradient() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterElectricFieldGradient &operator=(const ObaraSaikaTwoCenterElectricFieldGradient &);
+    ObaraSaikaTwoCenterElectricFieldGradient &operator=(const ObaraSaikaTwoCenterElectricFieldGradient &) = delete;
 
    public:
     ObaraSaikaTwoCenterElectricFieldGradient(int max_am1, int max_am2);
@@ -296,9 +296,9 @@ class ObaraSaikaTwoCenterEFPRecursion {
 
    private:
     // No default constructor
-    ObaraSaikaTwoCenterEFPRecursion();
+    ObaraSaikaTwoCenterEFPRecursion() = delete;
     // No assignment operator
-    ObaraSaikaTwoCenterEFPRecursion &operator=(const ObaraSaikaTwoCenterEFPRecursion &);
+    ObaraSaikaTwoCenterEFPRecursion &operator=(const ObaraSaikaTwoCenterEFPRecursion &) = delete;
 
    public:
     /// Constructor, max_am1 and max_am2 are the max angular momentum on center 1 and 2.
@@ -345,10 +345,10 @@ class ObaraSaikaThreeCenterRecursion {
     double ***z_;
 
     // No default constructor
-    ObaraSaikaThreeCenterRecursion();
+    ObaraSaikaThreeCenterRecursion() = delete;
 
     // No assignment operator
-    ObaraSaikaThreeCenterRecursion &operator=(const ObaraSaikaThreeCenterRecursion &);
+    ObaraSaikaThreeCenterRecursion &operator=(const ObaraSaikaThreeCenterRecursion &) = delete;
 
    public:
     ObaraSaikaThreeCenterRecursion(int max_am1, int max_am2, int max_am3);
