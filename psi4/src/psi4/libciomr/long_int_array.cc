@@ -36,14 +36,12 @@
 ** \ingroup CIOMR
 */
 
-#include "psi4/psifiles.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
-
-#include <cstdio>
-#include <cstdlib>
 #include <cstring>
+
+#include "psi4/psi4-dec.h"
+#include "psi4/psifiles.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
 
 namespace psi {
 
@@ -66,7 +64,7 @@ long int *init_long_int_array(int size) {
         outfile->Printf("size = %d\n", size);
         exit(PSI_RETURN_FAILURE);
     }
-    memset(array, 0, sizeof(long int) * size);
+    std::memset(array, 0, sizeof(long int) * size);
     return (array);
 }
 }

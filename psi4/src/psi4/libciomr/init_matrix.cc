@@ -32,14 +32,12 @@
 ** \ingroup CIOMR
 */
 
+#include <cstring>
+
 #include "psi4/psifiles.h"
 #include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include "psi4/libpsi4util/PsiOutStream.h"
 
 namespace psi {
 
@@ -86,9 +84,9 @@ double **init_matrix(size_t n, size_t m) {
         exit(PSI_RETURN_FAILURE);
     }
 
-    // bzero is not in the C standard, use memset instead.
+    // bzero is not in the C standard, use std::memset instead.
     // bzero(B, m*n*(size_t)sizeof(double));
-    memset(static_cast<void *>(B), 0, m * n * sizeof(double));
+    std::memset(static_cast<void *>(B), 0, m * n * sizeof(double));
 
     for (i = 0; i < n; i++) {
         A[i] = &(B[i * m]);

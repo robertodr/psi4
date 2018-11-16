@@ -32,9 +32,9 @@
 ** \ingroup CIOMR
 */
 
-#include "psi4/psifiles.h"
-#include "libciomr.h"
 #include <cstdlib>
+
+#include "libciomr.h"
 #include "psi4/libqt/qt.h"
 
 namespace psi {

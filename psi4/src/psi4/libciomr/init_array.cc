@@ -32,12 +32,13 @@
 ** \ingroup CIOMR
 */
 
+#include <cstring>
+
 #include "psi4/psifiles.h"
-#include <cstdio>
-#include <cstdlib>
 #include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
+
 namespace psi {
 
 /*!
@@ -58,7 +59,7 @@ double *init_array(size_t size) {
         outfile->Printf("size = %ld\n", size);
         exit(PSI_RETURN_FAILURE);
     }
-    memset(array, 0, size * (size_t)sizeof(double));
+    std::memset(array, 0, size * (size_t)sizeof(double));
     return (array);
 }
 }

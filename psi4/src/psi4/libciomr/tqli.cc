@@ -32,12 +32,12 @@
 ** \ingroup CIOMR
 */
 
-#include "psi4/psifiles.h"
+#include <cmath>
+
 #include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
 
-#include <cstdio>
-#include <cmath>
 #define DSIGN(a, b) (((b) >= 0.0) ? (std::fabs(a)) : (-std::fabs(a)))
 
 namespace psi {

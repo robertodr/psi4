@@ -36,12 +36,14 @@
 ** \ingroup CIOMR
 */
 
-#include "psi4/psifiles.h"
-#include <cstdio>
-#include <cstdlib>
 #include <cstring>
+
+#include "psi4/pragma.h"
 #include "psi4/psi4-dec.h"
+#include "psi4/psifiles.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
+
 namespace psi {
 
 /*!
@@ -67,7 +69,7 @@ PSI_API int *init_int_array(int size) {
         outfile->Printf("size = %d\n", size);
         exit(PSI_RETURN_FAILURE);
     }
-    memset(array, 0, sizeof(int) * size);
+    std::memset(array, 0, sizeof(int) * size);
     return (array);
 }
 
@@ -82,7 +84,7 @@ PSI_API int *init_int_array(int size) {
 **
 ** \ingroup CIOMR
 */
-void zero_int_array(int *a, int size) { memset(a, 0, sizeof(int) * size); }
+void zero_int_array(int *a, int size) { std::memset(a, 0, sizeof(int) * size); }
 
 /*!
 ** init_int_matrix():
@@ -115,7 +117,7 @@ PSI_API int **init_int_matrix(int rows, int cols) {
     for (i = 1; i < rows; i++) {
         array[i] = array[i - 1] + cols;
     }
-    memset(array[0], 0, sizeof(int) * cols * rows);
+    std::memset(array[0], 0, sizeof(int) * cols * rows);
 
     return array;
 }

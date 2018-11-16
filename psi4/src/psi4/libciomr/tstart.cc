@@ -33,10 +33,6 @@
 */
 
 #define EXTERN
-#include "psi4/psi4-dec.h"
-#include "psi4/times.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -49,6 +45,12 @@
 #else
 #include <unistd.h>
 #endif
+
+#include "psi4/pragma.h"
+#include "psi4/psi4-dec.h"
+#include "psi4/times.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
 
 namespace psi {
 
