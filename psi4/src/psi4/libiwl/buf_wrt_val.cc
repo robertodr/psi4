@@ -30,12 +30,18 @@
   \file
   \ingroup IWL
 */
-#include <cstdio>
+
 #include <cmath>
-#include "psi4/libciomr/libciomr.h"
+#include <memory>
+
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "config.h"
 #include "iwl.h"
 #include "iwl.hpp"
-#include "psi4/libpsi4util/PsiOutStream.h"
+
 namespace psi {
 
 void IWL::write_value(int p, int q, int r, int s, double value, int printflag, std::string out, int dirac) {

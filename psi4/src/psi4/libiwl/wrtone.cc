@@ -31,9 +31,9 @@
   \ingroup IWL
 */
 #include <cstdio>
-#include "psi4/libpsio/psio.h"
-#include "iwl.h"
+
 #include "iwl.hpp"
+#include "psi4/libpsio/config.h"
 
 namespace psi {
 
@@ -51,6 +51,8 @@ namespace psi {
 ** Revised by TDC, June 2001
 ** \ingroup IWL
 */
+class PSIO;
+
 void IWL::write_one(PSIO *psio, int itap, const char *label, int ntri, double *onel_ints) {
     psio->open(itap, PSIO_OPEN_OLD);
     psio->write_entry(itap, label, (char *)onel_ints, ntri * sizeof(double));

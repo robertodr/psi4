@@ -30,14 +30,16 @@
   \file
   \ingroup IWL
 */
-#include <cstdio>
-#include <cstdlib>
-#include "psi4/libpsio/psio.h"
+
+#include "psi4/pragma.h"
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsio/config.h"
+#include "psi4/libpsi4util/PsiOutStream.h"
+
 #include "iwl.h"
 #include "iwl.hpp"
-#include "psi4/psi4-dec.h"  //need outfile
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
+#include "config.h"
 
 namespace psi {
 

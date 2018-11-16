@@ -31,9 +31,10 @@
   \ingroup IWL
 */
 #include <cstdio>
-#include "psi4/libciomr/libciomr.h"
+
 #include "iwl.h"
 #include "iwl.hpp"
+#include "psi4/libiwl/config.h"
 
 namespace psi {
 

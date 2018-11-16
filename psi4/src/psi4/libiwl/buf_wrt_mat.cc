@@ -30,12 +30,16 @@
   \file
   \ingroup IWL
 */
-#include <cstdio>
+
 #include <cmath>
-#include "psi4/libciomr/libciomr.h"
-#include "iwl.h"
-#include "iwl.hpp"
+
+#include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "config.h"
+#include "iwl.hpp"
+
 namespace psi {
 
 #define MAX0(a, b) (((a) > (b)) ? (a) : (b))
