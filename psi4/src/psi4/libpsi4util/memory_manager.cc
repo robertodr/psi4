@@ -26,17 +26,19 @@
  * @END LICENSE
  */
 
-#include <map>
-#include <vector>
-#include <string>
+#include "memory_manager.h"
+
 #include <cstdio>
 #include <cstdlib>
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
 
-#include "psi4/liboptions/liboptions.h"
-#include "psi4/libciomr/libciomr.h"
 #include "psi4/psi4-dec.h"
-#include "memory_manager.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "PsiOutStream.h"
+
 namespace psi {
 
 double bytes_to_MiB(size_t n) {

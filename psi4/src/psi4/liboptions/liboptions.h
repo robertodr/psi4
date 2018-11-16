@@ -36,13 +36,14 @@
 #undef _XOPEN_SOURCE
 #endif
 
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/libpsi4util/libpsi4util.h"  // Needed for Ref counting, string splitting, and conversions
-
+#include <map>
 #include <memory>
 #include <string>
 #include <vector>
-#include <map>
+
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/libpsi4util.h"  // Needed for Ref counting, string splitting, and conversions
+#include "psi4/pragma.h"
 
 namespace psi {
 
@@ -71,6 +72,7 @@ class OptionsException : public PsiException {
 };
 
 class PSI_API Data;
+
 class DataType {
     bool changed_;
 

@@ -26,11 +26,9 @@
  * @END LICENSE
  */
 
+#include "process.h"
+
 #include "psi4/psi4-dec.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/extern.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
 
 // MKL Header
 #ifdef USING_LAPACK_MKL
@@ -42,6 +40,8 @@
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+#include "exception.h"
 
 #define STRINGIFY(x) #x
 #define TOSTRING(x) STRINGIFY(x)

@@ -29,23 +29,23 @@
 #ifndef PROCESS_H_
 #define PROCESS_H_
 
-#include <string>
 #include <map>
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
+#include <string>
 #include <memory>
-PRAGMA_WARNING_POP
-#include "psi4/liboptions/liboptions.h"
+
+#include "psi4/pragma.h"
+
 #include "psi4/libmints/typedefs.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/liboptions/liboptions.h"
+
+#include "PsiOutStream.h"
 
 namespace psi {
-class Molecule;
-class Wavefunction;
-class PointGroup;
 class Matrix;
+class Molecule;
+class PointGroup;
 class Vector;
+class Wavefunction;
 
 class PSI_API Process {
    public:

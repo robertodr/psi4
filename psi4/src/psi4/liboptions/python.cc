@@ -26,8 +26,11 @@
  * @END LICENSE
  */
 
-#include "liboptions.h"
 #include "liboptions_python.h"
+
+namespace pybind11 {
+class object;
+}  // namespace pybind11
 
 namespace psi {
 

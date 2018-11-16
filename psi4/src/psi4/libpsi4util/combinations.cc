@@ -26,10 +26,8 @@
  * @END LICENSE
  */
 
-#include <cstdlib>
 #include <algorithm>
-
-#include "libpsi4util.h"
+#include <vector>
 
 namespace psi {
 
@@ -39,7 +37,7 @@ namespace psi {
  * @param k
  * @param combinations a vector<vector<int> > that will store all the combinations
  */
-void generate_combinations(int n, int k, std::vector<std::vector<int> >& combinations) {
+void generate_combinations(int n, int k, std::vector<std::vector<int>>& combinations) {
     if ((n > 0) && (k > 0)) {
         std::vector<int> combination;
         auto* a = new bool[n];
@@ -55,4 +53,4 @@ void generate_combinations(int n, int k, std::vector<std::vector<int> >& combina
         delete[] a;
     }
 }
-}
+}  // namespace psi
