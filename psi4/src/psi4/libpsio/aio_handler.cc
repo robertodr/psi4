@@ -31,15 +31,19 @@
  \ingroup PSIO
  */
 
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
 #include "aiohandler.h"
+
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <functional>
+#include <memory>
+#include <queue>
+
 #include "psi4/libpsi4util/exception.h"
 
-#include <cstdio>
-#include <memory>
-#include <algorithm>
-#include <functional>
+#include "psio.h"
+#include "psio.hpp"
 
 namespace psi {
 
@@ -407,7 +411,7 @@ void AIOHandler::call_aio() {
             lock.unlock();
 
             double *buf = new double[col_length];
-            memset(static_cast<void *>(buf), '\0', col_length * sizeof(double));
+            std::memset(static_cast<void *>(buf), '\0', col_length * sizeof(double));
 
             psio_address next_psio = PSIO_ZERO;
             for (int i = 0; i < row_length; i++) {

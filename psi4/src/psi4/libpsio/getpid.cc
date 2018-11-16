@@ -35,17 +35,20 @@
 
 #ifdef _MSC_VER
 #include <process.h>
+
 #define SYSTEM_GETPID ::_getpid
 #else
 #include <unistd.h>
+
 #define SYSTEM_GETPID ::getpid
 #endif
-#include <cstring>
 #include <cstdlib>
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/psi4-dec.h"
+#include <cstring>
 #include <sstream>
+
+#include "psi4/psi4-dec.h"
+
+#include "psio.hpp"
 
 namespace psi {
 

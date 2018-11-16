@@ -26,29 +26,25 @@
  * @END LICENSE
  */
 
-#include <iostream>
-#include <vector>
-#include <map>
+#include <algorithm>
+#include <cassert>
 #include <cstddef>
-#include <stdexcept>
 #include <cstdio>
 #include <cstdlib>
 #include <iomanip>
-#include <sstream>
-#include <algorithm>
-#include <cassert>
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
+#include <iostream>
+#include <map>
 #include <memory>
-PRAGMA_WARNING_POP
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/libpsi4util/libpsi4util.h"  // Needed for Ref counting, string splitting, and conversions
+#include <sstream>
+#include <stdexcept>
+#include <vector>
+
+#include "psi4/pragma.h"
+#include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
 
 #include "liboptions.h"
-#include "psi4/psi4-dec.h"
 
 namespace psi {
 

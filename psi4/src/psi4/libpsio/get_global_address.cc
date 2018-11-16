@@ -31,6 +31,7 @@
  \ingroup PSIO
  */
 
+#include "psi4/libpsio/config.h"
 #include "psi4/libpsio/psio.h"
 
 namespace psi {

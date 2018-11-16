@@ -28,20 +28,24 @@
 
 #ifdef _MSC_VER
 #include <io.h>
+
 #define SYSTEM_UNLINK ::_unlink
 #else
 #include <unistd.h>
+
 #define SYSTEM_UNLINK ::unlink
 #endif
 #include <cstdio>
 #include <cstdlib>
 #include <string>
 
-#include "psio.hpp"
-#include "psio.h"
-#include "psi4/libpsi4util/exception.h"
 #include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+
+#include "psio.h"
+#include "psio.hpp"
 
 namespace psi {
 

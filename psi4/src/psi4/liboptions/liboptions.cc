@@ -26,31 +26,26 @@
  * @END LICENSE
  */
 
-#include <iostream>
-#include <vector>
-#include <map>
+#include "liboptions.h"
+
+#include <cassert>
 #include <cstddef>
-#include <stdexcept>
 #include <cstdio>
 #include <cstdlib>
 #include <iomanip>
-#include <sstream>
+#include <iostream>
+#include <map>
+#include <memory>
 #include <numeric>
-#include <cassert>
+#include <sstream>
+#include <stdexcept>
+#include <typeinfo>
+#include <vector>
 
-#include "liboptions.h"
-#include "liboptions_python.h"
+#include "psi4/psi4-dec.h"
 
 #include "psi4/libpsi4util/exception.h"
-#include "psi4/libpsi4util/libpsi4util.h"  // Needed for Ref counting, string splitting, and conversions
-#include "psi4/pragma.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
-#include <memory>
-
-#include <typeinfo>
-#include "psi4/pybind11.h"
-#include "psi4/psi4-dec.h"
 
 namespace psi {
 

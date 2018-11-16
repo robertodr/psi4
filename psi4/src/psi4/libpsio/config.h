@@ -29,6 +29,8 @@
 #ifndef _psi_src_lib_libpsio_config_h_
 #define _psi_src_lib_libpsio_config_h_
 
+#include <cstddef>
+
 #include "psi4/pragma.h"
 
 namespace psi {

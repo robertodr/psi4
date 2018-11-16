@@ -31,15 +31,11 @@
  \ingroup PSIO
  */
 
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
 #include <cstdio>
 #include <cstdlib>
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
+#include <memory>
+
+#include "psio.hpp"
 
 namespace psi {
 

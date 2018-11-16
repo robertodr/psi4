@@ -32,10 +32,10 @@
  */
 
 #include <cstdio>
-#include <cstring>
 #include <cstdlib>
+#include <cstring>
 #include <string>
-#include "psi4/libpsio/psio.h"
+
 #include "psi4/libpsio/psio.hpp"
 
 namespace psi {

@@ -26,22 +26,17 @@
  * @END LICENSE
  */
 
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
-
-#include <string>
-#include <map>
-#include <sstream>
 #include <algorithm>
 #include <cctype>
-
 #include <iostream>
+#include <map>
+#include <memory>
 #include <ostream>
+#include <sstream>
+#include <string>
+
+#include "psio.h"
+#include "psio.hpp"
 
 namespace psi {
 

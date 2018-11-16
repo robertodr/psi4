@@ -31,15 +31,16 @@
  \ingroup PSIO
  */
 
+#include "psi4/libpsio/config.h"
 #ifdef _MSC_VER
 #include <io.h>
+
 #define SYSTEM_LSEEK ::_lseek
 #else
 #include <unistd.h>
+
 #define SYSTEM_LSEEK ::lseek
 #endif
-#include "psi4/libpsio/psio.h"
-#include "psi4/psi4-dec.h"
 /* This is strictly used to avoid overflow errors on lseek() calls */
 #define PSIO_BIGNUM 10000
 

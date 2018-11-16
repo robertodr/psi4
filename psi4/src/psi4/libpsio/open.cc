@@ -31,12 +31,13 @@
  \ingroup PSIO
  */
 
-#include <cstdio>
 #include <fcntl.h>
-#include <cstring>
+#include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #ifdef _MSC_VER
 #include <io.h>
+
 #define SYSTEM_OPEN ::_open
 #define SYSTEM_CLOSE ::_close
 #define PSIO_OPEN_OLD_FLAGS _O_BINARY | _O_CREAT | _O_RDWR
@@ -44,18 +45,21 @@
 #define PERMISSION_MODE _S_IWRITE
 #else
 #include <unistd.h>
+
 #define SYSTEM_OPEN ::open
 #define SYSTEM_CLOSE ::close
 #define PSIO_OPEN_OLD_FLAGS O_CREAT | O_RDWR
 #define PSIO_OPEN_NEW_FLAGS O_CREAT | O_RDWR | O_TRUNC
 #define PERMISSION_MODE S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 #endif
-#include <string>
 #include <map>
 #include <sstream>
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/psi4-dec.h"
+#include <string>
+
+#include "config.h"
+#include "psio.h"
+#include "psio.hpp"
+
 namespace psi {
 
 void PSIO::open(size_t unit, int status) {

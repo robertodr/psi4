@@ -35,18 +35,22 @@
 
 #ifdef _MSC_VER
 #include <io.h>
+
 #define SYSTEM_CLOSE ::_close
 #define SYSTEM_UNLINK ::_unlink
 #else
 #include <unistd.h>
+
 #define SYSTEM_CLOSE ::close
 #define SYSTEM_UNLINK ::unlink
 #endif
-#include <cstring>
 #include <cstdlib>
-#include "psi4/libpsio/psio.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/psi4-dec.h"
+#include <cstring>
+
+#include "config.h"
+#include "psio.h"
+#include "psio.hpp"
+
 namespace psi {
 
 void PSIO::close(size_t unit, int keep) {
