@@ -27,10 +27,13 @@
  */
 
 #include "integraltransform.h"
-#include "mospace.h"
+
+#include <memory>
 
 #include "psi4/libpsi4util/exception.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "mospace.h"
 
 using namespace psi;
 

@@ -27,7 +27,7 @@
  */
 
 #include "mospace.h"
-#include "psi4/libciomr/libciomr.h"
+
 #include <memory>
 #include <vector>
 

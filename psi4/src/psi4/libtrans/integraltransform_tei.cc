@@ -27,15 +27,10 @@
  */
 
 #include "integraltransform.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libiwl/iwl.hpp"
-#include "psi4/libqt/qt.h"
-#include <cmath>
+
 #include <cctype>
+#include <cmath>
 #include <cstdio>
-#include "psi4/psifiles.h"
-#include "mospace.h"
 
 using namespace psi;
 

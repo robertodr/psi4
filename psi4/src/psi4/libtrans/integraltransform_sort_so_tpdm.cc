@@ -27,14 +27,15 @@
  */
 
 #include "integraltransform.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libdpd/dpd.h"
 
 #include "psi4/psifiles.h"
+
+#include "psi4/libdpd/dpd.h"
+#include "psi4/libmints/integral.h"
 #include "psi4/libmints/sobasis.h"
 #include "psi4/libmints/wavefunction.h"
 #include "psi4/libpsio/psio.hpp"
-#include "psi4/libmints/integral.h"
+
 #ifdef INDEX2
 #undef INDEX2
 #define INDEX2(i, j) ((i) > (j) ? (i) * ((i) + 1) / 2 + (j) : (j) * ((j) + 1) / 2 + (i))

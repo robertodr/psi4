@@ -31,11 +31,13 @@
 
 #include <array>
 #include <map>
-#include <vector>
+#include <memory>
 #include <string>
+#include <vector>
+
+#include "psi4/pragma.h"
+
 #include "psi4/libmints/dimension.h"
-#include "psi4/libmints/typedefs.h"
-#include "mospace.h"
 
 #ifndef INDEX
 #define INDEX(i, j) (((i) > (j)) ? (((i) * ((i) + 1) / 2) + (j)) : (((j) * ((j) + 1) / 2) + (i)))
@@ -43,13 +45,13 @@
 
 namespace psi {
 
-struct dpdbuf4;
+class MOSpace;
 class Matrix;
-class Dimension;
-class Wavefunction;
+using SharedMatrix = std::shared_ptr<Matrix>;
 class PSIO;
-
-typedef std::vector<std::shared_ptr<MOSpace> > SpaceVec;
+class Wavefunction;
+struct dpdbuf4;
+using SpaceVec = std::vector<std::shared_ptr<MOSpace>>;
 
 /**
    The IntegralTransform class transforms one- and two-electron integrals

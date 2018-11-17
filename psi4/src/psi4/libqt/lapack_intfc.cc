@@ -37,8 +37,9 @@
 
 #include <algorithm>
 
-#include "qt.h"
 #include "lapack_intfc_mangle.h"
+#include "psi4/pragma.h"
+#include "qt.h"
 
 extern "C" {
 extern int F_DBDSDC(char*, char*, int*, double*, double*, double*, int*, double*, int*, double*, int*, double*, int*,

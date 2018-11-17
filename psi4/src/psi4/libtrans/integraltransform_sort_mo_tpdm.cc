@@ -27,16 +27,16 @@
  */
 
 #include "integraltransform.h"
-#include "integraltransform_functors.h"
-#include "mospace.h"
 
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libiwl/iwl.hpp"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/exception.h"
 #include "psi4/psifiles.h"
+
+#include "psi4/libciomr/libciomr.h"
+#include "psi4/libdpd/dpd.h"
+#include "psi4/libiwl/config.h"
+#include "psi4/libiwl/iwl.hpp"
+#include "psi4/libpsio/config.h"
+
+#include "integraltransform_functors.h"
 
 using namespace psi;
 

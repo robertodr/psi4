@@ -29,9 +29,11 @@
 #ifndef _PSI_SRC_LIB_LIBTRANS_MOSPACE_H_
 #define _PSI_SRC_LIB_LIBTRANS_MOSPACE_H_
 
-#include "psi4/psi4-dec.h"
 #include <map>
 #include <vector>
+
+#include "psi4/pragma.h"
+#include "psi4/psi4-dec.h"
 
 namespace psi {
 
