@@ -32,10 +32,9 @@
 ** \ingroup QT
 */
 
-#include <cstdio>
 #include <cmath>
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
+
+#include "qt.h"
 
 namespace psi {
 

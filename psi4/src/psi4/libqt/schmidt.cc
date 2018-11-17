@@ -32,11 +32,10 @@
   \ingroup QT
 */
 
-#include <cstdio>
-#include <cstdlib>
 #include <cmath>
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
+#include <string>
+
+#include "qt.h"
 
 namespace psi {
 
@@ -62,7 +61,7 @@ void schmidt(double **A, int rows, int cols, std::string) {
     for (size_t i = 0; i < cols; ++i) {
         // dot_arr(A[i],A[i],cols,&RValue);
         RValue = C_DDOT(cols, A[i], 1, A[i], 1);
-        RValue = sqrt(RValue);
+        RValue = std::sqrt(RValue);
         for (size_t I = 0; I < cols; ++I) A[i][I] /= RValue;
         for (size_t j = i + 1; j < cols; ++j) {
             // dot_arr(A[i],A[j],cols,&RValue);

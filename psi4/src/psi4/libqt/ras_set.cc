@@ -32,15 +32,11 @@
   \ingroup QT
 */
 
-#include "qt.h"
-
 #include "psi4/libciomr/libciomr.h"
-#include "psi4/psifiles.h"
 #include "psi4/liboptions/liboptions.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
 
-#include <cstdio>
-#include <cstdlib>
+#include "qt.h"
 
 namespace psi {
 
@@ -132,6 +128,8 @@ namespace psi {
 ** Returns: 1 for success, 0 otherwise
 ** \ingroup QT
 */
+class Options;
+
 int ras_set3(int nirreps, int nmo, int *orbspi, int *docc, int *socc, int *frdocc, int *fruocc, int *restrdocc,
              int *restruocc, int **ras_opi, int *core_guess, int *order, int ras_type, bool is_mcscf,
              Options &options) {

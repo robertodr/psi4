@@ -32,25 +32,15 @@
 11/13/2012
  */
 
-#include <cstdlib>
-#include <cstdio>
-#include <iostream>
 #include <fstream>
-#include <cmath>
-#include <algorithm>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <utility>
+
+#include "psi4/physconst.h"
 
 #include "psi4/libmints/basisset.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/physconst.h"
-#include "psi4/psi4-dec.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
 #include "psi4/libpsi4util/exception.h"
 
-using namespace psi;
+#include "qt.h"
 
 namespace psi {
 

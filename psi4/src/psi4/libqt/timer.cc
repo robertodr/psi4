@@ -74,17 +74,9 @@
 ** Tianyuan Zhang, June 2017
 */
 
-#include "psi4/times.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/psifiles.h"
-
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
+#include <chrono>
+#include <list>
+#include <memory>
 
 #ifdef _MSC_VER
 #include <Winsock2.h>
@@ -93,30 +85,29 @@
 #include <unistd.h>
 #endif
 
-#include <chrono>
-#include <list>
-#include <map>
-#include <string>
-#include <utility>
-#include <vector>
-#include <algorithm>
 #ifdef _OPENMP
 #include <omp.h>
 #else
 typedef int omp_lock_t;
-#define omp_init_lock(lock_timer_p) \
-    do {                            \
+#define omp_init_lock(lock_timer_p)             \
+    do {                                        \
     } while (0)
-#define omp_set_lock(lock_timer_p) \
-    do {                           \
+#define omp_set_lock(lock_timer_p)              \
+    do {                                        \
     } while (0)
-#define omp_unset_lock(lock_timer_p) \
-    do {                             \
+#define omp_unset_lock(lock_timer_p)            \
+    do {                                        \
     } while (0)
-#define omp_destroy_lock(lock_timer_p) \
-    do {                               \
+#define omp_destroy_lock(lock_timer_p)          \
+    do {                                        \
     } while (0)
 #endif
+
+#include "psi4/pragma.h"
+#include "psi4/times.h"
+
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/PsiOutStream.h"
 
 /* guess for HZ, if missing */
 #ifndef HZ

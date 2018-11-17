@@ -32,13 +32,14 @@
   \ingroup QT
 */
 
-#include <cstdio>
-#include <cstring>
-#include <cstdlib>
 #include <cmath>
+#include <cstring>
+
 #include "psi4/libciomr/libciomr.h"
-#include "qt.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "qt.h"
+
 namespace psi {
 
 #define SMALL_DET 1.0E-10
@@ -76,16 +77,16 @@ double invert_matrix(double **a, double **y, int N, std::string out) {
     ludcmp(a, N, indx, &d);
     for (j = 0; j < N; j++) d *= a[j][j];
 
-    /* outfile->Printf("detH0 in invert = %lf\n", std::fabs(d));
+    /* outfile->Printf("detH0 in invert = %lf\n", std::abs(d));
      */
 
-    if (std::fabs(d) < SMALL_DET) {
+    if (std::abs(d) < SMALL_DET) {
         printer->Printf("Warning (invert_matrix): Determinant is %g\n", d);
         printf("Warning (invert_matrix): Determinant is %g\n", d);
     }
 
     for (j = 0; j < N; j++) {
-        memset(col, '\0', sizeof(double) * N);
+        std::memset(col, '\0', sizeof(double) * N);
         col[j] = 1.0;
         lubksb(a, N, indx, col);
         colptr = col;
@@ -95,7 +96,7 @@ double invert_matrix(double **a, double **y, int N, std::string out) {
     free(col);
     free(indx);
 
-    d = std::fabs(d);
+    d = std::abs(d);
     return (d);
 }
 }

@@ -26,24 +26,19 @@
  * @END LICENSE
  */
 
-#include <cstdio>
-#include <cmath>
-#include "psi4/psi4-dec.h"
+#include <memory>
+
+#include "psi4/physconst.h"
 
 #include "psi4/libciomr/libciomr.h"
-#include "psi4/libpsio/psio.h"
-#include "psi4/libiwl/iwl.h"
-#include "psi4/libdpd/dpd.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/psifiles.h"
-#include "psi4/physconst.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/wavefunction.h"
 #include "psi4/libmints/basisset.h"
 #include "psi4/libmints/mintshelper.h"
+#include "psi4/libmints/molecule.h"
 #include "psi4/libmints/petitelist.h"
+#include "psi4/libmints/wavefunction.h"
+
+#include "qt.h"
+
 namespace psi {
 
 /*
