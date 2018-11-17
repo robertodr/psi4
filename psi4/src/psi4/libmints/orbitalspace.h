@@ -30,8 +30,9 @@
 #define _psi_src_lib_libmints_moindexspace_h_
 
 #include <string>
+
+#include "dimension.h"
 #include "typedefs.h"
-#include "psi4/libmints/dimension.h"
 
 namespace psi {
 class BasisSet;

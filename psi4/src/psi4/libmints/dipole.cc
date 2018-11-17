@@ -32,6 +32,7 @@
 #include "basisset.h"
 #include "integral.h"
 #include "molecule.h"
+#include "vector.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 

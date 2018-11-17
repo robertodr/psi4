@@ -26,26 +26,27 @@
  * @END LICENSE
  */
 
-#include "basisset.h"
-#include "gshell.h"
-#include "integral.h"
-#include "sobasis.h"
-#include "matrix.h"
-#include "molecule.h"
+#include "sointegral_onebody.h"
 
-#include "psi4/psi4-dec.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/libmints/sointegral_twobody.h"
-#include "psi4/libmints/twobody.h"
-#include "psi4/libpsi4util/process.h"
+#include <memory>
 
 #include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
+
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/process.h"
+
+#include "basisset.h"
+#include "cdsalclist.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "onebody.h"
+#include "petitelist.h"
+#include "sobasis.h"
+#include "sointegral_onebody.h"
+#include "sointegral_twobody.h"
 
 namespace psi {
+class IntegralFactory;
 
 OneBodySOInt::OneBodySOInt(const std::shared_ptr<OneBodyAOInt> &ob, const std::shared_ptr<IntegralFactory> &integral)
     : ob_(ob), integral_(integral.get()), deriv_(ob->deriv()) {

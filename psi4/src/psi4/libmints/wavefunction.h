@@ -29,15 +29,18 @@
 #ifndef _psi_src_lib_libmints_wavefunction_h
 #define _psi_src_lib_libmints_wavefunction_h
 
-#include "typedefs.h"
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/libmints/dimension.h"
-
-#include <cstddef>
-#include <vector>
 #include <array>
-#include <memory>
+#include <cstddef>
 #include <map>
+#include <memory>
+#include <vector>
+
+#include "psi4/pragma.h"
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "dimension.h"
+#include "typedefs.h"
 
 #define MAX_IOFF 30000
 extern size_t ioff[MAX_IOFF];
@@ -65,18 +68,18 @@ extern double fac[MAX_FAC];
 
 namespace psi {
 
-class Molecule;
 class BasisSet;
+class ExternalPotential;
 class IntegralFactory;
 class Matrix;
-class Vector;
 class MatrixFactory;
+class Molecule;
 class Options;
-class SOBasisSet;
+class OrbitalSpace;
 class PCM;
 class PSIO;
-class OrbitalSpace;
-class ExternalPotential;
+class SOBasisSet;
+class Vector;
 
 /*! \ingroup MINTS
  *  \class Wavefunction
@@ -256,11 +259,11 @@ class PSI_API Wavefunction : public std::enable_shared_from_this<Wavefunction> {
     Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<BasisSet> basis);
 
     /// Constructor for a wavefunction deserialized from a file and initialized in the form of maps to all member variables
-    Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<BasisSet> basisset, 
+    Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<BasisSet> basisset,
                                std::map<std::string, std::shared_ptr<Matrix>> matrices,
                                std::map<std::string, std::shared_ptr<Vector>> vectors,
-                               std::map<std::string, Dimension> dimensions, std::map<std::string, int> ints, 
-                               std::map<std::string, std::string> strings, std::map<std::string, bool> booleans, 
+                               std::map<std::string, Dimension> dimensions, std::map<std::string, int> ints,
+                               std::map<std::string, std::string> strings, std::map<std::string, bool> booleans,
                                std::map<std::string, double> floats);
 
     /// Blank constructor for derived classes

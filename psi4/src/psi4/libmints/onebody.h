@@ -29,6 +29,7 @@
 #ifndef _psi_src_lib_libmints_onebody_h_
 #define _psi_src_lib_libmints_onebody_h_
 
+#include <memory>
 #include <vector>
 #ifdef _POSIX_C_SOURCE
 #undef _POSIX_C_SOURCE
@@ -36,17 +37,18 @@
 #ifdef _XOPEN_SOURCE
 #undef _XOPEN_SOURCE
 #endif
-#include "psi4/libpsi4util/exception.h"
-#include "typedefs.h"
-#include "psi4/libmints/vector3.h"
 
 #include "psi4/libpsi4util/exception.h"
+
+#include "vector3.h"
 
 namespace psi {
 
 class BasisSet;
 class GaussianShell;
 class SphericalTransform;
+class Matrix;
+using SharedMatrix = std::shared_ptr<Matrix>;
 
 /*! \ingroup MINTS
  *  \class OneBodyInt

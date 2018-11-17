@@ -82,7 +82,7 @@
 #include <cstring>
 #include "psi4/libpsi4util/exception.h"
 
-#include "psi4/libmints/pointgrp.h"
+#include "pointgrp.h"
 
 using namespace psi;
 

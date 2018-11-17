@@ -53,19 +53,20 @@
 // The U.S. Government is granted a limited license as per AL 91-7.
 //
 
-#include "integral.h"
 #include "fjt.h"
-#include "wavefunction.h"
-#include "integralparameters.h"
-
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
 
 #include <cmath>
+#include <memory>
+
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libciomr/libciomr.h"
+#include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "integralparameters.h"
+#include "wavefunction.h"
 
 using namespace psi;
-;
 
 const double oon[] = {0.0,       1.0,       1.0 / 2.0, 1.0 / 3.0, 1.0 / 4.0,  1.0 / 5.0,
                       1.0 / 6.0, 1.0 / 7.0, 1.0 / 8.0, 1.0 / 9.0, 1.0 / 10.0, 1.0 / 11.0};

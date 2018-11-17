@@ -26,17 +26,18 @@
  * @END LICENSE
  */
 
-#include "psi4/libqt/qt.h"
-#include "matrix.h"
 #include "vector.h"
-#include "dimension.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
 
 #include <algorithm>
-#include <numeric>
-#include <cstdlib>
-#include <cstring>
 #include <cmath>
+#include <numeric>
+
+#include "psi4/libqt/qt.h"
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+
+#include "dimension.h"
+#include "matrix.h"
 
 namespace psi {
 

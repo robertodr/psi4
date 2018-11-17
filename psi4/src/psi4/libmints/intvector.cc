@@ -26,12 +26,14 @@
  * @END LICENSE
  */
 
-#include <cstdlib>
 #include <cstring>
-#include "psi4/libqt/qt.h"
-#include "matrix.h"
-#include "vector.h"
+
+#include "psi4/psi4-dec.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "vector.h"
+
 using namespace psi;
 
 IntVector::IntVector() {

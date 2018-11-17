@@ -29,9 +29,8 @@
 #ifndef _psi_src_lib_libmints_gshell_h_
 #define _psi_src_lib_libmints_gshell_h_
 
-#include <cstdio>
+#include <string>
 #include <vector>
-#include "psi4/libmints/vector3.h"
 
 namespace psi {
 

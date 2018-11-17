@@ -29,16 +29,16 @@
 #ifndef _psi_src_lib_libmints_sobasis_h_
 #define _psi_src_lib_libmints_sobasis_h_
 
+#include <memory>
 #include <vector>
-#include <cstdio>
 
-#include "dimension.h"
+#include "psi4/pragma.h"
 
 namespace psi {
 
 class BasisSet;
-class IntegralFactory;
 class Dimension;
+class IntegralFactory;
 class PetiteList;
 
 /*! \ingroup MINTS */

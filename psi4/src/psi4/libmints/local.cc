@@ -28,15 +28,19 @@
 
 #include "local.h"
 
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/onebody.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
+#include <cmath>
+
 #include "psi4/liboptions/liboptions.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
 #include "psi4/libpsi4util/process.h"
+#include "psi4/libqt/qt.h"
+
+#include "basisset.h"
+#include "integral.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "onebody.h"
 
 using namespace psi;
 
@@ -260,7 +264,7 @@ void BoysLocalizer::localize() {
                 theta = 0.5 * atan2(Ho, Hd + sqrt(Hd * Hd + Ho * Ho));
 
                 // Check for trivial (maximal) rotation, which might be better with theta = pi/4
-                if (std::fabs(theta) < 1.0E-8) {
+                if (std::abs(theta) < 1.0E-8) {
                     double O0 = 0.0;
                     double O1 = 0.0;
                     ;
@@ -307,7 +311,7 @@ void BoysLocalizer::localize() {
             metric += C_DDOT(nmo, Dp[xyz][0], nmo + 1, Dp[xyz][0], nmo + 1);
         }
 
-        double conv = std::fabs(metric - old_metric) / std::fabs(old_metric);
+        double conv = std::abs(metric - old_metric) / std::abs(old_metric);
         old_metric = metric;
 
         // => Iteration Print <= //
@@ -470,7 +474,7 @@ void PMLocalizer::localize() {
                 theta = 0.5 * atan2(Ho, Hd + sqrt(Hd * Hd + Ho * Ho));
 
                 // Check for trivial (maximal) rotation, which might be better with theta = pi/4
-                if (std::fabs(theta) < 1.0E-8) {
+                if (std::abs(theta) < 1.0E-8) {
                     double O0 = 0.0;
                     double O1 = 0.0;
                     ;
@@ -524,7 +528,7 @@ void PMLocalizer::localize() {
             }
         }
 
-        double conv = std::fabs(metric - old_metric) / std::fabs(old_metric);
+        double conv = std::abs(metric - old_metric) / std::abs(old_metric);
         old_metric = metric;
 
         // => Iteration Print <= //

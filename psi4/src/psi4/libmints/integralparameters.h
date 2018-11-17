@@ -29,6 +29,9 @@
 #ifndef LIBMINTS_INTEGRALPARAMETERS_H
 #define LIBMINTS_INTEGRALPARAMETERS_H
 
+#include <cstddef>
+#include <memory>
+
 namespace psi {
 
 class Vector;

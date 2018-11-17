@@ -80,20 +80,14 @@
 #ifndef _math_symmetry_pointgrp_h
 #define _math_symmetry_pointgrp_h
 
-#include "psi4/libmints/vector3.h"
-#include "psi4/psi4-dec.h"
-
 #include <cstring>
-#include <cstdio>
-#include <cstdint>
-#include <vector>
 #include <map>
+#include <memory>
+#include <vector>
 
 #include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
+
+#include "vector3.h"
 
 namespace psi {
 

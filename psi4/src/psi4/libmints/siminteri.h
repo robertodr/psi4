@@ -29,7 +29,7 @@
 #ifndef _psi4_libmints_siminteri_h
 #define _psi4_libmints_siminteri_h
 
-#include "psi4/libmints/twobody.h"
+#include "twobody.h"
 
 #include <simint/simint.h>
 

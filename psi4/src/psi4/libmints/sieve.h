@@ -29,13 +29,12 @@
 #ifndef SIEVE_H
 #define SIEVE_H
 
-// need this for erfc^{-1} in the QQR sieve
-//#include <cfloat>
-#include <vector>
 #include <memory>
-//#include <utility>
+#include <vector>
+
 #include "psi4/pragma.h"
-#include "psi4/libmints/vector3.h"
+
+#include "vector3.h"
 
 namespace psi {
 

@@ -26,21 +26,17 @@
  * @END LICENSE
  */
 
-#include "vector3.h"
 #include "integral.h"
-#include "gshell.h"
-#include "basisset.h"
-#include "sobasis.h"
-#include "sointegral_onebody.h"
-#include "sointegral_twobody.h"
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
-#include <algorithm>
 
-    ;
+#include <algorithm>
+#include <memory>
+
+#include "psi4/pragma.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "sobasis.h"
+
 using namespace psi;
 
 AOIntegralsIterator::AOIntegralsIterator(const GaussianShell& s1, const GaussianShell& s2, const GaussianShell& s3,

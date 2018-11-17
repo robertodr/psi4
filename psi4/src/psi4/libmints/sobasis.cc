@@ -26,19 +26,19 @@
  * @END LICENSE
  */
 
-#include "pointgrp.h"
-#include "petitelist.h"
 #include "sobasis.h"
-#include "molecule.h"
-#include "basisset.h"
-#include "gshell.h"
-#include "dimension.h"
 
-#include "matrix.h"
 #include "psi4/psi4-dec.h"
-#include <cstdio>
+
 #include "psi4/libpsi4util/PsiOutStream.h"
-;
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "dimension.h"
+#include "molecule.h"
+#include "petitelist.h"
+#include "pointgrp.h"
+
 using namespace psi;
 
 ///////////////////////////////////////////////////////////////////////////////

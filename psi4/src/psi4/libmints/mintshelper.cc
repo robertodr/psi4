@@ -26,29 +26,9 @@
  * @END LICENSE
  */
 
-#include "x2cint.h"
-
-#include "psi4/libmints/mintshelper.h"
-#include "psi4/libmints/molecule.h"
-
-#include "psi4/libmints/matrix.h"
-#include "psi4/psifiles.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/libiwl/iwl.hpp"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libmints/sointegral_twobody.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/factory.h"
-#include "psi4/libmints/3coverlap.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
-
-#include <cstdlib>
-#include <cstdio>
 #include <cmath>
+#include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <list>
 #include <map>
@@ -56,19 +36,39 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
-
 #ifdef _OPENMP
 #include <omp.h>
 #endif
 
 #ifdef USING_dkh
 #include <DKH/DKH_MANGLE.h>
+
 #define F_DKH DKH_MANGLE_MODULE(dkh_main, dkh, DKH_MAIN, DKH)
 
 extern "C" {
-void F_DKH(double *S, double *V, double *T, double *pVp, int *nbf, int *dkh_order);
+    void F_DKH(double *S, double *V, double *T, double *pVp, int *nbf, int *dkh_order);
 }
 #endif
+
+#include "psi4/psifiles.h"
+
+#include "psi4/libiwl/config.h"
+#include "psi4/libiwl/iwl.hpp"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsio/psio.hpp"
+
+#include "3coverlap.h"
+#include "basisset.h"
+#include "factory.h"
+#include "integral.h"
+#include "matrix.h"
+#include "mintshelper.h"
+#include "molecule.h"
+#include "sobasis.h"
+#include "sointegral_onebody.h"
+#include "sointegral_twobody.h"
+#include "wavefunction.h"
+#include "x2cint.h"
 
 namespace psi {
 

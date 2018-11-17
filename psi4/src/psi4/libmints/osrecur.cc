@@ -28,11 +28,10 @@
 
 #include <cmath>
 #include <stdexcept>
+
 #include "psi4/libciomr/libciomr.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/wavefunction.h"  // for df
-#include "psi4/libmints/osrecur.h"
-#include "psi4/libpsi4util/exception.h"
+#include "osrecur.h"
+#include "wavefunction.h"  // for df
 
 using namespace psi;
 

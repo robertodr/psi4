@@ -55,17 +55,21 @@
 // The U.S. Government is granted a limited license as per AL 91-7.
 //
 
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/shellrotation.h"
-#include "psi4/libmints/dimension.h"
-#include "psi4/libmints/cartesianiter.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+#include "petitelist.h"
 
-;
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "cartesianiter.h"
+#include "dimension.h"
+#include "gshell.h"
+#include "integral.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "pointgrp.h"
+#include "shellrotation.h"
+#include "vector3.h"
 
 namespace psi {
 

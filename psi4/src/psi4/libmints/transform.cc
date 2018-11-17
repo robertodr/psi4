@@ -26,13 +26,10 @@
  * @END LICENSE
  */
 
-#include "wavefunction.h"
-#include "matrix.h"
-#include "integral.h"
-
-#include "psi4/psi4-dec.h"
-
 #include <cmath>
+
+#include "integral.h"
+#include "matrix.h"
 
 using namespace psi;
 

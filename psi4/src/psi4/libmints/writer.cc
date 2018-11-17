@@ -25,25 +25,31 @@
  *
  * @END LICENSE
  */
-#include <cstdio>
-#include <utility>
+
+#include "writer.h"
+
 #include <algorithm>
+#include <utility>
 #include <vector>
-#include "psi4/libmints/writer.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/physconst.h"
+
 #include "psi4/masses.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libmints/wavefunction.h"
-#include "psi4/libmints/pointgrp.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/mintshelper.h"
+#include "psi4/physconst.h"
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "dimension.h"
+#include "gshell.h"
+#include "matrix.h"
+#include "mintshelper.h"
+#include "molecule.h"
+#include "pointgrp.h"
+#include "vector.h"
+#include "vector3.h"
+#include "wavefunction.h"
+#include "petitelist.h"
 
 using namespace psi;
-;
 
 MoldenWriter::MoldenWriter(std::shared_ptr<Wavefunction> wavefunction) : wavefunction_(wavefunction) {}
 void MoldenWriter::write(const std::string &filename, std::shared_ptr<Matrix> Ca, std::shared_ptr<Matrix> Cb,

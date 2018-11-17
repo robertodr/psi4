@@ -29,19 +29,18 @@
 #ifndef _psi_src_lib_libmints_vector_h
 #define _psi_src_lib_libmints_vector_h
 
-#include "psi4/libmints/dimension.h"
-#include "psi4/libmints/typedefs.h"
-
-#include <cstdlib>
-#include <cstdio>
-#include <vector>
 #include <iterator>
 #include <memory>
+#include <vector>
+
+#include "psi4/pragma.h"
+
+#include "dimension.h"
+#include "typedefs.h"
 
 namespace psi {
 
 class Matrix;
-
 class VectorIterator;
 
 /*! \ingroup MINTS */

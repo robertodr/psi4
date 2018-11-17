@@ -26,15 +26,18 @@
  * @END LICENSE
  */
 
-#include <cstdlib>
-#include <cmath>
-#include "vector3.h"
-#include "integral.h"
 #include "gshell.h"
 
-#include "psi4/libmints/wavefunction.h"
+#include <cmath>
+
 #include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/exception.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "integral.h"
+#include "wavefunction.h"
+
 using namespace psi;
 
 ShellInfo::ShellInfo(int am, const std::vector<double> &c, const std::vector<double> &e, const std::vector<int> &n)
@@ -78,8 +81,8 @@ ShellInfo::ShellInfo(int am, const std::vector<double> &c, const std::vector<dou
 double ShellInfo::primitive_normalization(int p) {
     double tmp1 = l_ + 1.5;
     double g = 2.0 * exp_[p];
-    double z = pow(g, tmp1);
-    double normg = sqrt((pow(2.0, l_) * z) / (M_PI * sqrt(M_PI) * df[2 * l_]));
+    double z = std::pow(g, tmp1);
+    double normg = std::sqrt((std::pow(2.0, l_) * z) / (M_PI * std::sqrt(M_PI) * df[2 * l_]));
     return normg;
 }
 
@@ -92,18 +95,18 @@ void ShellInfo::erd_normalize_shell() {
             double a1 = exp_[j];
             double a2 = exp_[k];
             double temp = (original_coef(j) * original_coef(k));
-            double temp3 = (2.0 * sqrt(a1 * a2) / (a1 + a2));
-            temp3 = pow(temp3, m);
+            double temp3 = (2.0 * std::sqrt(a1 * a2) / (a1 + a2));
+            temp3 = std::pow(temp3, m);
             temp = temp * temp3;
             sum = sum + temp;
             if (j != k) sum = sum + temp;
         }
     }
     double prefac = 1.0;
-    if (l_ > 1) prefac = pow(2.0, 2 * l_) / df[2 * l_];
-    double norm = sqrt(prefac / sum);
+    if (l_ > 1) prefac = std::pow(2.0, 2 * l_) / df[2 * l_];
+    double norm = std::sqrt(prefac / sum);
     for (int j = 0; j < nprimitive(); j++) {
-        erd_coef_.push_back(original_coef_[j] * norm * pow(exp_[j], 0.5 * m));
+        erd_coef_.push_back(original_coef_[j] * norm * std::pow(exp_[j], 0.5 * m));
     }
 }
 
@@ -114,13 +117,13 @@ void ShellInfo::contraction_normalization() {
     for (i = 0; i < nprimitive(); ++i) {
         for (j = 0; j < nprimitive(); ++j) {
             g = exp_[i] + exp_[j];
-            z = pow(g, l_ + 1.5);
+            z = std::pow(g, l_ + 1.5);
             e_sum += coef_[i] * coef_[j] / z;
         }
     }
 
-    double tmp = ((2.0 * M_PI / M_2_SQRTPI) * df[2 * l_]) / pow(2.0, l_);
-    double norm = sqrt(1.0 / (tmp * e_sum));
+    double tmp = ((2.0 * M_PI / M_2_SQRTPI) * df[2 * l_]) / std::pow(2.0, l_);
+    double norm = std::sqrt(1.0 / (tmp * e_sum));
 
     // Set the normalization
     for (i = 0; i < nprimitive(); ++i) coef_[i] *= norm;
@@ -227,7 +230,7 @@ double GaussianShell::evaluate(double r, int l) const {
     if (l_ == l) {
         double r2 = r * r;
         for (int i = 0; i < nprimitive_; i++) {
-            value += pow(r, n_[i]) * original_coef_[i] * std::exp(-exp_[i] * r2);
+            value += std::pow(r, n_[i]) * original_coef_[i] * std::exp(-exp_[i] * r2);
         }
     }
     return value;

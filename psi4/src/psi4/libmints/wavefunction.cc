@@ -25,39 +25,37 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/wavefunction.h"
-#include "psi4/liboptions/liboptions.h"
+#include "wavefunction.h"
+
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <tuple>
+#include <typeinfo>
+
 #include "psi4/psifiles.h"
+
 #include "psi4/libciomr/libciomr.h"
-#include "psi4/libpsio/psio.h"
-#include "psi4/libiwl/iwl.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/orbitalspace.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/dimension.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/sobasis.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/factory.h"
-#include "psi4/libmints/vector3.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/libmints/corrtab.h"
-#include "psi4/psi4-dec.h"
 #include "psi4/libpsi4util/exception.h"
 #include "psi4/libpsi4util/process.h"
+#include "psi4/libqt/qt.h"
+
 #ifdef USING_PCMSolver
 #include "psi4/libpsipcm/psipcm.h"
 #endif
 
-#include <typeinfo>
-#include <cstdlib>
-#include <cstdio>
-#include <cmath>
-#include <algorithm>
-#include <tuple>
+#include "matrix.h"
+#include "molecule.h"
+#include "factory.h"
+#include "vector.h"
+#include "basisset.h"
+#include "petitelist.h"
+#include "sobasis.h"
+#include "sointegral_onebody.h"
+#include "integral.h"
+#include "corrtab.h"
+#include "orbitalspace.h"
 
 using namespace psi;
 
@@ -93,11 +91,11 @@ Wavefunction::Wavefunction(SharedWavefunction reference_wavefunction, Options &o
 }
 
 // TODO: pass Options object to constructor instead of relying on globals
-Wavefunction::Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<BasisSet> basisset, 
+Wavefunction::Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<BasisSet> basisset,
                            std::map<std::string, std::shared_ptr<Matrix>> matrices,
                            std::map<std::string, std::shared_ptr<Vector>> vectors,
-                           std::map<std::string, Dimension> dimensions, std::map<std::string, int> ints, 
-                           std::map<std::string, std::string> strings, std::map<std::string, bool> booleans, 
+                           std::map<std::string, Dimension> dimensions, std::map<std::string, int> ints,
+                           std::map<std::string, std::string> strings, std::map<std::string, bool> booleans,
                            std::map<std::string, double> floats)
     : options_(Process::environment.options),
       basisset_(basisset),
@@ -141,7 +139,7 @@ Wavefunction::Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<B
     nbetapi_ = dimensions["nbetapi"];
     nmopi_ = dimensions["nmopi"];
     nsopi_ = dimensions["nsopi"];
-     
+
     // set integers
     nalpha_ = ints["nalpha"];
     nbeta_ = ints["nbeta"];
@@ -150,7 +148,7 @@ Wavefunction::Wavefunction(std::shared_ptr<Molecule> molecule, std::shared_ptr<B
     nmo_ = ints["nmo"];
     nso_ = ints["nso"];
     print_ = ints["print"];
-    
+
     // set strings
     name_ = strings["name"];
 

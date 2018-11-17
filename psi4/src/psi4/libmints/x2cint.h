@@ -29,18 +29,18 @@
 #ifndef _psi_src_lib_libmints_x2cint_h_
 #define _psi_src_lib_libmints_x2cint_h_
 
-#include "psi4/libmints/typedefs.h"
-#include "psi4/libmints/dimension.h"
-
 #include <string>
+
+#include "dimension.h"
+#include "typedefs.h"
 
 #define X2CDEBUG 0
 
 namespace psi {
 
-class MatrixFactory;
-class IntegralFactory;
 class BasisSet;
+class IntegralFactory;
+class MatrixFactory;
 
 /*! \ingroup MINTS
  *  \class X2CInt

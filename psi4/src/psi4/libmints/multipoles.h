@@ -30,13 +30,19 @@
 #define _psi_src_lib_libmints_multipoles_h_
 
 #include <vector>
-#include "typedefs.h"
-#include "psi4/libmints/onebody.h"
-#include "psi4/libmints/osrecur.h"
-#include "psi4/libmints/integral.h"
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "integral.h"
+#include "onebody.h"
+#include "osrecur.h"
+#include "vector3.h"
 
 namespace psi {
 class Molecule;
+class GaussianShell;
+class Vector;
+using SharedVector = std::shared_ptr<Vector>;
 
 /*! \ingroup MINTS
  *  \class MultipoleInt

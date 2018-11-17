@@ -40,8 +40,12 @@
 
 #include "basisset.h"
 #include "integral.h"
+#include "matrix.h"
 #include "molecule.h"
+#include "onebody.h"
 #include "potential.h"
+#include "twobody.h"
+#include "vector.h"
 
 namespace psi {
 

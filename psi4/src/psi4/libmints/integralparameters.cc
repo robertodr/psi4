@@ -26,9 +26,9 @@
  * @END LICENSE
  */
 
-#include "psi4/libmints/typedefs.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/integralparameters.h"
+#include "integralparameters.h"
+
+#include "vector.h"
 
 using namespace psi;
 

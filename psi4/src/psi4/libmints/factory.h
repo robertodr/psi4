@@ -29,14 +29,21 @@
 #ifndef _psi_src_lib_libmints_factory_h_
 #define _psi_src_lib_libmints_factory_h_
 
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/dimension.h"
+#include <memory>
+
+#include "psi4/pragma.h"
+
 #include "psi4/libpsio/psio.hpp"
+
+#include "dimension.h"
 
 namespace psi {
 
 class SOBasisSet;
+class Matrix;
+using SharedMatrix = std::shared_ptr<Matrix>;
+class Vector;
+using SharedVector = std::shared_ptr<Vector>;
 
 /*! \ingroup MINTS
  *  \class MatrixFactory

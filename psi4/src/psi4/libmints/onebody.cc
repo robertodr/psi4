@@ -25,14 +25,16 @@
  *
  * @END LICENSE
  */
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+#include "onebody.h"
 
-#include <stdexcept>
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "gshell.h"
+#include "integral.h"
 
 namespace psi {
 

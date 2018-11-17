@@ -26,7 +26,7 @@
  * @END LICENSE
  */
 
-#include "psi4/libmints/potentialint.h"
+#include "potentialint.h"
 
 namespace psi {
 

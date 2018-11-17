@@ -25,16 +25,17 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/tracelessquadrupole.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libciomr/libciomr.h"
+#include "tracelessquadrupole.h"
+
 #include "psi4/physconst.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "vector3.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 // Initialize overlap_recur_ to +2 basis set angular momentum

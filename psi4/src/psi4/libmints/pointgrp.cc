@@ -77,16 +77,16 @@
  *      June, 1993
  */
 
-#include "psi4/psi4-dec.h"
-#include "psi4/libmints/pointgrp.h"
-#include "psi4/libpsi4util/libpsi4util.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/exception.h"
+#include "pointgrp.h"
 
-#include <cstdlib>
-#include <cstring>
 #include <cctype>
 #include <cmath>
+
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/libpsi4util.h"
 
 namespace psi {
 namespace PointGroups {

@@ -44,10 +44,11 @@
 #include "psi4/libpsio/psio.hpp"
 #include "psi4/libpsio/psio.h"
 
+#include "3coverlap.h"
 #include "basisset.h"
 #include "molecule.h"
-#include "integral.h"
-#include "3coverlap.h"
+#include "onebody.h"
+#include "twobody.h"
 
 namespace psi {
 

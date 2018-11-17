@@ -26,16 +26,18 @@
  * @END LICENSE
  */
 
-#include "psi4/libqt/qt.h"
+#include "sieve.h"
+
+#include <cfloat>
+
 #include "psi4/psi4-dec.h"
-#include "psi4/libmints/sieve.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/twobody.h"
-#include "psi4/libmints/integral.h"
+
 #include "psi4/libpsi4util/PsiOutStream.h"
 #include "psi4/libpsi4util/process.h"
 
-#include <cfloat>
+#include "basisset.h"
+#include "integral.h"
+#include "twobody.h"
 
 namespace psi {
 

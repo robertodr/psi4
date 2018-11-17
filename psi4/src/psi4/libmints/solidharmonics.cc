@@ -26,13 +26,12 @@
  * @END LICENSE
  */
 
-#include <cstdlib>
-#include <cstring>
 #include <cmath>
 #include <cstdint>
+#include <cstdlib>
+#include <cstring>
 
 #include "matrix.h"
-#include "integral.h"
 
 using namespace psi;
 

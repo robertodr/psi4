@@ -56,6 +56,8 @@
 #ifndef _chemistry_qc_basis_fjt_h
 #define _chemistry_qc_basis_fjt_h
 
+#include <memory>
+
 namespace psi {
 
 class CorrelationFactor;

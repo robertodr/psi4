@@ -25,17 +25,16 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/nabla.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/molecule.h"
+#include "nabla.h"
 
-#include <stdexcept>
-#include "psi4/libciomr/libciomr.h"
 #include "psi4/physconst.h"
 
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "molecule.h"
+
 using namespace psi;
-;
 
 // to compute the Nabla derivatives
 NablaInt::NablaInt(std::vector<SphericalTransform>& spherical_transforms, std::shared_ptr<BasisSet> bs1,

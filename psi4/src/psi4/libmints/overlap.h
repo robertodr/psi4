@@ -30,8 +30,9 @@
 #define _psi_src_lib_libmints_overlap_h_
 
 #include <vector>
-#include "psi4/libmints/onebody.h"  // needed because we derive from OneBodyAOInt
-#include "psi4/libmints/osrecur.h"
+
+#include "onebody.h"  // needed because we derive from OneBodyAOInt
+#include "osrecur.h"
 
 namespace psi {
 

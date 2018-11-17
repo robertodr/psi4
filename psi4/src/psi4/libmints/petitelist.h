@@ -29,26 +29,19 @@
 #ifndef _psi_src_lib_libmints_petitelist_h_
 #define _psi_src_lib_libmints_petitelist_h_
 
-#include "typedefs.h"
-#include "pointgrp.h"
-
 #include <map>
-#include <cstdio>
-#include <cstdint>
-
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
 #include <memory>
-PRAGMA_WARNING_POP
+
+#include "pointgrp.h"
 
 namespace psi {
 
 class BasisSet;
-class Molecule;
+class Dimension;
 class IntegralFactory;
 class Matrix;
-class Dimension;
+using SharedMatrix = std::shared_ptr<Matrix>;
+class Molecule;
 
 inline int64_t ij_offset64(int64_t i, int64_t j) {
     return (i > j) ? (((i * (i + 1)) >> 1) + j) : (((j * (j + 1)) >> 1) + i);

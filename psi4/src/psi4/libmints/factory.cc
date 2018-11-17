@@ -35,12 +35,16 @@
  *
  */
 
-#include "psi4/libmints/factory.h"
-#include "psi4/libmints/sobasis.h"
-#include "psi4/libciomr/libciomr.h"
+#include "factory.h"
 
-;
-using namespace psi;
+#include "psi4/libpsi4util/exception.h"
+
+#include "dimension.h"
+#include "matrix.h"
+#include "sobasis.h"
+#include "vector.h"
+
+namespace psi {
 
 MatrixFactory::MatrixFactory() { nirrep_ = 0; }
 
@@ -142,3 +146,4 @@ void MatrixFactory::create_vector(Vector& vec) { vec.init(rowspi_); }
 SharedVector MatrixFactory::create_shared_vector(const std::string& name) {
     return std::make_shared<Vector>(name, rowspi_);
 }
+}  // namespace psi

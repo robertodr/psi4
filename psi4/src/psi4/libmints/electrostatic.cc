@@ -32,8 +32,10 @@
 
 #include "basisset.h"
 #include "gshell.h"
+#include "matrix.h"
 #include "molecule.h"
 #include "osrecur.h"
+#include "vector.h"
 #include "vector3.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))

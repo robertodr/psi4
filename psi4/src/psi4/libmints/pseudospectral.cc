@@ -25,15 +25,16 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/pseudospectral.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libciomr/libciomr.h"
+#include "pseudospectral.h"
+
 #include "psi4/physconst.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 // Initialize potential_recur_ to +1 basis set angular momentum

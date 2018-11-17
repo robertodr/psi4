@@ -29,17 +29,15 @@
 #ifndef _psi_src_lib_libmints_local_h_
 #define _psi_src_lib_libmints_local_h_
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "psi4/pragma.h"
 
 namespace psi {
-class Options;
-
-class Matrix;
-
 class BasisSet;
+class Matrix;
+class Options;
 
 class PSI_API Localizer {
    protected:

@@ -29,15 +29,10 @@
 #ifndef _psi_src_lib_libmints_integral_h_
 #define _psi_src_lib_libmints_integral_h_
 
-#include "psi4/pragma.h"
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
 #include <memory>
-PRAGMA_WARNING_POP
 #include <vector>
 
-#include "onebody.h"
-#include "twobody.h"
+#include "psi4/pragma.h"
 
 /*! \def INT_NCART(am)
     Gives the number of cartesian functions for an angular momentum.
@@ -67,18 +62,18 @@ PRAGMA_WARNING_POP
 namespace psi {
 
 class BasisSet;
+class CartesianIter;
+class CorrelationFactor;
 class GaussianShell;
 class OneBodyAOInt;
 class OneBodySOInt;
-class TwoBodyAOInt;
-class ThreeCenterOverlapInt;
-class CartesianIter;
 class RedundantCartesianIter;
 class RedundantCartesianSubIter;
+class SOBasisSet;
 class ShellRotation;
 class SymmetryOperation;
-class SOBasisSet;
-class CorrelationFactor;
+class ThreeCenterOverlapInt;
+class TwoBodyAOInt;
 
 /*! \ingroup MINTS */
 class SphericalTransformComponent {

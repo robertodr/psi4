@@ -30,7 +30,7 @@
 #define ORTHOG_H
 
 #include "typedefs.h"
-#include "psi4/libmints/dimension.h"
+#include "dimension.h"
 
 namespace psi {
 

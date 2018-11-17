@@ -25,17 +25,16 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/kinetic.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libciomr/libciomr.h"
+#include "kinetic.h"
 
 #include "psi4/physconst.h"
 
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 // Initialize overlap_recur_ to +1 basis set angular momentum

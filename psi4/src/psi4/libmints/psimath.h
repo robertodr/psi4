@@ -39,8 +39,8 @@
 
 namespace psi {
 
-class Vector;
 class IntVector;
+class Vector;
 
 /// PSI_DGBMV, a wrapper to C_DGBMV using objects
 void PSI_DGBMV(int irrep, char trans, int m, int n, int kl, int ku, double alpha, SharedMatrix a, int lda,

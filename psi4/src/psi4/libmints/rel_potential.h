@@ -30,20 +30,21 @@
 #define _psi_src_lib_libmints_rel_potential_h_
 
 #include <vector>
-#include "psi4/libmints/typedefs.h"
-#include "psi4/libmints/onebody.h"
-#include "psi4/libmints/sointegral_onebody.h"
+
+#include "onebody.h"
+#include "sointegral_onebody.h"
+#include "typedefs.h"
 
 namespace psi {
 // TODO:  This is all in typedefs.h ....
 class BasisSet;
+class CdSalcList;
 class GaussianShell;
+class IntegralFactory;
 class ObaraSaikaTwoCenterVIRecursion;
 class OneBodyAOInt;
-class IntegralFactory;
-class SphericalTransform;
 class OneBodySOInt;
-class CdSalcList;
+class SphericalTransform;
 
 /*! \ingroup MINTS
  *  \class RelPotentialInt

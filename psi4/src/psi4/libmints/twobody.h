@@ -29,10 +29,10 @@
 #ifndef _psi_src_lib_libmints_twobody_h
 #define _psi_src_lib_libmints_twobody_h
 
-#include "psi4/pragma.h"
-
 #include <memory>
 #include <vector>
+
+#include "psi4/pragma.h"
 
 #ifdef _POSIX_C_SOURCE
 #undef _POSIX_C_SOURCE
@@ -48,10 +48,10 @@ enum PermutedOrder { ABCD = 0, BACD = 1, ABDC = 2, BADC = 3, CDAB = 4, CDBA = 5,
 
 typedef std::vector<std::pair<int, int>> ShellPairBlock;
 
-class IntegralFactory;
 class AOShellCombinationsIterator;
 class BasisSet;
 class GaussianShell;
+class IntegralFactory;
 
 /*! \ingroup MINTS
  *  \class TwoBodyInt

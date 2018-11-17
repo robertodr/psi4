@@ -26,16 +26,16 @@
  * @END LICENSE
  */
 
-#include <stdexcept>
-#include "psi4/libciomr/libciomr.h"
+#include "overlap.h"
+
 #include "psi4/physconst.h"
-#include "psi4/libmints/overlap.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 OverlapInt::OverlapInt(std::vector<SphericalTransform> &st, std::shared_ptr<BasisSet> bs1,

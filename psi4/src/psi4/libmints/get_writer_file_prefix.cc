@@ -31,11 +31,8 @@
  \ingroup MINTS
  */
 
-#include "psi4/psi4-dec.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libpsi4util/process.h"
-
 #include <string>
+
 #ifdef _MSC_VER
 #include <process.h>
 #define SYSTEM_GETPID ::_getpid
@@ -43,6 +40,12 @@
 #include <unistd.h>
 #define SYSTEM_GETPID ::getpid
 #endif
+
+#include "psi4/psi4-dec.h"
+#include "psi4/pragma.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/process.h"
 
 namespace psi {
 

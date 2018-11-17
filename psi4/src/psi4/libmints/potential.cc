@@ -26,22 +26,26 @@
  * @END LICENSE
  */
 
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libmints/cdsalclist.h"
-#include "psi4/libmints/potential.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/sobasis.h"
+#include "potential.h"
+
 #include "psi4/physconst.h"
-#include "typedefs.h"
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "cdsalclist.h"
+#include "gshell.h"
+#include "integral.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "osrecur.h"
+#include "sobasis.h"
+#include "vector3.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 #define VDEBUG 1
 
-;
 using namespace psi;
 
 // Initialize potential_recur_ to +1 basis set angular momentum

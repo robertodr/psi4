@@ -29,7 +29,9 @@
 #ifndef _psi_src_lib_libmints_sointegral_onebody_h
 #define _psi_src_lib_libmints_sointegral_onebody_h
 
-#include "psi4/libmints/typedefs.h"
+#include <vector>
+
+#include "typedefs.h"
 
 namespace psi {
 class SOBasisSet;

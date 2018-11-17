@@ -25,39 +25,35 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/shellrotation.h"
-#include "psi4/libmints/cartesianiter.h"
-#include "psi4/libmints/rel_potential.h"
-#include "psi4/libmints/electricfield.h"
-#include "psi4/libmints/tracelessquadrupole.h"
-#include "psi4/libmints/efpmultipolepotential.h"
-#include "psi4/libmints/eri.h"
-#include "psi4/libmints/multipoles.h"
-#include "psi4/libmints/quadrupole.h"
-#include "psi4/libmints/angularmomentum.h"
-#include "psi4/libmints/nabla.h"
-#include "psi4/libmints/dipole.h"
-#include "psi4/libmints/electrostatic.h"
-#include "psi4/libmints/pseudospectral.h"
-#include "psi4/libmints/kinetic.h"
-#include "psi4/libmints/3coverlap.h"
-#include "psi4/libmints/overlap.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/process.h"
-#include "psi4/liboptions/liboptions.h"
-#include "psi4/libmints/potentialint.h"
-#include "psi4/libmints/ecpint.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/erd_eri.h"
+#include "integral.h"
 
 #ifdef USING_simint
-#include "psi4/libmints/siminteri.h"
+#include "siminteri.h"
 #endif
-
 #include <libint/libint.h>
 
-;
+#include "psi4/libpsi4util/exception.h"
+
+#include "3coverlap.h"
+#include "angularmomentum.h"
+#include "cartesianiter.h"
+#include "dipole.h"
+#include "ecpint.h"
+#include "efpmultipolepotential.h"
+#include "electricfield.h"
+#include "electrostatic.h"
+#include "eri.h"
+#include "kinetic.h"
+#include "multipoles.h"
+#include "nabla.h"
+#include "overlap.h"
+#include "potentialint.h"
+#include "pseudospectral.h"
+#include "quadrupole.h"
+#include "rel_potential.h"
+#include "shellrotation.h"
+#include "tracelessquadrupole.h"
+
 using namespace psi;
 
 IntegralFactory::IntegralFactory(std::shared_ptr<BasisSet> bs1, std::shared_ptr<BasisSet> bs2,

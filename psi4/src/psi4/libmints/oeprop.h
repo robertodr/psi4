@@ -29,20 +29,24 @@
 #ifndef _psi_src_lib_oeprop_h
 #define _psi_src_lib_oeprop_h
 
-#include <set>
-#include <vector>
 #include <map>
+#include <memory>
+#include <set>
 #include <string>
+#include <vector>
 
-#include "typedefs.h"
-#include "psi4/libmints/vector3.h"
+#include "vector3.h"
 
 namespace psi {
 
-class Wavefunction;
+class BasisSet;
 class IntegralFactory;
 class MatrixFactory;
-class BasisSet;
+class Wavefunction;
+class Matrix;
+using SharedMatrix = std::shared_ptr<Matrix>;
+class Vector;
+using SharedVector = std::shared_ptr<Vector>;
 
 /**
  * The Prop object, base class of OEProp and GridProp objects

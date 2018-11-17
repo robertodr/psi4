@@ -26,40 +26,35 @@
  * @END LICENSE
  */
 
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/pointgrp.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libmints/vector3.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/coordentry.h"
-#include "psi4/libmints/corrtab.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/masses.h"
-#include "psi4/physconst.h"
-#include "psi4/libmints/element_to_Z.h"
-#include "psi4/libpsi4util/libpsi4util.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
+#include "molecule.h"
 
+#include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstdio>
 #include <fstream>
-#include <locale>
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <string>
 #include <limits>
-#include <string>
-#include <sstream>
+#include <locale>
 #include <regex>
-#include <array>
+#include <sstream>
+#include <string>
+#include <vector>
 
+#include "psi4/masses.h"
+#include "psi4/physconst.h"
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/exception.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/process.h"
+
+#include "element_to_Z.h"
+#include "matrix.h"
+#include "petitelist.h"
+#include "pointgrp.h"
+#include "vector.h"
+#include "vector3.h"
 
 namespace {
 // the third parameter of from_string() should be
@@ -75,7 +70,6 @@ bool from_string(T &t, const std::string &s, std::ios_base &(*f)(std::ios_base &
 #define ZERO 1.0E-14
 
 namespace psi {
-
 std::regex realNumber_(
     "(?:[-+]?\\d*\\.\\d+(?:[DdEe][-+]?\\d+)?)|(?:[-+]?\\d+\\.\\d*(?:[DdEe][-+]?\\d+)?)|(?:[-+]?\\d+(?:[DdEe][-+]?\\d+)?"
     ")",

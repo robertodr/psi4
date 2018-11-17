@@ -26,14 +26,11 @@
  * @END LICENSE
  */
 
-#include <stdexcept>
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/twobody.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/molecule.h"
+#include "basisset.h"
+#include "integral.h"
+#include "molecule.h"
+#include "twobody.h"
 
-;
 using namespace psi;
 
 static void transform2e_1(int, SphericalTransformIter &, double *, double *, int);

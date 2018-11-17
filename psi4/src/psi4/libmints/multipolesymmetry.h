@@ -29,18 +29,20 @@
 #ifndef MULTIPOLESYMMETRY_H
 #define MULTIPOLESYMMETRY_H
 
-#include "psi4/libmints/typedefs.h"
-#include "psi4/pragma.h"
-
-#include <vector>
-#include <string>
 #include <map>
+#include <memory>
+#include <string>
+#include <vector>
+
+#include "psi4/pragma.h"
 
 namespace psi {
 
-class Molecule;
 class IntegralFactory;
 class MatrixFactory;
+class Molecule;
+class Matrix;
+using SharedMatrix = std::shared_ptr<Matrix>;
 
 class PSI_API OperatorSymmetry {
     // The order of the multipole (dipole=1, quadrupole=2, etc...)

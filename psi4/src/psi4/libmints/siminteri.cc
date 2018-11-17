@@ -28,11 +28,11 @@
 
 #include <algorithm>
 
-#include "psi4/libmints/siminteri.h"
-#include "psi4/libmints/gshell.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/cartesianiter.h"
-#include "psi4/libmints/integral.h"
+#include "siminteri.h"
+#include "gshell.h"
+#include "basisset.h"
+#include "cartesianiter.h"
+#include "integral.h"
 
 #define SIMINT_SCREEN_TOL 0.0
 #define SIMINT_SCREEN 0

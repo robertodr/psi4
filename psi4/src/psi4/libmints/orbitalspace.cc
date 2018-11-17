@@ -26,27 +26,26 @@
  * @END LICENSE
  */
 
-#include "psi4/psi4-dec.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/orbitalspace.h"
-#include "psi4/libmints/orthog.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/wavefunction.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/sobasis.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/liboptions/liboptions.h"
-#include "psi4/libpsi4util/process.h"
+#include "orbitalspace.h"
 
 #include <tuple>
 
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/process.h"
+
+#include "basisset.h"
+#include "integral.h"
+#include "matrix.h"
+#include "petitelist.h"
+#include "sobasis.h"
+#include "sointegral_onebody.h"
+#include "vector.h"
+#include "wavefunction.h"
+
 namespace psi {
+
+class Options;
 
 OrbitalSpace::OrbitalSpace(const std::string &id, const std::string &name, const SharedMatrix &full_C,
                            const std::shared_ptr<Vector> &evals, const std::shared_ptr<BasisSet> &basis,
