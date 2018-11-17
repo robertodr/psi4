@@ -37,17 +37,18 @@
 #define _psi_src_lib_libmints_deriv_h_
 
 #include <vector>
+
+#include "cdsalclist.h"
 #include "matrix.h"
-#include "psi4/libmints/cdsalclist.h"
 
 namespace psi {
 
-class Wavefunction;
-class IntegralFactory;
 class BasisSet;
-class SOBasisSet;
-class Molecule;
 class CdSalcList;
+class IntegralFactory;
+class Molecule;
+class SOBasisSet;
+class Wavefunction;
 
 class Deriv {
     const std::shared_ptr<Wavefunction> wfn_;

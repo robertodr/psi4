@@ -32,10 +32,12 @@
  */
 
 #include "bessel.h"
-#include "wavefunction.h"
+
 #include <cmath>
 #include <iostream>
 #include <vector>
+
+#include "wavefunction.h"
 
 namespace psi {
 

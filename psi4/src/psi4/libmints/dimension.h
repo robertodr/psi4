@@ -30,7 +30,6 @@
 #define _psi_src_lib_libmints_dimension_h_
 
 #include <string>
-#include <cstdio>
 #include <vector>
 
 #include "psi4/pragma.h"

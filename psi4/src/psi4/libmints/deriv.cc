@@ -33,24 +33,27 @@
  *      Author: jturney
  */
 
-#include "psi4/libmints/sointegral_twobody.h"
-#include "psi4/libmints/deriv.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/factory.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/libmints/mintshelper.h"
-#include "psi4/libtrans/integraltransform.h"
-#include "psi4/libdpd/dpd.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
+#include "deriv.h"
 
-#include <cstdio>
-#include <cstdlib>
-#include <string>
-#include <memory>
 #include <array>
+#include <memory>
+#include <string>
+
+#include "psi4/psifiles.h"
+
+#include "psi4/libdpd/dpd.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/process.h"
+#include "psi4/libpsio/psio.hpp"
+#include "psi4/libtrans/integraltransform.h"
+#include "psi4/libtrans/mospace.h"
+
+#include "factory.h"
+#include "mintshelper.h"
+#include "molecule.h"
+#include "sointegral_onebody.h"
+#include "sointegral_twobody.h"
+#include "vector.h"
 
 namespace psi {
 

@@ -25,22 +25,23 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/extern.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/vector.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/potential.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/physconst.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-#include "psi4/libpsi4util/process.h"
+#include "extern.h"
 
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+#include "psi4/physconst.h"
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libqt/qt.h"
+
+#include "basisset.h"
+#include "integral.h"
+#include "molecule.h"
+#include "potential.h"
 
 namespace psi {
 

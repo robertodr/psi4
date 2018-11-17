@@ -26,20 +26,22 @@
  * @END LICENSE
  */
 
-#include "psi4/psi4-dec.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/pointgrp.h"
-#include "psi4/libmints/petitelist.h"
-#include "psi4/libmints/cdsalclist.h"
-#include "psi4/libmints/factory.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+#include "cdsalclist.h"
 
 #include <algorithm>
 
-;
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libqt/qt.h"
+
+#include "dimension.h"
+#include "factory.h"
+#include "matrix.h"
+#include "molecule.h"
+#include "petitelist.h"
+#include "pointgrp.h"
+#include "vector.h"
 
 namespace {
 

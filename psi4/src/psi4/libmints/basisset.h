@@ -29,29 +29,25 @@
 #ifndef _psi_src_lib_libmints_basisset_h_
 #define _psi_src_lib_libmints_basisset_h_
 
-#include "gshell.h"
-
-#include "psi4/pragma.h"
-#include "psi4/libmints/typedefs.h"
-#include "psi4/psi4-dec.h"
-
-#include <cstdio>
+#include <map>
+#include <memory>
 #include <string>
 #include <vector>
-#include <map>
-PRAGMA_WARNING_PUSH
-PRAGMA_WARNING_IGNORE_DEPRECATED_DECLARATIONS
-#include <memory>
-PRAGMA_WARNING_POP
+
+#include "psi4/pragma.h"
+#include "psi4/psi4-dec.h"
+
+#include "gshell.h"
+#include "typedefs.h"
+#include "vector3.h"
 
 namespace psi {
 
-class Molecule;
-class GaussianShell;
-
 class BasisSetParser;
-class SOBasisSet;
+class GaussianShell;
 class IntegralFactory;
+class Molecule;
+class SOBasisSet;
 
 /*! \ingroup MINTS */
 

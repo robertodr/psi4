@@ -77,12 +77,14 @@
  *      June, 1993
  */
 
-#include "psi4/libmints/pointgrp.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+#include <cctype>
+
 #include "psi4/psi4-dec.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
 #include "psi4/libpsi4util/exception.h"
 
-#include <cctype>
+#include "pointgrp.h"
 
 using namespace psi;
 

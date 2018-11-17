@@ -25,37 +25,26 @@
  *
  * @END LICENSE
  */
-// Need libint for maximum angular momentum
-#include <libint/libint.h>
 /*!
     \defgroup MINTS libmints: Integral library
     \ingroup MINTS
 */
 
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/psifiles.h"
-
-#include "vector3.h"
-#include "molecule.h"
 #include "basisset.h"
-#include "dimension.h"
-#include "sobasis.h"
-#include "integral.h"
-#include "gshell.h"
-#include "factory.h"
-#include "pointgrp.h"
-#include "wavefunction.h"
-#include "coordentry.h"
-#include "psi4/libpsi4util/process.h"
 
 #include <memory>
 #include <regex>
-#include <stdexcept>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <map>
-#include <list>
+
+// Need libint for maximum angular momentum
+#include <libint/libint.h>
+
+#include "psi4/libciomr/libciomr.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libpsi4util/process.h"
+
+#include "gshell.h"
+#include "integral.h"
+#include "molecule.h"
 
 using namespace psi;
 
@@ -826,31 +815,6 @@ std::string BasisSet::make_filename(const std::string &name) {
 
     // First make it lower case
     std::transform(basisname.begin(), basisname.end(), basisname.begin(), ::tolower);
-
-#if 0
-    std::string format_underscore("_"); // empty string
-    // Replace all '(' with '_'
-    xpressive::sregex match_format = xpressive::as_xpr("(");
-    basisname = regex_replace(basisname, match_format, format_underscore);
-
-    // Replace all ')' with '_'
-    match_format = xpressive::as_xpr(")");
-    basisname = regex_replace(basisname, match_format, format_underscore);
-
-    // Replace all ',' with '_'
-    match_format = xpressive::as_xpr(",");
-    basisname = regex_replace(basisname, match_format, format_underscore);
-
-    // Replace all '*' with 's'
-    match_format = xpressive::as_xpr("*");
-    string format_star("s");
-    basisname = regex_replace(basisname, match_format, format_star);
-
-    // Replace all '+' with 'p'
-    match_format = xpressive::as_xpr("+");
-    string format_plus("p");
-    basisname = regex_replace(basisname, match_format, format_plus);
-#endif
 
     basisname = std::regex_replace(basisname, std::regex("\\(|\\)|,"), "_");
     basisname = std::regex_replace(basisname, std::regex("\\*"), "s");

@@ -31,7 +31,7 @@
 
 #ifdef USING_erd
 
-#include "psi4/libmints/twobody.h"
+#include "twobody.h"
 
 typedef int F_INT;
 typedef int F_BOOL;

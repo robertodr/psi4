@@ -28,23 +28,21 @@
 
 /* Implements ecpint.hpp */
 
-#include "psi4/libmints/ecpint.h"
-#include "psi4/libmints/gshell.h"
-#include "psi4/libmints/wavefunction.h"
-#include "psi4/libmints/potential.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/sobasis.h"
-#include "psi4/libmints/molecule.h"
+#include "ecpint.h"
 
-#include "psi4/libciomr/libciomr.h"
-
-#include <iostream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 #include <functional>
+#include <iostream>
 #include <vector>
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "molecule.h"
+#include "wavefunction.h"
 
 namespace psi {
 

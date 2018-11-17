@@ -25,17 +25,21 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/electricfield.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include <stdexcept>
+#include "electricfield.h"
+
 #include <vector>
-#include "psi4/libciomr/libciomr.h"
+
 #include "psi4/physconst.h"
+
+#include "psi4/libpsi4util/exception.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "molecule.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 ElectricFieldInt::ElectricFieldInt(std::vector<SphericalTransform>& spherical_transforms, std::shared_ptr<BasisSet> bs1,

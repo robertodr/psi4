@@ -29,9 +29,10 @@
 #ifndef _psi_src_lib_libmints_3coverlap_h
 #define _psi_src_lib_libmints_3coverlap_h
 
-#include "psi4/libmints/osrecur.h"
-#include "psi4/libmints/integral.h"
 #include "psi4/libpsi4util/exception.h"
+
+#include "integral.h"
+#include "osrecur.h"
 
 namespace psi {
 

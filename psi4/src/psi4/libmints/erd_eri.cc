@@ -31,9 +31,9 @@
 #include "psi4/psi4-dec.h"
 #include "psi4/libpsi4util/PsiOutStream.h"
 #include "erd_eri.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/wavefunction.h"
+#include "basisset.h"
+#include "integral.h"
+#include "wavefunction.h"
 
 #define OLDCODE 0
 #define DEBUG 0

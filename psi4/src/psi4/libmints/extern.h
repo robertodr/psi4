@@ -29,17 +29,20 @@
 #ifndef _psi_src_lib_libmints_extern_potential_h_
 #define _psi_src_lib_libmints_extern_potential_h_
 
-#include <vector>
-#include <utility>
+#include <memory>
 #include <string>
 #include <tuple>
-#include "typedefs.h"
+#include <utility>
+#include <vector>
 
 namespace psi {
 
-class Matrix;
-class Molecule;
 class BasisSet;
+class Matrix;
+using SharedMatrix = std::shared_ptr<Matrix>;
+class Molecule;
+class Vector;
+using SharedVector = std::shared_ptr<Vector>;
 
 /*! \ingroup MINTS
  *  \class ExternalPotential

@@ -26,19 +26,25 @@
  * @END LICENSE
  */
 
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/physconst.h"
-#include "psi4/libpsi4util/exception.h"
-#include "psi4/libmints/eri.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/fjt.h"
-#include "psi4/libmints/wavefunction.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-
-#include <stdexcept>
 #include <string>
+
+#include <libint/libderiv.h>
+#include <libint/libint.h>
+
+#include "psi4/physconst.h"
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsi4util/exception.h"
+#include "psi4/libqt/qt.h"
+
+#include "basisset.h"
+#include "eri.h"
+#include "fjt.h"
+#include "gshell.h"
+#include "integral.h"
+#include "twobody.h"
+#include "vector3.h"
+#include "wavefunction.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
@@ -49,7 +55,7 @@
 // The first derivatives are provided when second derivatives are asked
 // for.
 #define ERI_2DER_NTYPE (ERI_1DER_NTYPE + 45)
-;
+
 using namespace psi;
 
 namespace {

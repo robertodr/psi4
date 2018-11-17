@@ -26,18 +26,18 @@
  * @END LICENSE
  */
 
-#include "psi4/libmints/electrostatic.h"
-#include "psi4/libciomr/libciomr.h"
+#include "electrostatic.h"
+
 #include "psi4/physconst.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/matrix.h"
-#include "psi4/libmints/osrecur.h"
-#include "psi4/libmints/vector.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "molecule.h"
+#include "osrecur.h"
+#include "vector3.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 // Initialize potential_recur_ to +1 basis set angular momentum

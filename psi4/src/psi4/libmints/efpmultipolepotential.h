@@ -29,8 +29,8 @@
 #ifndef _psi_src_lib_libmints_efpmultipolepotential_h_
 #define _psi_src_lib_libmints_efpmultipolepotential_h_
 
-#include "psi4/libmints/onebody.h"
-#include "psi4/libmints/osrecur.h"
+#include "onebody.h"
+#include "osrecur.h"
 
 namespace psi {
 

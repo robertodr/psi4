@@ -26,28 +26,28 @@
  * @END LICENSE
  */
 
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/3coverlap.h"
-
-#include "psi4/libqt/qt.h"
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libpsio/psio.hpp"
-#include "psi4/libpsio/psio.h"
-#include "psi4/psi4-dec.h"
-#include "psi4/libpsi4util/libpsi4util.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
-
-#include <map>
-#include <string>
 #include <cmath>
-#include <cstdlib>
-#include <vector>
+#include <cstring>
+#include <map>
 
 #ifdef USING_LAPACK_MKL
 #include <mkl.h>
 #endif
+
+#include "psi4/psi4-dec.h"
+
+#include "psi4/libciomr/libciomr.h"
+#include "psi4/libpsi4util/libpsi4util.h"
+#include "psi4/libpsio/config.h"
+#include "psi4/libqt/qt.h"
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libpsio/psio.hpp"
+#include "psi4/libpsio/psio.h"
+
+#include "basisset.h"
+#include "molecule.h"
+#include "integral.h"
+#include "3coverlap.h"
 
 namespace psi {
 
@@ -82,7 +82,7 @@ void benchmark_blas1(int N, double min_time) {
     std::vector<std::string> ops1;
 
     ops1.push_back("Malloc");
-    ops1.push_back("Memset");
+    ops1.push_back("Std::Memset");
     ops1.push_back("Access");
     ops1.push_back("Assign");
     ops1.push_back("Cross");
@@ -120,8 +120,8 @@ void benchmark_blas1(int N, double min_time) {
         double* B = init_array(full_dim);
 
         double alpha = 1.0;
-        double sina = sqrt(2.0) / 2.0;
-        double cosa = sqrt(2.0) / 2.0;
+        double sina = std::sqrt(2.0) / 2.0;
+        double cosa = std::sqrt(2.0) / 2.0;
 
         // Malloc (and free)
         T = 0.0;
@@ -137,18 +137,18 @@ void benchmark_blas1(int N, double min_time) {
         t = T / (double)rounds;
         timings1["Malloc"][k] = t;
 
-        // Memset
+        // Std::Memset
         T = 0.0;
         rounds = 0L;
         qq = new Timer();
         while (T < min_time) {
-            memset((void*)A, '\0', full_dim * sizeof(double));
+            std::memset((void*)A, '\0', full_dim * sizeof(double));
             T = qq->get();
             rounds++;
         }
         delete qq;
         t = T / (double)rounds;
-        timings1["Memset"][k] = t;
+        timings1["Std::Memset"][k] = t;
 
         // Access
         T = 0.0;
@@ -1786,16 +1786,16 @@ void benchmark_math(double min_time) {
     while (T < min_time) {
         c = 1.0;
         for (int Q = 0; Q < LOOP_SIZE; Q++) {
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
-            c = sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
+            c = std::sin(c);
         }
 
         T = qq->get();

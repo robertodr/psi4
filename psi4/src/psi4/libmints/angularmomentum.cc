@@ -26,15 +26,17 @@
  * @END LICENSE
  */
 
-#include "psi4/libciomr/libciomr.h"
-#include "psi4/libmints/angularmomentum.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/physconst.h"
+#include "angularmomentum.h"
 
 #include <memory>
-#include <stdexcept>
+
+#include "psi4/physconst.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "molecule.h"
+#include "vector3.h"
 
 using namespace psi;
 

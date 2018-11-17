@@ -25,13 +25,17 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/3coverlap.h"
-#include "psi4/libqt/qt.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libpsi4util/PsiOutStream.h"
+
+#include "3coverlap.h"
 
 #include <memory>
-#include <stdexcept>
+
+#include "psi4/libpsi4util/PsiOutStream.h"
+#include "psi4/libqt/qt.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
 
 using namespace psi;
 

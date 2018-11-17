@@ -26,13 +26,15 @@
  * @END LICENSE
  */
 
-#include "psi4/libmints/efpmultipolepotential.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
+#include "efpmultipolepotential.h"
+
+#include "basisset.h"
+#include "gshell.h"
+#include "integral.h"
+#include "vector3.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-;
 using namespace psi;
 
 EFPMultipolePotentialInt::EFPMultipolePotentialInt(std::vector<SphericalTransform> &spherical_transforms,

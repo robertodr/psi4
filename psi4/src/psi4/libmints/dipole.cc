@@ -25,19 +25,17 @@
  *
  * @END LICENSE
  */
-#include "psi4/libmints/dipole.h"
-#include "psi4/libmints/molecule.h"
-#include "psi4/libmints/basisset.h"
-#include "psi4/libmints/integral.h"
-#include "psi4/libmints/vector.h"
-#include <stdexcept>
-#include "psi4/libciomr/libciomr.h"
+#include "dipole.h"
+
 #include "psi4/physconst.h"
+
+#include "basisset.h"
+#include "integral.h"
+#include "molecule.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 using namespace psi;
-;
 
 // Initialize overlap_recur_ to +1 basis set angular momentum, +1 on each center is sufficient
 // to compute the dipole derivatives

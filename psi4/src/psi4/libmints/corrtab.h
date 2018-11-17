@@ -59,11 +59,11 @@
 #ifndef _math_symmetry_corrtab_h
 #define _math_symmetry_corrtab_h
 
-#include <iostream>
-
-#include "psi4/libmints/pointgrp.h"
+#include <memory>
 
 namespace psi {
+
+class PointGroup;
 
 // //////////////////////////////////////////////////////////////////
 

@@ -42,12 +42,12 @@
 #define ECPINT_HEAD
 
 #include <vector>
-#include "psi4/libmints/multiarr.h"
-#include "psi4/libmints/gaussquad.h"
-#include "psi4/libmints/typedefs.h"
-#include "psi4/libmints/onebody.h"
-#include "psi4/libmints/sointegral_onebody.h"
-#include "psi4/libmints/bessel.h"
+
+#include "bessel.h"
+#include "gaussquad.h"
+#include "multiarr.h"
+#include "onebody.h"
+#include "sointegral_onebody.h"
 
 namespace psi {
 

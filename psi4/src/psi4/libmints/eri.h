@@ -29,18 +29,19 @@
 #ifndef _psi_src_lib_libmints_eri_h
 #define _psi_src_lib_libmints_eri_h
 
-#include <libint/libint.h>
 #include <libint/libderiv.h>
-#include "psi4/libmints/twobody.h"
+#include <libint/libint.h>
+
+#include "twobody.h"
 
 namespace psi {
 
-class BasisSet;
-class TwoBodyAOInt;
-class IntegralFactory;
-class Fjt;
 class AOShellCombinationsIterator;
+class BasisSet;
 class CorrelationFactor;
+class Fjt;
+class IntegralFactory;
+class TwoBodyAOInt;
 
 /**
  * \ingroup MINTS

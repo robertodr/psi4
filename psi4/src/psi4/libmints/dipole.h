@@ -30,15 +30,17 @@
 #define _psi_src_lib_libmints_dipole_h_
 
 #include <vector>
-#include "typedefs.h"
 
 #include "psi4/pragma.h"
-#include "psi4/libmints/osrecur.h"
-#include "psi4/libmints/onebody.h"
+
+#include "onebody.h"
+#include "osrecur.h"
+#include "vector3.h"
 
 namespace psi {
-class SphericalTransform;
 class Molecule;
+class SphericalTransform;
+class GaussianShell;
 
 /*! \ingroup MINTS
  *  \class DipoleInt
